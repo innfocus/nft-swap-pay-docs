@@ -10,7 +10,7 @@
 }
 ```
 
-HTTP Status codes:
+### HTTP Status codes:
 
 Status Code | Meaning
 ---------- | -------
@@ -21,7 +21,7 @@ Status Code | Meaning
 500 | Internal Server Error -- We had a problem with our server. Try again later.
 503 | Service Unavailable -- We're temporarily offline for maintenance. Please try again later.
 
-The SWAPAY API Error code list
+### The SWAPAY API Error code list
 
 Error Code | Meaning
 ---------- | -------
@@ -32,4 +32,6 @@ Error Code | Meaning
 403 | Invalid authorization code
 500 | Internal error server
 
-Credit card payment error code can be found at [GMO Mulpay Docs](https://gmopg_docs:PF%cwa$GmCC@docs.mul-pay.jp/payment/credit/errorcode).
+### Credit card payment error code 
+
+You can check at [GMO Mulpay Docs](https://gmopg_docs:PF%cwa$GmCC@docs.mul-pay.jp/payment/credit/errorcode).
