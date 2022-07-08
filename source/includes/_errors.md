@@ -1,22 +1,35 @@
 # Errors
 
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
+> The error response:
 
-The Kittn API uses the following error codes:
+```json
+{
+    "code": "101",
+    "message": "Missing amount",
+    "errors": null
+}
+```
 
+HTTP Status codes:
 
-Error Code | Meaning
+Status Code | Meaning
 ---------- | -------
 400 | Bad Request -- Your request is invalid.
 401 | Unauthorized -- Your API key is wrong.
-403 | Forbidden -- The kitten requested is hidden for administrators only.
-404 | Not Found -- The specified kitten could not be found.
-405 | Method Not Allowed -- You tried to access a kitten with an invalid method.
-406 | Not Acceptable -- You requested a format that isn't json.
-410 | Gone -- The kitten requested has been removed from our servers.
-418 | I'm a teapot.
-429 | Too Many Requests -- You're requesting too many kittens! Slow down!
+403 | Forbidden -- The api requested is hidden for special roles.
+404 | Not Found -- The endpoint could not be found.
 500 | Internal Server Error -- We had a problem with our server. Try again later.
 503 | Service Unavailable -- We're temporarily offline for maintenance. Please try again later.
+
+The SWAPAY API Error code list
+
+Error Code | Meaning
+---------- | -------
+101 | Missing amount
+303 | The status of the order does not allow payment
+304 | The payment request ID is invalid
+401 | Incorrect password or email
+403 | Invalid authorization code
+500 | Internal error server
+
+Credit card payment error code can be found at [GMO Mulpay Docs](https://gmopg_docs:PF%cwa$GmCC@docs.mul-pay.jp/payment/credit/errorcode).
