@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta
             name="description"
-            content="Documentation for the Kittn API"
+            content="Documentation for SWAPAY API"
         >
-    <title>API Reference</title>
+    <title>SWAPAY API</title>
 
     <style media="screen">
       .highlight table td { padding: 5px; }
@@ -333,7 +333,40 @@
               </ul>
           </li>
           <li>
+            <a href="#settlement" class="toc-h1 toc-link" data-title="Settlement">Settlement</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#when-making-a-payment-using-a-token" class="toc-h2 toc-link" data-title="When making a payment using a token">When making a payment using a token</a>
+                  </li>
+                  <li>
+                    <a href="#when-paying-with-a-member-id" class="toc-h2 toc-link" data-title="When paying with a member ID">When paying with a member ID</a>
+                  </li>
+                  <li>
+                    <a href="#when-making-a-payment-using-a-card-number" class="toc-h2 toc-link" data-title="When making a payment using a card number">When making a payment using a card number</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#members" class="toc-h1 toc-link" data-title="Members">Members</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#membership-registration" class="toc-h2 toc-link" data-title="Membership registration">Membership registration</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-status-codes" class="toc-h2 toc-link" data-title="HTTP Status codes:">HTTP Status codes:</a>
+                  </li>
+                  <li>
+                    <a href="#the-swapay-api-error-code-list" class="toc-h2 toc-link" data-title="The SWAPAY API Error code list">The SWAPAY API Error code list</a>
+                  </li>
+                  <li>
+                    <a href="#credit-card-payment-error-code" class="toc-h2 toc-link" data-title="Credit card payment error code">Credit card payment error code</a>
+                  </li>
+              </ul>
           </li>
       </ul>
         <ul class="toc-footer">
@@ -447,10 +480,19 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
     </span><span class="nl">"payment_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/gateway/payment/764acfd2-18dc-45ca-9596-fcd5ec4ddcc6"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
+<blockquote>
+<p>Abnormal</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Missing amount"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <p>This endpoint will help you to start a transaction</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>POST https://nft-swap-test.azurewebsites.net/api/v1/order</code></p>
-<h3 id='body-request-parameters'>Body Request Parameters</h3>
+<h3 id='json-object-payload-parameters'>JSON Object Payload Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -519,6 +561,149 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <td>The ID of the order</td>
 </tr>
 </tbody></table>
+<h1 id='settlement'>Settlement</h1>
+<p>Make a payment by communicating with the card company.</p>
+<h2 id='when-making-a-payment-using-a-token'>When making a payment using a token</h2><h2 id='when-paying-with-a-member-id'>When paying with a member ID</h2><h2 id='when-making-a-payment-using-a-card-number'>When making a payment using a card number</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/payment'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow.'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "id": "764acfd2-18dc-45ca-9596-fcd5ec4ddcc6",
+    "cardNo": "4111111111111111",
+    "expire": "2512",
+    "securityCode": "123",
+    "holderName": "LYBIA SOFT"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"tranID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2207051607111111111111810098"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acs"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"orderID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1657005480384"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"payTimes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"forward"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2a99662"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"approve"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"clientField3"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"checkString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1087da9fb0ac329dbda9e1db81d3c7a4"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tranDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20220705161802"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"clientField1"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"clientField2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Abnormal</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M01004014"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Order ID is already part of a transaction requesting settlement"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"errInfo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E01050004"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"errCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E01"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"errInfo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M01004014"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"errCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M01"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint will help you register a member on SWAPAY system.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://nft-swap-test.azurewebsites.net/api/v1/payment/member</code></p>
+<h3 id='json-object-payload-parameters'>JSON Object Payload Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>customer_id</td>
+<td>true</td>
+<td>The customer id on merchant system</td>
+</tr>
+<tr>
+<td>name</td>
+<td>false</td>
+<td>The member&#39;s name</td>
+</tr>
+<tr>
+<td>email</td>
+<td>false</td>
+<td>The member&#39;s email</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>false</td>
+<td>The member&#39;s phone</td>
+</tr>
+<tr>
+<td>address</td>
+<td>false</td>
+<td>The member&#39;s address</td>
+</tr>
+</tbody></table>
+<h1 id='members'>Members</h1><h2 id='membership-registration'>Membership registration</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/payment/member'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "customer_id": "{{customer_id}}"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"88ff14fb-d3ea-4537-9009-9596a5c9052d"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thanhphat"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"delete_flag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint will help you register a member on SWAPAY system.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://nft-swap-test.azurewebsites.net/api/v1/payment/member</code></p>
+<h3 id='json-object-payload-parameters'>JSON Object Payload Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>customer_id</td>
+<td>true</td>
+<td>The customer id on merchant system</td>
+</tr>
+<tr>
+<td>name</td>
+<td>false</td>
+<td>The member&#39;s name</td>
+</tr>
+<tr>
+<td>email</td>
+<td>false</td>
+<td>The member&#39;s email</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>false</td>
+<td>The member&#39;s phone</td>
+</tr>
+<tr>
+<td>address</td>
+<td>false</td>
+<td>The member&#39;s address</td>
+</tr>
+</tbody></table>
 <h1 id='errors'>Errors</h1>
 <blockquote>
 <p>The error response:</p>
@@ -528,9 +713,7 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
     </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Missing amount"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>HTTP Status codes:</p>
-
+</span></code></pre></div><h3 id='http-status-codes'>HTTP Status codes:</h3>
 <table><thead>
 <tr>
 <th>Status Code</th>
@@ -562,9 +745,7 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
 </tr>
 </tbody></table>
-
-<p>The SWAPAY API Error code list</p>
-
+<h3 id='the-swapay-api-error-code-list'>The SWAPAY API Error code list</h3>
 <table><thead>
 <tr>
 <th>Error Code</th>
@@ -596,8 +777,8 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <td>Internal error server</td>
 </tr>
 </tbody></table>
-
-<p>Credit card payment error code can be found at <a href="https://gmopg_docs:PF%cwa$GmCC@docs.mul-pay.jp/payment/credit/errorcode">GMO Mulpay Docs</a>.</p>
+<h3 id='credit-card-payment-error-code'>Credit card payment error code</h3>
+<p>You can check at <a href="https://gmopg_docs:PF%cwa$GmCC@docs.mul-pay.jp/payment/credit/errorcode">GMO Mulpay Docs</a>.</p>
 
       </div>
       <div class="dark-box">
