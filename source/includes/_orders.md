@@ -55,7 +55,13 @@ curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/o
 --header 'Content-Type: application/json' \
 --data-raw '{
     "pay_amount": 1000.0,
-    "description": "Sample order"
+    "currency": "JPY",
+    "customer_id": "1000",
+    "customer_order_id": "1001",
+    "description": "NFT",
+    "success_url": "https://swapay.co.jp/",
+    "callback_url": "https://swapay.co.jp/",
+    "cancel_url": "https://swapay.co.jp/"
 }'
 ```
 
@@ -63,22 +69,34 @@ curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/o
 
 ```json
 {
-    "id": "764acfd2-18dc-45ca-9596-fcd5ec4ddcc6",
+    "id": "8405b5f8-0244-4bd5-97cb-748ddeac6b13",
     "pay_amount": 1000.0,
-    "currency": null,
-    "customer_id": null,
-    "customer_order_id": null,
-    "description": "Sample order",
+    "currency": "JPY",
+    "customer_id": "1000",
+    "customer_order_id": "1001",
+    "description": null,
     "consumer_id": null,
-    "success_url": null,
-    "cancel_url": null,
-    "callback_url": null,
+    "store": {
+        "id": "0d630192-d7f3-4c05-8540-19d91f2aaa4b",
+        "store_name": "NFT SWAP STORE 3",
+        "office_name": "NFT SWAP STORE"
+    },
+    "merchant": {
+        "id": "af40eee0-81ad-4e29-a8ea-87603b3f8282",
+        "display_name": "Kenji Umemura"
+    },
+    "success_url": "https://swapay.co.jp/",
+    "cancel_url": "https://swapay.co.jp/",
+    "callback_url": "https://swapay.co.jp/",
     "status": "WAITING_FOR_PAYMENT",
-    "user_create": "af40eee0-81ad-4e29-a8ea-87603b3f8282",
-    "create_date": "2022-07-08T07:43:02.612+00:00",
-    "user_update": "af40eee0-81ad-4e29-a8ea-87603b3f8282",
-    "update_date": "2022-07-08T07:43:02.612+00:00",
-    "payment_url": "/gateway/payment/764acfd2-18dc-45ca-9596-fcd5ec4ddcc6"
+    "user_create": null,
+    "create_date": "2022-07-25T05:34:31.631+00:00",
+    "user_update": null,
+    "update_date": null,
+    "payment_url": "https://nft-swap-test.azurewebsites.net/gateway/payment/8405b5f8-0244-4bd5-97cb-748ddeac6b13",
+    "pay_method": null,
+    "pay_times": null,
+    "list_card": null
 }
 ```
 
@@ -103,9 +121,18 @@ This endpoint will help you to start a transaction
 Parameter | Required | Description
 --------- | -------- | -----------
 pay_amount | true | Amount of the transaction 
+currency | false | The currency used for payment. Default is JPY  
 description | false | Description of the transaction 
 customer_id | false | The customer id on merchant system 
 customer_order_id | false | The order id on merchant systems 
+success_url | false | Redirect to Merchant URL after successful payment 
+callback_url | false | Send an automated message to Merchant URL when order status is changed or the number of confirmation is enough. The data is the same payment request response. If  the callback is empty, we can send information to merchant's email. 
+cancel_url | false | Redirect to Merchant URL when buyer cancels the order	
+
+    "success_url": "https://swapay.co.jp/",
+    "callback_url": null,
+    "cancel_url": null
+
 
 ## Get status a Order
 
