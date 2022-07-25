@@ -607,11 +607,11 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow.'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
-    "id": "764acfd2-18dc-45ca-9596-fcd5ec4ddcc6",
-    "cardNo": "4111111111111111",
+    "id": "8405b5f8-0244-4bd5-97cb-748ddeac6b13",
+    "card_no": "4100000000000100",
     "expire": "2512",
-    "securityCode": "123",
-    "holderName": "LYBIA SOFT"
+    "security_code": "123",
+    "holder_name": "LYBIA SOFT"
 }'</span>
 </code></pre></div>
 <blockquote>
@@ -649,45 +649,7 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint will help you register a member on SWAPAY system.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>POST https://nft-swap-test.azurewebsites.net/api/v1/payment/member</code></p>
-<h3 id='json-object-payload-parameters'>JSON Object Payload Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>customer_id</td>
-<td>true</td>
-<td>The customer id on merchant system</td>
-</tr>
-<tr>
-<td>name</td>
-<td>false</td>
-<td>The member&#39;s name</td>
-</tr>
-<tr>
-<td>email</td>
-<td>false</td>
-<td>The member&#39;s email</td>
-</tr>
-<tr>
-<td>phone</td>
-<td>false</td>
-<td>The member&#39;s phone</td>
-</tr>
-<tr>
-<td>address</td>
-<td>false</td>
-<td>The member&#39;s address</td>
-</tr>
-</tbody></table>
-<h1 id='errors'>Errors</h1>
+</span></code></pre></div><h1 id='errors'>Errors</h1>
 <blockquote>
 <p>The error response:</p>
 </blockquote>
