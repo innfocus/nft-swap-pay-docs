@@ -12,22 +12,33 @@ curl --location --request GET 'https://nft-swap-test.azurewebsites.net/api/v1/st
 ```json
 [
     {
-        "id": "893f3980-06d0-4abc-a3f8-0ed97f5ce6f8",
+        "id": "8405b5f8-0244-4bd5-97cb-748ddeac6b13",
         "pay_amount": 1000.0,
-        "currency": "USD",
+        "currency": "JPY",
         "customer_id": "1000",
         "customer_order_id": "1001",
-        "description": "NFT",
+        "description": null,
         "consumer_id": null,
-        "success_url": null,
-        "cancel_url": null,
-        "callback_url": null,
+        "store": {
+            "id": "0d630192-d7f3-4c05-8540-19d91f2aaa4b",
+            "store_name": "NFT SWAP STORE 3",
+            "office_name": "NFT SWAP STORE"
+        },
+        "merchant": {
+            "id": "af40eee0-81ad-4e29-a8ea-87603b3f8282",
+            "display_name": "Kenji Umemura"
+        },
+        "success_url": "https://swapay.co.jp/",
+        "cancel_url": "https://swapay.co.jp/",
+        "callback_url": "https://swapay.co.jp/",
         "status": "WAITING_FOR_PAYMENT",
-        "user_create": "af40eee0-81ad-4e29-a8ea-87603b3f8282",
-        "create_date": "2022-07-07T13:56:17.696+00:00",
-        "user_update": "af40eee0-81ad-4e29-a8ea-87603b3f8282",
-        "update_date": "2022-07-07T13:56:17.696+00:00",
-        "payment_url": "/gateway/payment/893f3980-06d0-4abc-a3f8-0ed97f5ce6f8"
+        "user_create": null,
+        "create_date": "2022-07-25T05:34:31.631+00:00",
+        "user_update": null,
+        "update_date": null,
+        "payment_url": "https://nft-swap-test.azurewebsites.net/gateway/payment/8405b5f8-0244-4bd5-97cb-748ddeac6b13",
+        "pay_method": null,
+        "pay_times": null
     }
 ]
 ```
@@ -95,8 +106,7 @@ curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/o
     "update_date": null,
     "payment_url": "https://nft-swap-test.azurewebsites.net/gateway/payment/8405b5f8-0244-4bd5-97cb-748ddeac6b13",
     "pay_method": null,
-    "pay_times": null,
-    "list_card": null
+    "pay_times": null
 }
 ```
 
