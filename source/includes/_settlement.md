@@ -13,11 +13,11 @@ curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/p
 --header 'Authorization: meowmeowmeow.' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "id": "764acfd2-18dc-45ca-9596-fcd5ec4ddcc6",
-    "cardNo": "4111111111111111",
+    "id": "8405b5f8-0244-4bd5-97cb-748ddeac6b13",
+    "card_no": "4100000000000100",
     "expire": "2512",
-    "securityCode": "123",
-    "holderName": "LYBIA SOFT"
+    "security_code": "123",
+    "holder_name": "LYBIA SOFT"
 }'
 ```
 
@@ -57,18 +57,3 @@ curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/p
     ]
 }
 ```
-This endpoint will help you register a member on SWAPAY system.
-
-### HTTP Request
-
-`POST https://nft-swap-test.azurewebsites.net/api/v1/payment/member`
-
-### JSON Object Payload Parameters
-
-Parameter | Required | Description
---------- | -------- | -----------
-customer_id | true | The customer id on merchant system 
-name | false | The member's name 
-email | false | The member's email 
-phone | false | The member's phone 
-address | false | The member's address 
