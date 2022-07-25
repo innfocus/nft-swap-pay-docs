@@ -139,10 +139,6 @@ success_url | false | Redirect to Merchant URL after successful payment
 callback_url | false | Send an automated message to Merchant URL when order status is changed or the number of confirmation is enough. The data is the same payment request response. If  the callback is empty, we can send information to merchant's email. 
 cancel_url | false | Redirect to Merchant URL when buyer cancels the order	
 
-    "success_url": "https://swapay.co.jp/",
-    "callback_url": null,
-    "cancel_url": null
-
 
 ## Get status a Order
 
