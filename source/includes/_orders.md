@@ -182,3 +182,14 @@ Parameter | Description
 --------- | -----------
 ID | The ID of the order
 
+
+## Order Status:
+
+Status Code | Meaning
+---------- | -------
+WAITING_FOR_PAYMENT | The Waiting for payment status means that we still are waiting for payment. 
+PROCESSING | 
+COMPLETE | Transaction was successfully. 
+REFUNDED | 
+ON_HOLD | 
+REJECTED | The payment has been declined either by your payment operator or due to security reasons by our system.  
