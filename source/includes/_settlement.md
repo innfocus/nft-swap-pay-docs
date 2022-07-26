@@ -25,18 +25,26 @@ curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/p
 
 ```json
 {
-    "tranID": "2207051607111111111111810098",
-    "acs": "0",
+    "tran_date": "20220726124728",
+    "client_field1": "",
     "method": "",
-    "orderID": "1657005480384",
-    "payTimes": "",
+    "client_field3": "",
+    "user_update": "af40eee0-81ad-4e29-a8ea-87603b3f8282",
+    "client_field2": "",
     "forward": "2a99662",
-    "approve": "0000000",
-    "clientField3": "",
-    "checkString": "1087da9fb0ac329dbda9e1db81d3c7a4",
-    "tranDate": "20220705161802",
-    "clientField1": "",
-    "clientField2": ""
+    "check_string": "5b793c76fcc516a15c559959b67c0408",
+    "tran_id": "2207261207111111111111815975",
+    "pay_times": "",
+    "user_create": "af40eee0-81ad-4e29-a8ea-87603b3f8282",
+    "update_date": 1658807248809,
+    "acs": "0",
+    "acsurl": null,
+    "pa_req": null,
+    "approve": "       ",
+    "md": null,
+    "id": "34c09841-28df-4842-ae65-013a7fb22417",
+    "create_date": 1658807248809,
+    "order_id": "20220726104722-132"
 }
 ```
 > Abnormal
