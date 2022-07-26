@@ -322,13 +322,22 @@
             <a href="#orders" class="toc-h1 toc-link" data-title="Orders">Orders</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-orders" class="toc-h2 toc-link" data-title="Get All Orders">Get All Orders</a>
-                  </li>
-                  <li>
                     <a href="#create-a-new-order" class="toc-h2 toc-link" data-title="Create a new Order">Create a new Order</a>
                   </li>
                   <li>
+                    <a href="#order-response-fields" class="toc-h2 toc-link" data-title="Order Response Fields">Order Response Fields</a>
+                  </li>
+                  <li>
+                    <a href="#get-all-orders" class="toc-h2 toc-link" data-title="Get All Orders">Get All Orders</a>
+                  </li>
+                  <li>
                     <a href="#get-status-a-order" class="toc-h2 toc-link" data-title="Get status a Order">Get status a Order</a>
+                  </li>
+                  <li>
+                    <a href="#order-status" class="toc-h2 toc-link" data-title="Order Status">Order Status</a>
+                  </li>
+                  <li>
+                    <a href="#callback-response-message" class="toc-h2 toc-link" data-title="Callback Response Message">Callback Response Message</a>
                   </li>
               </ul>
           </li>
@@ -393,67 +402,7 @@ curl <span class="s2">"https://nft-swap-test.azurewebsites.net"</span> <span cla
 <aside class="notice">
 You must replace <code>meowmeowmeow</code> with your personal API key.
 </aside>
-<h1 id='orders'>Orders</h1><h2 id='get-all-orders'>Get All Orders</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/store/orders'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow'</span>
-</code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8405b5f8-0244-4bd5-97cb-748ddeac6b13"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"pay_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"customer_order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"consumer_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"store"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0d630192-d7f3-4c05-8540-19d91f2aaa4b"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"store_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NFT SWAP STORE 3"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"office_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NFT SWAP STORE"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"merchant"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"af40eee0-81ad-4e29-a8ea-87603b3f8282"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kenji Umemura"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"success_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://swapay.co.jp/"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"cancel_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://swapay.co.jp/"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"callback_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://swapay.co.jp/"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WAITING_FOR_PAYMENT"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"user_create"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-07-25T05:34:31.631+00:00"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"user_update"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"update_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"payment_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://nft-swap-test.azurewebsites.net/gateway/payment/8405b5f8-0244-4bd5-97cb-748ddeac6b13"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"pay_method"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"pay_times"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint retrieves all Orders.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://nft-swap-test.azurewebsites.net/api/v1/store/orders</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>page</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>per_page</td>
-<td>30</td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id='create-a-new-order'>Create a new Order</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/order'</span> <span class="se">\</span>
+<h1 id='orders'>Orders</h1><h2 id='create-a-new-order'>Create a new Order</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/order'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -510,7 +459,7 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint will help you to start a transaction</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request'>HTTP Request</h3>
 <p><code>POST https://nft-swap-test.azurewebsites.net/api/v1/order</code></p>
 <h3 id='json-object-payload-parameters'>JSON Object Payload Parameters</h3>
 <table><thead>
@@ -548,17 +497,171 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <tr>
 <td>success_url</td>
 <td>false</td>
-<td>Redirect to Merchant URL after successful payment</td>
+<td>Redirect to <code>success_url</code> after successful payment</td>
 </tr>
 <tr>
 <td>callback_url</td>
 <td>false</td>
-<td>Send an automated message to Merchant URL when order status is changed or the number of confirmation is enough. The data is the same payment request response. If  the callback is empty, we can send information to merchant&#39;s email.</td>
+<td>JSON-formatted <code>POST</code> notification message will be sent to <code>callback_url</code> when order status is changed. If the callback is empty, we can send information to merchant&#39;s email.</td>
 </tr>
 <tr>
 <td>cancel_url</td>
 <td>false</td>
-<td>Redirect to Merchant URL when buyer cancels the order</td>
+<td>Redirect to <code>cancel_url</code> when buyer cancels the order</td>
+</tr>
+</tbody></table>
+<h2 id='order-response-fields'>Order Response Fields</h2>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>UUID</td>
+<td></td>
+</tr>
+<tr>
+<td>pay_amount</td>
+<td>Double</td>
+<td></td>
+</tr>
+<tr>
+<td>currency</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>customer_id</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>customer_order_id</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>description</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>store</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>merchant</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>success_url</td>
+<td>String</td>
+<td></td>
+</tr>
+<tr>
+<td>cancel_url</td>
+<td>String</td>
+<td></td>
+</tr>
+<tr>
+<td>callback_url</td>
+<td>String</td>
+<td></td>
+</tr>
+<tr>
+<td>status</td>
+<td>String</td>
+<td></td>
+</tr>
+<tr>
+<td>pay_method</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>payment_url</td>
+<td>String</td>
+<td>The customer will process the payment at this site.</td>
+</tr>
+<tr>
+<td>pay_times</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>update_date</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>create_date</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='get-all-orders'>Get All Orders</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/store/orders'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow'</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8405b5f8-0244-4bd5-97cb-748ddeac6b13"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"pay_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"customer_order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"consumer_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"store"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0d630192-d7f3-4c05-8540-19d91f2aaa4b"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"store_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NFT SWAP STORE 3"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"office_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NFT SWAP STORE"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"merchant"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"af40eee0-81ad-4e29-a8ea-87603b3f8282"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kenji Umemura"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"success_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://swapay.co.jp/"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cancel_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://swapay.co.jp/"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"callback_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://swapay.co.jp/"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WAITING_FOR_PAYMENT"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"user_create"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-07-25T05:34:31.631+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"user_update"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"update_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"payment_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://nft-swap-test.azurewebsites.net/gateway/payment/8405b5f8-0244-4bd5-97cb-748ddeac6b13"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"pay_method"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"pay_times"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves all Orders.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://nft-swap-test.azurewebsites.net/api/v1/store/orders</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>30</td>
+<td></td>
 </tr>
 </tbody></table>
 <h2 id='get-status-a-order'>Get status a Order</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s2">"https://nft-swap-test.azurewebsites.net/api/v1/orders/2"</span> <span class="se">\</span>
@@ -601,6 +704,114 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <td>The ID of the order</td>
 </tr>
 </tbody></table>
+<h2 id='order-status'>Order Status</h2>
+<table><thead>
+<tr>
+<th>Status Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>WAITING_FOR_PAYMENT</td>
+<td>The Waiting for payment status means that we still are waiting for payment.</td>
+</tr>
+<tr>
+<td>PROCESSING</td>
+<td></td>
+</tr>
+<tr>
+<td>COMPLETE</td>
+<td>Transaction was successfully.</td>
+</tr>
+<tr>
+<td>REFUNDED</td>
+<td></td>
+</tr>
+<tr>
+<td>ON_HOLD</td>
+<td></td>
+</tr>
+<tr>
+<td>REJECTED</td>
+<td>The payment has been declined either by your payment operator or due to security reasons by our system.</td>
+</tr>
+</tbody></table>
+<h2 id='callback-response-message'>Callback Response Message</h2>
+<blockquote>
+<p>Each JSON-formatted <code>POST</code> notification message like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d1702c31-617a-4d51-afca-d135e7034f8a"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COMPLETE"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"update_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_method"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_times"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>We&#39;ll let you know when a transaction changes status via <code>callback_url</code>.</p>
+<h3 id='callback-response-fields'>Callback Response Fields</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pay_amount</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>currency</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>customer_id</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>customer_order_id</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>status</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pay_method</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pay_times</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>update_date</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>create_date</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
 <h1 id='settlement'>Settlement</h1>
 <p>Make a payment by communicating with the card company.</p>
 <h2 id='when-making-a-payment-using-a-token'>When making a payment using a token</h2><h2 id='when-paying-with-a-member-id'>When paying with a member ID</h2><h2 id='when-making-a-payment-using-a-card-number'>When making a payment using a card number</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/payment'</span> <span class="se">\</span>
@@ -618,26 +829,15 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"tran_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20220726124728"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"client_field1"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"client_field3"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"user_update"</span><span class="p">:</span><span class="w"> </span><span class="s2">"af40eee0-81ad-4e29-a8ea-87603b3f8282"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"client_field2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"forward"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2a99662"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"check_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5b793c76fcc516a15c559959b67c0408"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"tran_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2207261207111111111111815975"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"pay_times"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"user_create"</span><span class="p">:</span><span class="w"> </span><span class="s2">"af40eee0-81ad-4e29-a8ea-87603b3f8282"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"update_date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1658807248809</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"acs"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"acsurl"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"pa_req"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"approve"</span><span class="p">:</span><span class="w"> </span><span class="s2">"       "</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"md"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34c09841-28df-4842-ae65-013a7fb22417"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1658807248809</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20220726104722-132"</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d1702c31-617a-4d51-afca-d135e7034f8a"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COMPLETE"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"update_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_method"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_times"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <blockquote>
