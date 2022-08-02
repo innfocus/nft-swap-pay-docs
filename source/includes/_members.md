@@ -8,7 +8,10 @@ curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/c
 --header 'Authorization: meowmeowmeow' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "customer_id": "{{customer_id}}"
+    "phone": "+81973666666",
+    "email": "thanhphat@gmail.com",
+    "first_name": "Phat",
+    "last_name": "Lam"
 }'
 ```
 
@@ -16,13 +19,25 @@ curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/c
 
 ```json
 {
-    "id": "88ff14fb-d3ea-4537-9009-9596a5c9052d",
-    "customer_id": "thanhphat",
+    "id": "9b377f6c-6b83-42ac-866a-5a9a9171ca88",
+    "active": false,
+    "confirmed": false,
+    "username": null,
     "first_name": "Phat",
     "last_name": "Lam",
     "email": "thanhphat@gmail.com",
-    "phone": null,
+    "phone": "+81973666666",
     "address": null
+}
+```
+
+> Abnormal
+
+```json
+{
+    "code": "E0010",
+    "message": "Email is already used",
+    "errors": null
 }
 ```
 
