@@ -353,6 +353,17 @@
                   <li>
                     <a href="#when-making-a-payment-using-a-card-number" class="toc-h2 toc-link" data-title="When making a payment using a card number">When making a payment using a card number</a>
                   </li>
+                  <li>
+                    <a href="#cancel-a-payment" class="toc-h2 toc-link" data-title="Cancel a payment">Cancel a payment</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#users" class="toc-h1 toc-link" data-title="Users">Users</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#user-registration" class="toc-h2 toc-link" data-title="User registration">User registration</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -857,7 +868,177 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h1 id='errors'>Errors</h1>
+</span></code></pre></div>
+<p>This endpoint will help you to payment for a transaction</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://nft-swap-test.azurewebsites.net/api/v1/payment</code></p>
+<h3 id='json-object-payload-parameters'>JSON Object Payload Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>true</td>
+<td>ID of the transaction</td>
+</tr>
+<tr>
+<td>card_no</td>
+<td>true</td>
+<td>credit card number</td>
+</tr>
+<tr>
+<td>expire</td>
+<td>true</td>
+<td>Credit card expiration date - YYMM format</td>
+</tr>
+<tr>
+<td>security_code</td>
+<td>true</td>
+<td>security code - The 3- or 4-digit number printed on the card</td>
+</tr>
+<tr>
+<td>holder_name</td>
+<td>true</td>
+<td>Credit card name</td>
+</tr>
+</tbody></table>
+<h2 id='cancel-a-payment'>Cancel a payment</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/payment_cancel'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow.'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "id": "048874d9-3029-4c0f-a738-93b16c66d948"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"048874d9-3029-4c0f-a738-93b16c66d948"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NFT"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"consumer_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"success_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://swapay.co.jp/"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"cancel_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://swapay.co.jp/"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"callback_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://149c-123-20-166-241.ap.ngrok.io/gateway/callback"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REJECTED"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-08-02T12:57:15.322+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"update_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-08-02T12:57:18.066+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_method"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_times"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"consumer_email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"payment_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/gateway/payment/048874d9-3029-4c0f-a738-93b16c66d948"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Abnormal</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"303"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The status of the order does not allow this action"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint will help you to payment for a transaction</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST https://nft-swap-test.azurewebsites.net/api/v1/payment</code></p>
+<h3 id='json-object-payload-parameters-2'>JSON Object Payload Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>true</td>
+<td>ID of the transaction</td>
+</tr>
+</tbody></table>
+<h1 id='users'>Users</h1><h2 id='user-registration'>User registration</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/customers'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "phone": "+81973666666",
+    "email": "thanhphat@gmail.com",
+    "first_name": "Phat",
+    "last_name": "Lam"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9b377f6c-6b83-42ac-866a-5a9a9171ca88"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"confirmed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phat"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lam"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thanhphat@gmail.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+81973666666"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Abnormal</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E0010"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Email is already used"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint will help you register a user on SWAPAY system.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://nft-swap-test.azurewebsites.net/api/v1/customers</code></p>
+<h3 id='json-object-payload-parameters'>JSON Object Payload Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>customer_id</td>
+<td>false</td>
+<td>The customer id on merchant system</td>
+</tr>
+<tr>
+<td>first_name</td>
+<td>false</td>
+<td>The member&#39;s first name</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>false</td>
+<td>The member&#39;s last name</td>
+</tr>
+<tr>
+<td>email</td>
+<td>true</td>
+<td>The member&#39;s email</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>true</td>
+<td>The member&#39;s phone</td>
+</tr>
+<tr>
+<td>address</td>
+<td>false</td>
+<td>The member&#39;s address</td>
+</tr>
+</tbody></table>
+<h1 id='errors'>Errors</h1>
 <blockquote>
 <p>The error response:</p>
 </blockquote>
