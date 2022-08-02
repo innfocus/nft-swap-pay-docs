@@ -1,10 +1,10 @@
-# Members
+# Users
 
-## Membership registration
+## User registration
 
 
 ```shell
-curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/payment/member' \
+curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/customers' \
 --header 'Authorization: meowmeowmeow' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -18,26 +18,27 @@ curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/p
 {
     "id": "88ff14fb-d3ea-4537-9009-9596a5c9052d",
     "customer_id": "thanhphat",
-    "name": null,
-    "email": null,
+    "first_name": "Phat",
+    "last_name": "Lam",
+    "email": "thanhphat@gmail.com",
     "phone": null,
-    "address": null,
-    "delete_flag": "0"
+    "address": null
 }
 ```
 
-This endpoint will help you register a member on SWAPAY system.
+This endpoint will help you register a user on SWAPAY system.
 
 ### HTTP Request
 
-`POST https://nft-swap-test.azurewebsites.net/api/v1/payment/member`
+`POST https://nft-swap-test.azurewebsites.net/api/v1/customers`
 
 ### JSON Object Payload Parameters
 
 Parameter | Required | Description
 --------- | -------- | -----------
-customer_id | true | The customer id on merchant system 
-name | false | The member's name 
-email | false | The member's email 
-phone | false | The member's phone 
+customer_id | false | The customer id on merchant system 
+first_name | false | The member's first name 
+last_name | false | The member's last name 
+email | true | The member's email 
+phone | true | The member's phone 
 address | false | The member's address 
