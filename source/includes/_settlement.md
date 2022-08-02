@@ -54,3 +54,76 @@ curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/p
     ]
 }
 ```
+
+This endpoint will help you to payment for a transaction
+
+### HTTP Request
+
+`POST https://nft-swap-test.azurewebsites.net/api/v1/payment`
+
+### JSON Object Payload Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+id | true | ID of the transaction 
+card_no | true | credit card number 
+expire | true | Credit card expiration date - YYMM format
+security_code | true | security code - The 3- or 4-digit number printed on the card
+holder_name | true | Credit card name
+
+
+## Cancel a payment
+
+```shell
+curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/payment_cancel' \
+--header 'Authorization: meowmeowmeow.' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": "048874d9-3029-4c0f-a738-93b16c66d948"
+}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": "048874d9-3029-4c0f-a738-93b16c66d948",
+    "pay_amount": 1000.0,
+    "currency": "JPY",
+    "customer_id": "1000",
+    "customer_order_id": "1001",
+    "description": "NFT",
+    "consumer_id": null,
+    "success_url": "https://swapay.co.jp/",
+    "cancel_url": "https://swapay.co.jp/",
+    "callback_url": "https://149c-123-20-166-241.ap.ngrok.io/gateway/callback",
+    "status": "REJECTED",
+    "create_date": "2022-08-02T12:57:15.322+00:00",
+    "update_date": "2022-08-02T12:57:18.066+00:00",
+    "pay_method": null,
+    "pay_times": null,
+    "consumer_email": null,
+    "payment_url": "/gateway/payment/048874d9-3029-4c0f-a738-93b16c66d948"
+}
+```
+> Abnormal
+
+```json
+{
+    "code": "303",
+    "message": "The status of the order does not allow this action",
+    "errors": null
+}
+```
+
+This endpoint will help you to payment for a transaction
+
+### HTTP Request
+
+`POST https://nft-swap-test.azurewebsites.net/api/v1/payment`
+
+### JSON Object Payload Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+id | true | ID of the transaction 
