@@ -71,38 +71,38 @@ This endpoint will help you to start a transaction
 
 ### JSON Object Payload Parameters
 
-Parameter | Required | Description
---------- | -------- | -----------
-pay_amount | true | Amount of the transaction 
-currency | false | The currency used for payment. Default is JPY  
-description | false | Description of the transaction 
-customer_id | false | The customer id on merchant system 
-customer_order_id | false | The order id on merchant systems 
-success_url | false | Redirect to `success_url` after successful payment 
-callback_url | false | JSON-formatted `POST` notification message will be sent to `callback_url` when order status is changed. If the callback is empty, we can send information to merchant's email. 
-cancel_url | false | Redirect to `cancel_url` when buyer cancels the order	
+Parameter | Type  | Required | Description
+--------- | ----- | -------- | -----------
+pay_amount | Double | true | Amount of the transaction 
+currency | String | false | The currency used for payment. Default is JPY  
+description | String | false | Description of the transaction 
+customer_id | String | false | The customer id on merchant system 
+customer_order_id | String | false | The order id on merchant systems 
+success_url | String | false | Redirect to `success_url` after successful payment 
+callback_url | String | false | JSON-formatted `POST` notification message will be sent to `callback_url` when order status is changed. If the callback is empty, we can send information to merchant's email. 
+cancel_url | String | false | Redirect to `cancel_url` when buyer cancels the order	
 
 ## Order Response Fields
 
 Field | Type | Description
 ----- | ---- | -------
-id | UUID |  
-pay_amount | Double | 
-currency | |   
-customer_id | |  
-customer_order_id |  | 
-description | |  
+id | UUID |  Payment request ID on NFT SWAP System
+pay_amount | Double | Total amount to be paid
+currency | String | The currency used for payment. Default is JPY  
+customer_id | String | The customer id on merchant system  
+customer_order_id | String | The order id on merchant systems
+description | String | Description of the transaction 
 store | |  
 merchant | |  
-success_url | String |  
-cancel_url | String |  
-callback_url | String |  
-status | String |    
-pay_method |  |  
+success_url | String | Redirect to `success_url` after successful payment   
+cancel_url | String | Redirect to `cancel_url` when buyer cancels the order 
+callback_url | String | JSON-formatted `POST` notification message will be sent to `callback_url` when order status is changed. If the callback is empty, we can send information to merchant's email.  
+status | String | Status of Payment request    
+pay_method | String |  
 payment_url | String | The customer will process the payment at this site.
-pay_times | |    
-update_date | |  
-create_date  | | 
+pay_times | Number |    
+update_date | DateTime |   
+create_date  | DateTime | 
 
 
 ## Get All Orders
