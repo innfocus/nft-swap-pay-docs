@@ -476,47 +476,56 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>pay_amount</td>
+<td>Double</td>
 <td>true</td>
 <td>Amount of the transaction</td>
 </tr>
 <tr>
 <td>currency</td>
+<td>String</td>
 <td>false</td>
 <td>The currency used for payment. Default is JPY</td>
 </tr>
 <tr>
 <td>description</td>
+<td>String</td>
 <td>false</td>
 <td>Description of the transaction</td>
 </tr>
 <tr>
 <td>customer_id</td>
+<td>String</td>
 <td>false</td>
 <td>The customer id on merchant system</td>
 </tr>
 <tr>
 <td>customer_order_id</td>
+<td>String</td>
 <td>false</td>
 <td>The order id on merchant systems</td>
 </tr>
 <tr>
 <td>success_url</td>
+<td>String</td>
 <td>false</td>
 <td>Redirect to <code>success_url</code> after successful payment</td>
 </tr>
 <tr>
 <td>callback_url</td>
+<td>String</td>
 <td>false</td>
 <td>JSON-formatted <code>POST</code> notification message will be sent to <code>callback_url</code> when order status is changed. If the callback is empty, we can send information to merchant&#39;s email.</td>
 </tr>
 <tr>
 <td>cancel_url</td>
+<td>String</td>
 <td>false</td>
 <td>Redirect to <code>cancel_url</code> when buyer cancels the order</td>
 </tr>
@@ -532,32 +541,32 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <tr>
 <td>id</td>
 <td>UUID</td>
-<td></td>
+<td>Payment request ID on NFT SWAP System</td>
 </tr>
 <tr>
 <td>pay_amount</td>
 <td>Double</td>
-<td></td>
+<td>Total amount to be paid</td>
 </tr>
 <tr>
 <td>currency</td>
-<td></td>
-<td></td>
+<td>String</td>
+<td>The currency used for payment. Default is JPY</td>
 </tr>
 <tr>
 <td>customer_id</td>
-<td></td>
-<td></td>
+<td>String</td>
+<td>The customer id on merchant system</td>
 </tr>
 <tr>
 <td>customer_order_id</td>
-<td></td>
-<td></td>
+<td>String</td>
+<td>The order id on merchant systems</td>
 </tr>
 <tr>
 <td>description</td>
-<td></td>
-<td></td>
+<td>String</td>
+<td>Description of the transaction</td>
 </tr>
 <tr>
 <td>store</td>
@@ -572,26 +581,26 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <tr>
 <td>success_url</td>
 <td>String</td>
-<td></td>
+<td>Redirect to <code>success_url</code> after successful payment</td>
 </tr>
 <tr>
 <td>cancel_url</td>
 <td>String</td>
-<td></td>
+<td>Redirect to <code>cancel_url</code> when buyer cancels the order</td>
 </tr>
 <tr>
 <td>callback_url</td>
 <td>String</td>
-<td></td>
+<td>JSON-formatted <code>POST</code> notification message will be sent to <code>callback_url</code> when order status is changed. If the callback is empty, we can send information to merchant&#39;s email.</td>
 </tr>
 <tr>
 <td>status</td>
 <td>String</td>
-<td></td>
+<td>Status of Payment request</td>
 </tr>
 <tr>
 <td>pay_method</td>
-<td></td>
+<td>String</td>
 <td></td>
 </tr>
 <tr>
@@ -601,17 +610,17 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 </tr>
 <tr>
 <td>pay_times</td>
-<td></td>
+<td>Number</td>
 <td></td>
 </tr>
 <tr>
 <td>update_date</td>
-<td></td>
+<td>DateTime</td>
 <td></td>
 </tr>
 <tr>
 <td>create_date</td>
-<td></td>
+<td>DateTime</td>
 <td></td>
 </tr>
 </tbody></table>
