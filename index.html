@@ -364,6 +364,9 @@
                   <li>
                     <a href="#user-registration" class="toc-h2 toc-link" data-title="User registration">User registration</a>
                   </li>
+                  <li>
+                    <a href="#user-response-fields" class="toc-h2 toc-link" data-title="User Response Fields">User Response Fields</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1045,6 +1048,72 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <td>address</td>
 <td>false</td>
 <td>The member&#39;s address</td>
+</tr>
+</tbody></table>
+<h3 id='error-code-list'>Error code list</h3>
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>E0010</td>
+<td>Email is already used</td>
+</tr>
+</tbody></table>
+<h2 id='user-response-fields'>User Response Fields</h2>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>UUID</td>
+<td>User ID on SWAPay System</td>
+</tr>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>Email</td>
+</tr>
+<tr>
+<td>first_name</td>
+<td>String</td>
+<td>First name</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>String</td>
+<td>Last name</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>String</td>
+<td>Phone number</td>
+</tr>
+<tr>
+<td>address</td>
+<td>String</td>
+<td>Address</td>
+</tr>
+<tr>
+<td>avatar</td>
+<td>String</td>
+<td>The avatar URL</td>
+</tr>
+<tr>
+<td>update_date</td>
+<td>DateTime</td>
+<td></td>
+</tr>
+<tr>
+<td>create_date</td>
+<td>DateTime</td>
+<td></td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
