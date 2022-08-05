@@ -57,3 +57,23 @@ last_name | false | The member's last name
 email | true | The member's email 
 phone | true | The member's phone 
 address | false | The member's address 
+
+### Error code list
+
+Error Code | Meaning
+---------- | -------
+E0010 | Email is already used
+
+## User Response Fields
+
+Field | Type | Description
+----- | ---- | -------
+id | UUID |  User ID on SWAPay System
+email | String | Email
+first_name | String | First name  
+last_name | String | Last name  
+phone | String | Phone number
+address | String | Address 
+avatar | String | The avatar URL 
+update_date | DateTime |   
+create_date  | DateTime | 
