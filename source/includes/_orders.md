@@ -196,13 +196,13 @@ This endpoint get a specific order information.
 
 ### HTTP Request
 
-`GET https://nft-swap-test.azurewebsites.net/api/v1/orders/<ID>`
+`GET https://nft-swap-test.azurewebsites.net/api/v1/orders/{id}`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the order
+id | The ID of the order
 
 
 ## Order Status
