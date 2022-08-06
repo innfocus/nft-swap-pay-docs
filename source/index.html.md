@@ -11,6 +11,7 @@ includes:
   - orders
   - settlement
   - members
+  - user_cards
   - errors
 
 search: true
