@@ -373,6 +373,17 @@
               </ul>
           </li>
           <li>
+            <a href="#membership-card" class="toc-h1 toc-link" data-title="Membership card">Membership card</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#card-registration" class="toc-h2 toc-link" data-title="Card registration">Card registration</a>
+                  </li>
+                  <li>
+                    <a href="#response-fields" class="toc-h2 toc-link" data-title="Response Fields">Response Fields</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
               <ul class="toc-list-h2">
                   <li>
@@ -1200,6 +1211,96 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <td>address</td>
 <td>false</td>
 <td>The member&#39;s address</td>
+</tr>
+</tbody></table>
+<h1 id='membership-card'>Membership card</h1><h2 id='card-registration'>Card registration</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/cards'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "user_id": "9af4f665-9869-4c95-99ca-51d14a32d50f",
+    "card_no": "4100000000000100",
+    "expire": "2512",
+    "security_code": "123",
+    "holder_name": "LYBIA SOFT"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"35f7282f-c5c5-4d24-9c56-e5495f07cab4"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"card_seq"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"short_card_no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*************100"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"card_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"expire"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"holder_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"forward"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2a99662"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint will help you register the card information with the specified member.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://nft-swap-test.azurewebsites.net/api/v1/cards</code></p>
+<h3 id='json-object-payload-parameters'>JSON Object Payload Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>user_id</td>
+<td>false</td>
+<td>The SWAPay user id</td>
+</tr>
+<tr>
+<td>card_no</td>
+<td>true</td>
+<td>credit card number</td>
+</tr>
+<tr>
+<td>expire</td>
+<td>true</td>
+<td>Credit card expiration date - YYMM format</td>
+</tr>
+<tr>
+<td>security_code</td>
+<td>true</td>
+<td>security code - The 3- or 4-digit number printed on the card</td>
+</tr>
+<tr>
+<td>holder_name</td>
+<td>true</td>
+<td>Credit card name</td>
+</tr>
+</tbody></table>
+<h2 id='response-fields'>Response Fields</h2>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>UUID</td>
+<td>Card ID on SWAPay System</td>
+</tr>
+<tr>
+<td>card_seq</td>
+<td>String</td>
+<td>Card registration serial number</td>
+</tr>
+<tr>
+<td>forward</td>
+<td>String</td>
+<td>Destination code</td>
+</tr>
+<tr>
+<td>short_card_no</td>
+<td>String</td>
+<td>the masked value card number</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
