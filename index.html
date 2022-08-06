@@ -367,6 +367,9 @@
                   <li>
                     <a href="#user-response-fields" class="toc-h2 toc-link" data-title="User Response Fields">User Response Fields</a>
                   </li>
+                  <li>
+                    <a href="#update-user-profile" class="toc-h2 toc-link" data-title="Update User profile">Update User profile</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -714,7 +717,7 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 </span></code></pre></div>
 <p>This endpoint get a specific order information.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET https://nft-swap-test.azurewebsites.net/api/v1/orders/&lt;ID&gt;</code></p>
+<p><code>GET https://nft-swap-test.azurewebsites.net/api/v1/orders/{id}</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -723,7 +726,7 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
+<td>id</td>
 <td>The ID of the order</td>
 </tr>
 </tbody></table>
@@ -1114,6 +1117,89 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <td>create_date</td>
 <td>DateTime</td>
 <td></td>
+</tr>
+</tbody></table>
+<h2 id='update-user-profile'>Update User profile</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/customers/9af4f665-9869-4c95-99ca-51d14a32d50f'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "phone": "+81973666666",
+    "email": "thanhphat@gmail.com",
+    "first_name": "Phat 1",
+    "last_name": "Lam"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9af4f665-9869-4c95-99ca-51d14a32d50f"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"confirmed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phat 1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lam"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thanhphat@gmail.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+81973666666"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Abnormal</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E0010"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Email is already used"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint will help you register a user on SWAPAY system.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST https://nft-swap-test.azurewebsites.net/api/v1/customers/{id}</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the order</td>
+</tr>
+</tbody></table>
+<h3 id='json-object-payload-parameters-2'>JSON Object Payload Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>first_name</td>
+<td>false</td>
+<td>The member&#39;s first name</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>false</td>
+<td>The member&#39;s last name</td>
+</tr>
+<tr>
+<td>email</td>
+<td>true</td>
+<td>The member&#39;s email</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>true</td>
+<td>The member&#39;s phone</td>
+</tr>
+<tr>
+<td>address</td>
+<td>false</td>
+<td>The member&#39;s address</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
