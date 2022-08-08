@@ -1,4 +1,4 @@
-# Settlement
+# Settlement - No 3DS
 
 Make a payment by communicating with the card company.
 
@@ -6,7 +6,7 @@ Make a payment by communicating with the card company.
 
 ## When paying with a member ID
 
-## When making a payment using a card number
+## When making a payment using a card number - No 3DS
 
 ```shell
 curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/payment' \
@@ -127,3 +127,47 @@ This endpoint will help you to payment for a transaction
 Parameter | Required | Description
 --------- | -------- | -----------
 id | true | ID of the transaction 
+
+# Settlement - 3DS-1.0
+
+## 3DS-1.0 card number
+
+```shell
+curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/payment' \
+--header 'Authorization: meowmeowmeow.' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": "09e68717-391a-4b01-87cb-0ccd7305eb8e",
+    "card_no": "5123450131003312",
+    "expire": "2512",
+    "security_code": "123",
+    "holder_name": "LYBIA SOFT"
+}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": "09e68717-391a-4b01-87cb-0ccd7305eb8e",
+    "acs": "1",
+    "acs_url": "https://3c80-2405-4802-9119-ab90-e86d-6d5a-d791-666c.ap.ngrok.io/gateway/3ds/09e68717-391a-4b01-87cb-0ccd7305eb8e/3b79e76d924d7bdd29b10e001e08d500",
+    "md": "3b79e76d924d7bdd29b10e001e08d500"
+}
+```
+
+This endpoint will help you to start payment for a transaction
+
+### HTTP Request
+
+`POST https://nft-swap-test.azurewebsites.net/api/v1/payment`
+
+### JSON Object Payload Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+id | true | ID of the transaction 
+acs | true | 1 => (3DS1.0)
+acs_url | true | 3DS password input screen URL
+md | true | Transaction ID on GMO System
+
