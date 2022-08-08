@@ -342,7 +342,7 @@
               </ul>
           </li>
           <li>
-            <a href="#settlement" class="toc-h1 toc-link" data-title="Settlement">Settlement</a>
+            <a href="#settlement-no-3ds" class="toc-h1 toc-link" data-title="Settlement - No 3DS">Settlement - No 3DS</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#when-making-a-payment-using-a-token" class="toc-h2 toc-link" data-title="When making a payment using a token">When making a payment using a token</a>
@@ -351,10 +351,18 @@
                     <a href="#when-paying-with-a-member-id" class="toc-h2 toc-link" data-title="When paying with a member ID">When paying with a member ID</a>
                   </li>
                   <li>
-                    <a href="#when-making-a-payment-using-a-card-number" class="toc-h2 toc-link" data-title="When making a payment using a card number">When making a payment using a card number</a>
+                    <a href="#when-making-a-payment-using-a-card-number-no-3ds" class="toc-h2 toc-link" data-title="When making a payment using a card number - No 3DS">When making a payment using a card number - No 3DS</a>
                   </li>
                   <li>
                     <a href="#cancel-a-payment" class="toc-h2 toc-link" data-title="Cancel a payment">Cancel a payment</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#settlement-3ds-1-0" class="toc-h1 toc-link" data-title="Settlement - 3DS-1.0">Settlement - 3DS-1.0</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#3ds-1-0-card-number" class="toc-h2 toc-link" data-title="3DS-1.0 card number">3DS-1.0 card number</a>
                   </li>
               </ul>
           </li>
@@ -849,9 +857,9 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <td></td>
 </tr>
 </tbody></table>
-<h1 id='settlement'>Settlement</h1>
+<h1 id='settlement-no-3ds'>Settlement - No 3DS</h1>
 <p>Make a payment by communicating with the card company.</p>
-<h2 id='when-making-a-payment-using-a-token'>When making a payment using a token</h2><h2 id='when-paying-with-a-member-id'>When paying with a member ID</h2><h2 id='when-making-a-payment-using-a-card-number'>When making a payment using a card number</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/payment'</span> <span class="se">\</span>
+<h2 id='when-making-a-payment-using-a-token'>When making a payment using a token</h2><h2 id='when-paying-with-a-member-id'>When paying with a member ID</h2><h2 id='when-making-a-payment-using-a-card-number-no-3ds'>When making a payment using a card number - No 3DS</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/payment'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow.'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -986,6 +994,59 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <td>id</td>
 <td>true</td>
 <td>ID of the transaction</td>
+</tr>
+</tbody></table>
+<h1 id='settlement-3ds-1-0'>Settlement - 3DS-1.0</h1><h2 id='3ds-1-0-card-number'>3DS-1.0 card number</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/payment'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow.'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "id": "09e68717-391a-4b01-87cb-0ccd7305eb8e",
+    "card_no": "5123450131003312",
+    "expire": "2512",
+    "security_code": "123",
+    "holder_name": "LYBIA SOFT"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09e68717-391a-4b01-87cb-0ccd7305eb8e"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acs"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acs_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://3c80-2405-4802-9119-ab90-e86d-6d5a-d791-666c.ap.ngrok.io/gateway/3ds/09e68717-391a-4b01-87cb-0ccd7305eb8e/3b79e76d924d7bdd29b10e001e08d500"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"md"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3b79e76d924d7bdd29b10e001e08d500"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint will help you to start payment for a transaction</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://nft-swap-test.azurewebsites.net/api/v1/payment</code></p>
+<h3 id='json-object-payload-parameters-3'>JSON Object Payload Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>true</td>
+<td>ID of the transaction</td>
+</tr>
+<tr>
+<td>acs</td>
+<td>true</td>
+<td>1 =&gt; (3DS1.0)</td>
+</tr>
+<tr>
+<td>acs_url</td>
+<td>true</td>
+<td>3DS password input screen URL</td>
+</tr>
+<tr>
+<td>md</td>
+<td>true</td>
+<td>Transaction ID on GMO System</td>
 </tr>
 </tbody></table>
 <h1 id='users'>Users</h1><h2 id='user-registration'>User registration</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/customers'</span> <span class="se">\</span>
