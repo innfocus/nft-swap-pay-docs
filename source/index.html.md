@@ -12,6 +12,7 @@ includes:
   - settlement
   - members
   - user_cards
+  - recurring_billing
   - errors
 
 search: true

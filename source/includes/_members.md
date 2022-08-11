@@ -63,6 +63,7 @@ address | false | The member's address
 Error Code | Meaning
 ---------- | -------
 E0010 | Email is already used
+E0019 | Customer ID is already used
 
 ## User Response Fields
 

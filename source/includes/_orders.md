@@ -89,7 +89,8 @@ Field | Type | Description
 id | UUID |  Payment request ID on NFT SWAP System
 pay_amount | Double | Total amount to be paid
 currency | String | The currency used for payment. Default is JPY  
-customer_id | String | The customer id on merchant system  
+customer_id | String | The customer id on merchant system
+user_id | String | false | SWAPay user id (if the user_id is submitted, the customer_id is not needed)  
 customer_order_id | String | The order id on merchant systems
 description | String | Description of the transaction 
 store | |  
