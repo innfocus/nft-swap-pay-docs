@@ -397,6 +397,15 @@
                   <li>
                     <a href="#create-a-new-recurring-billing" class="toc-h2 toc-link" data-title="Create a new Recurring billing">Create a new Recurring billing</a>
                   </li>
+                  <li>
+                    <a href="#making-a-payment-using-a-card-number" class="toc-h2 toc-link" data-title="Making a payment using a card number">Making a payment using a card number</a>
+                  </li>
+                  <li>
+                    <a href="#export-csv" class="toc-h2 toc-link" data-title="Export CSV">Export CSV</a>
+                  </li>
+                  <li>
+                    <a href="#upload-csv" class="toc-h2 toc-link" data-title="Upload CSV">Upload CSV</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1543,6 +1552,204 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <td>String</td>
 <td>false</td>
 <td>Redirect to <code>cancel_url</code> when buyer cancels the order</td>
+</tr>
+</tbody></table>
+<h2 id='making-a-payment-using-a-card-number'>Making a payment using a card number</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/store/recurring_billing/payment'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow.'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "id": "c2b5512c-7ef2-4590-bfb7-3eb2874b2187",
+    "card_no": "4111111111111111",
+    "expire": "2512",
+    "security_code": "123",
+    "holder_name": "LYBIA SOFT",
+    "user_id": "af40eee0-81ad-4e29-a8ea-87603b3f8282"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c2b5512c-7ef2-4590-bfb7-3eb2874b2187"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">700.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_order_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COMPLETE"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"update_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-08-12T14:13:27.735+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-08-12T14:13:22.283+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_method"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_times"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"order_id_csv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c45f6d4f-9551-43ce-85db-ff9dd839706e"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Abnormal</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"303"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The status of the transaction does not allow this action"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint will help you to payment for a recurring transaction. </p>
+
+<aside class="notice">
+The payment flow same as one time order. 
+</aside>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST https://nft-swap-test.azurewebsites.net/api/v1/store/recurring_billing/payment</code></p>
+<h3 id='json-object-payload-parameters-2'>JSON Object Payload Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>true</td>
+<td>ID of the transaction</td>
+</tr>
+<tr>
+<td>card_no</td>
+<td>true</td>
+<td>credit card number</td>
+</tr>
+<tr>
+<td>expire</td>
+<td>true</td>
+<td>Credit card expiration date - YYMM format</td>
+</tr>
+<tr>
+<td>security_code</td>
+<td>true</td>
+<td>security code - The 3- or 4-digit number printed on the card</td>
+</tr>
+<tr>
+<td>holder_name</td>
+<td>true</td>
+<td>Credit card name</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>true</td>
+<td>SWAPAY user ID</td>
+</tr>
+</tbody></table>
+<h2 id='export-csv'>Export CSV</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/store/recurring_billing/export'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "start_date": "2022-08-01",
+    "end_date": "2022-08-12"
+}'</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns CSV content file</p>
+</blockquote>
+
+<p>This endpoint will help you to download list recurring billings</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST {{server}}/api/v1/store/recurring_billing/export</code></p>
+<h3 id='json-object-payload-parameters-3'>JSON Object Payload Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>start_date</td>
+<td>Date</td>
+<td>false</td>
+<td>Start date filter</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>Date</td>
+<td>false</td>
+<td>End date filter</td>
+</tr>
+</tbody></table>
+<h3 id='csv-format'>CSV Format</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>User ID</td>
+<td>UUID</td>
+<td>SWAPay user ID</td>
+</tr>
+<tr>
+<td>Recurring billing ID</td>
+<td>UUID</td>
+<td>Recurring billing ID</td>
+</tr>
+<tr>
+<td>Order ID</td>
+<td>UUID</td>
+<td>SWAPay order ID</td>
+</tr>
+<tr>
+<td>Pay amount</td>
+<td>Number</td>
+<td>Recurring billing pay amount</td>
+</tr>
+<tr>
+<td>Date Payment</td>
+<td>Date</td>
+<td>Recurring billing date payment in month</td>
+</tr>
+<tr>
+<td>Card Seq</td>
+<td>String</td>
+<td>Card registration serial number</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>String</td>
+<td>Recurring billing status</td>
+</tr>
+</tbody></table>
+<h2 id='upload-csv'>Upload CSV</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/store/recurring_billing/export'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "start_date": "2022-08-01",
+    "end_date": "2022-08-12"
+}'</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns CSV content file</p>
+</blockquote>
+
+<p>This endpoint will help you to upload list recurring billings. You can export list CSV, update pay amount or date payment. Then re-upload to the system. This endpoint will help you to update recurring invoices in bulk </p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>POST {{server}}/api/v1/store/recurring_billing/import</code></p>
+<h3 id='form-data-parameters'>Form data parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>csv</td>
+<td>File</td>
+<td>true</td>
+<td>CSV file data</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
