@@ -108,3 +108,138 @@ date_start | DateTime | false |
 success_url | String | false | Redirect to `success_url` after successful payment 
 callback_url | String | false | JSON-formatted `POST` notification message will be sent to `callback_url` when order status is changed. If the callback is empty, we can send information to merchant's email. 
 cancel_url | String | false | Redirect to `cancel_url` when buyer cancels the order	
+
+## Making a payment using a card number
+
+```shell
+curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/store/recurring_billing/payment' \
+--header 'Authorization: meowmeowmeow.' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": "c2b5512c-7ef2-4590-bfb7-3eb2874b2187",
+    "card_no": "4111111111111111",
+    "expire": "2512",
+    "security_code": "123",
+    "holder_name": "LYBIA SOFT",
+    "user_id": "af40eee0-81ad-4e29-a8ea-87603b3f8282"
+}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": "c2b5512c-7ef2-4590-bfb7-3eb2874b2187",
+    "pay_amount": 700.0,
+    "currency": "JPY",
+    "customer_id": null,
+    "customer_order_id": null,
+    "status": "COMPLETE",
+    "update_date": "2022-08-12T14:13:27.735+00:00",
+    "create_date": "2022-08-12T14:13:22.283+00:00",
+    "pay_method": null,
+    "pay_times": null,
+    "order_id_csv": "c45f6d4f-9551-43ce-85db-ff9dd839706e"
+}
+```
+> Abnormal
+
+```json
+{
+    "code": "303",
+    "message": "The status of the transaction does not allow this action",
+    "errors": null
+}
+```
+
+This endpoint will help you to payment for a recurring transaction. 
+
+<aside class="notice">
+The payment flow same as one time order. 
+</aside>
+
+
+### HTTP Request
+
+`POST https://nft-swap-test.azurewebsites.net/api/v1/store/recurring_billing/payment`
+
+### JSON Object Payload Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+id | true | ID of the transaction 
+card_no | true | credit card number 
+expire | true | Credit card expiration date - YYMM format
+security_code | true | security code - The 3- or 4-digit number printed on the card
+holder_name | true | Credit card name 
+user_id | true | SWAPAY user ID 
+
+## Export CSV
+
+```shell
+curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/store/recurring_billing/export' \
+--header 'Authorization: meowmeowmeow' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "start_date": "2022-08-01",
+    "end_date": "2022-08-12"
+}'
+
+```
+
+> The above command returns CSV content file
+
+
+This endpoint will help you to download list recurring billings
+
+### HTTP Request
+
+`POST {{server}}/api/v1/store/recurring_billing/export`
+
+### JSON Object Payload Parameters
+
+Parameter | Type  | Required | Description
+--------- | ----- | -------- | -----------
+start_date | Date | false | Start date filter 
+end_date | Date | false | End date filter 
+
+### CSV Format
+
+Parameter | Type | Description
+--------- | ---- | -----------
+User ID | UUID | SWAPay user ID 
+Recurring billing ID | UUID | Recurring billing ID 
+Order ID | UUID | SWAPay order ID 
+Pay amount | Number | Recurring billing pay amount 
+Date Payment | Date | Recurring billing date payment in month 
+Card Seq | String | Card registration serial number  
+Status | String | Recurring billing status 
+
+## Upload CSV
+
+```shell
+curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/store/recurring_billing/export' \
+--header 'Authorization: meowmeowmeow' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "start_date": "2022-08-01",
+    "end_date": "2022-08-12"
+}'
+
+```
+
+> The above command returns CSV content file
+
+
+This endpoint will help you to upload list recurring billings. You can export list CSV, update pay amount or date payment. Then re-upload to the system. This endpoint will help you to update recurring invoices in bulk 
+
+### HTTP Request
+
+`POST {{server}}/api/v1/store/recurring_billing/import`
+
+### Form data parameters
+
+Parameter | Type  | Required | Description
+--------- | ----- | -------- | -----------
+csv | File | true | CSV file data 
+
