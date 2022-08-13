@@ -328,6 +328,9 @@
                     <a href="#order-response-fields" class="toc-h2 toc-link" data-title="Order Response Fields">Order Response Fields</a>
                   </li>
                   <li>
+                    <a href="#update-a-order" class="toc-h2 toc-link" data-title="Update a order">Update a order</a>
+                  </li>
+                  <li>
                     <a href="#get-all-orders" class="toc-h2 toc-link" data-title="Get All Orders">Get All Orders</a>
                   </li>
                   <li>
@@ -396,6 +399,9 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#create-a-new-recurring-billing" class="toc-h2 toc-link" data-title="Create a new Recurring billing">Create a new Recurring billing</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-recurring-billing" class="toc-h2 toc-link" data-title="Update a Recurring billing">Update a Recurring billing</a>
                   </li>
                   <li>
                     <a href="#making-a-payment-using-a-card-number" class="toc-h2 toc-link" data-title="Making a payment using a card number">Making a payment using a card number</a>
@@ -671,6 +677,83 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <td></td>
 </tr>
 </tbody></table>
+<h2 id='update-a-order'>Update a order</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> PUT <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/store/orders/c2b5512c-7ef2-4590-bfb7-3eb2874b2187'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "pay_amount": 1000
+}'</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ed2b2b6c-f88a-468a-a94e-7585925e4e83"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_next_month"</span><span class="p">:</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NFT"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"consumer_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"store"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eba99e3f-84bc-4b92-a215-e0289a5fdcb2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"store_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NFT SWAP STORE"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"office_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NFT SWAP STORE"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"merchant"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"af40eee0-81ad-4e29-a8ea-87603b3f8282"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"merchant@nft-swapay.com"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"success_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://swapay.co.jp/"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"cancel_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://swapay.co.jp/"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"callback_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://3c80-2405-4802-9119-ab90-e86d-6d5a-d791-666c.ap.ngrok.io/gateway/receiving"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WAITING_FOR_PAYMENT"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user_create"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-08-13T02:14:41.314+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"monthly_payment_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user_update"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"update_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-08-13T02:14:41.314+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"payment_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://149c-123-20-166-241.ap.ngrok.io/gateway/payment/ed2b2b6c-f88a-468a-a94e-7585925e4e83"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_method"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_times"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"consumer_email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"subscribe"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint will help you to change the payment details of transactions.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>PUT https://nft-swap-test.azurewebsites.net/api/v1/store/orders/{id}</code></p>
+<h3 id='json-object-payload-parameters-2'>JSON Object Payload Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pay_amount</td>
+<td>Double</td>
+<td>false</td>
+<td>Recurring payment amount</td>
+</tr>
+<tr>
+<td>description</td>
+<td>String</td>
+<td>false</td>
+<td>Description of the transaction</td>
+</tr>
+<tr>
+<td>date_payment</td>
+<td>DateTime</td>
+<td>false</td>
+<td></td>
+</tr>
+</tbody></table>
 <h2 id='get-all-orders'>Get All Orders</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/store/orders'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow'</span>
 </code></pre></div>
@@ -710,7 +793,7 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all Orders.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET https://nft-swap-test.azurewebsites.net/api/v1/store/orders</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -757,7 +840,7 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint get a specific order information.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET https://nft-swap-test.azurewebsites.net/api/v1/orders/{id}</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
@@ -1471,7 +1554,7 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 </span></code></pre></div>
 <p>This endpoint will help you to start a recurring transaction</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>POST {{server}}/api/v1/store/recurring_billing</code></p>
+<p><code>POST https://nft-swap-test.azurewebsites.net/api/v1/store/recurring_billing</code></p>
 <h3 id='json-object-payload-parameters'>JSON Object Payload Parameters</h3>
 <table><thead>
 <tr>
@@ -1554,6 +1637,73 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <td>Redirect to <code>cancel_url</code> when buyer cancels the order</td>
 </tr>
 </tbody></table>
+<h2 id='update-a-recurring-billing'>Update a Recurring billing</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> PUT <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/store/recurring_billing/b87395d6-e334-43be-bd72-800053c53283'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "pay_amount": 1000
+}'</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b87395d6-e334-43be-bd72-800053c53283"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Recurring Billing"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_amount_in_month"</span><span class="p">:</span><span class="w"> </span><span class="mf">700.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"card_seq"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"short_card_no"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"success_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://swapay.co.jp/"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"cancel_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://swapay.co.jp/"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"callback_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://3c80-2405-4802-9119-ab90-e86d-6d5a-d791-666c.ap.ngrok.io/gateway/receiving"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WAITING_FOR_PAYMENT"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date_payment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-08-13T02:17:04.635+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date_start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-08-01T10:00:00.000+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date_end"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date_cancel"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user_create"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-08-13T02:17:04.635+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user_update"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"update_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-08-13T02:17:04.635+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"file_path"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"file_path_history"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint will help you to change the payment details of transactions.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>PUT https://nft-swap-test.azurewebsites.net/api/v1/store/recurring_billing/{id}</code></p>
+<h3 id='json-object-payload-parameters-2'>JSON Object Payload Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pay_amount</td>
+<td>Double</td>
+<td>false</td>
+<td>Recurring payment amount</td>
+</tr>
+<tr>
+<td>description</td>
+<td>String</td>
+<td>false</td>
+<td>Description of the transaction</td>
+</tr>
+<tr>
+<td>date_payment</td>
+<td>DateTime</td>
+<td>false</td>
+<td></td>
+</tr>
+</tbody></table>
 <h2 id='making-a-payment-using-a-card-number'>Making a payment using a card number</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/store/recurring_billing/payment'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow.'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
@@ -1597,9 +1747,9 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <aside class="notice">
 The payment flow same as one time order. 
 </aside>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST https://nft-swap-test.azurewebsites.net/api/v1/store/recurring_billing/payment</code></p>
-<h3 id='json-object-payload-parameters-2'>JSON Object Payload Parameters</h3>
+<h3 id='json-object-payload-parameters-3'>JSON Object Payload Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1652,9 +1802,9 @@ The payment flow same as one time order.
 </blockquote>
 
 <p>This endpoint will help you to download list recurring billings</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>POST {{server}}/api/v1/store/recurring_billing/export</code></p>
-<h3 id='json-object-payload-parameters-3'>JSON Object Payload Parameters</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>POST https://nft-swap-test.azurewebsites.net/api/v1/store/recurring_billing/export</code></p>
+<h3 id='json-object-payload-parameters-4'>JSON Object Payload Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1734,8 +1884,8 @@ The payment flow same as one time order.
 </blockquote>
 
 <p>This endpoint will help you to upload list recurring billings. You can export list CSV, update pay amount or date payment. Then re-upload to the system. This endpoint will help you to update recurring invoices in bulk </p>
-<h3 id='http-request-4'>HTTP Request</h3>
-<p><code>POST {{server}}/api/v1/store/recurring_billing/import</code></p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>POST https://nft-swap-test.azurewebsites.net/api/v1/store/recurring_billing/import</code></p>
 <h3 id='form-data-parameters'>Form data parameters</h3>
 <table><thead>
 <tr>
