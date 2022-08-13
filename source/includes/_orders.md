@@ -106,6 +106,71 @@ update_date | DateTime |
 create_date  | DateTime | 
 
 
+## Update a order
+
+```shell
+curl --location --request PUT 'https://nft-swap-test.azurewebsites.net/api/v1/store/orders/c2b5512c-7ef2-4590-bfb7-3eb2874b2187' \
+--header 'Authorization: meowmeowmeow' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "pay_amount": 1000
+}'
+
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": "ed2b2b6c-f88a-468a-a94e-7585925e4e83",
+    "pay_amount": 1000.0,
+    "pay_next_month": 1000.0,
+    "currency": "JPY",
+    "customer_id": "1000",
+    "customer_order_id": "1001",
+    "description": "NFT",
+    "consumer_id": null,
+    "store": {
+        "id": "eba99e3f-84bc-4b92-a215-e0289a5fdcb2",
+        "store_name": "NFT SWAP STORE",
+        "office_name": "NFT SWAP STORE"
+    },
+    "merchant": {
+        "id": "af40eee0-81ad-4e29-a8ea-87603b3f8282",
+        "display_name": "merchant@nft-swapay.com"
+    },
+    "success_url": "https://swapay.co.jp/",
+    "cancel_url": "https://swapay.co.jp/",
+    "callback_url": "https://3c80-2405-4802-9119-ab90-e86d-6d5a-d791-666c.ap.ngrok.io/gateway/receiving",
+    "status": "WAITING_FOR_PAYMENT",
+    "user_create": null,
+    "create_date": "2022-08-13T02:14:41.314+00:00",
+    "monthly_payment_date": null,
+    "user_update": null,
+    "update_date": "2022-08-13T02:14:41.314+00:00",
+    "payment_url": "https://149c-123-20-166-241.ap.ngrok.io/gateway/payment/ed2b2b6c-f88a-468a-a94e-7585925e4e83",
+    "pay_method": null,
+    "pay_times": null,
+    "consumer_email": null,
+    "user_id": null,
+    "subscribe": null
+}
+```
+
+This endpoint will help you to change the payment details of transactions.
+
+### HTTP Request
+
+`PUT https://nft-swap-test.azurewebsites.net/api/v1/store/orders/{id}`
+
+### JSON Object Payload Parameters
+
+Parameter | Type  | Required | Description
+--------- | ----- | -------- | -----------
+pay_amount | Double | false | Recurring payment amount 
+description | String | false | Description of the transaction  
+date_payment | DateTime | false | 
+
 ## Get All Orders
 
 ```shell

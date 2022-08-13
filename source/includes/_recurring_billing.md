@@ -90,7 +90,7 @@ This endpoint will help you to start a recurring transaction
 
 ### HTTP Request
 
-`POST {{server}}/api/v1/store/recurring_billing`
+`POST https://nft-swap-test.azurewebsites.net/api/v1/store/recurring_billing`
 
 ### JSON Object Payload Parameters
 
@@ -108,6 +108,62 @@ date_start | DateTime | false |
 success_url | String | false | Redirect to `success_url` after successful payment 
 callback_url | String | false | JSON-formatted `POST` notification message will be sent to `callback_url` when order status is changed. If the callback is empty, we can send information to merchant's email. 
 cancel_url | String | false | Redirect to `cancel_url` when buyer cancels the order	
+
+## Update a Recurring billing
+
+
+```shell
+curl --location --request PUT 'https://nft-swap-test.azurewebsites.net/api/v1/store/recurring_billing/b87395d6-e334-43be-bd72-800053c53283' \
+--header 'Authorization: meowmeowmeow' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "pay_amount": 1000
+}'
+
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": "b87395d6-e334-43be-bd72-800053c53283",
+    "description": "Recurring Billing",
+    "pay_amount": 1000.0,
+    "pay_amount_in_month": 700.0,
+    "currency": "JPY",
+    "card_seq": null,
+    "short_card_no": null,
+    "success_url": "https://swapay.co.jp/",
+    "cancel_url": "https://swapay.co.jp/",
+    "callback_url": "https://3c80-2405-4802-9119-ab90-e86d-6d5a-d791-666c.ap.ngrok.io/gateway/receiving",
+    "customer_id": null,
+    "status": "WAITING_FOR_PAYMENT",
+    "date_payment": "2022-08-13T02:17:04.635+00:00",
+    "date_start": "2022-08-01T10:00:00.000+00:00",
+    "date_end": null,
+    "date_cancel": null,
+    "user_create": null,
+    "create_date": "2022-08-13T02:17:04.635+00:00",
+    "user_update": null,
+    "update_date": "2022-08-13T02:17:04.635+00:00",
+    "file_path": null,
+    "file_path_history": null
+}
+```
+
+This endpoint will help you to change the payment details of transactions.
+
+### HTTP Request
+
+`PUT https://nft-swap-test.azurewebsites.net/api/v1/store/recurring_billing/{id}`
+
+### JSON Object Payload Parameters
+
+Parameter | Type  | Required | Description
+--------- | ----- | -------- | -----------
+pay_amount | Double | false | Recurring payment amount 
+description | String | false | Description of the transaction  
+date_payment | DateTime | false | 
 
 ## Making a payment using a card number
 
@@ -194,7 +250,7 @@ This endpoint will help you to download list recurring billings
 
 ### HTTP Request
 
-`POST {{server}}/api/v1/store/recurring_billing/export`
+`POST https://nft-swap-test.azurewebsites.net/api/v1/store/recurring_billing/export`
 
 ### JSON Object Payload Parameters
 
@@ -235,7 +291,7 @@ This endpoint will help you to upload list recurring billings. You can export li
 
 ### HTTP Request
 
-`POST {{server}}/api/v1/store/recurring_billing/import`
+`POST https://nft-swap-test.azurewebsites.net/api/v1/store/recurring_billing/import`
 
 ### Form data parameters
 
