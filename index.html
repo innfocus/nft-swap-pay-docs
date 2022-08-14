@@ -381,6 +381,9 @@
                   <li>
                     <a href="#update-user-profile" class="toc-h2 toc-link" data-title="Update User profile">Update User profile</a>
                   </li>
+                  <li>
+                    <a href="#verify-user-with-phone-number" class="toc-h2 toc-link" data-title="Verify user with phone number">Verify user with phone number</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1217,12 +1220,17 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <tr>
 <td>email</td>
 <td>true</td>
-<td>The member&#39;s email</td>
+<td>The member&#39;s email. If the member uses the phone number. Then no need for email</td>
 </tr>
 <tr>
 <td>phone</td>
 <td>true</td>
-<td>The member&#39;s phone</td>
+<td>The member&#39;s phone . If the member uses the mail. Then no need for phone</td>
+</tr>
+<tr>
+<td>country_code</td>
+<td>false</td>
+<td>The member&#39;s country code. Default JP</td>
 </tr>
 <tr>
 <td>address</td>
@@ -1278,6 +1286,11 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <td>phone</td>
 <td>String</td>
 <td>Phone number</td>
+</tr>
+<tr>
+<td>phone_confirmed_at</td>
+<td>The time when the phone is confirmed.</td>
+<td></td>
 </tr>
 <tr>
 <td>address</td>
@@ -1381,6 +1394,81 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <td>address</td>
 <td>false</td>
 <td>The member&#39;s address</td>
+</tr>
+</tbody></table>
+<h2 id='verify-user-with-phone-number'>Verify user with phone number</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/verify'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "phone": "09078115642",
+    "country_code": "JP",
+    "code": "881495"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9af4f665-9869-4c95-99ca-51d14a32d50f"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"confirmed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+819078115642"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"phone_confirmed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-08-13T09:13:33.745+00:00"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint will help the customers verify their phone number. SWAPay system will send an OTP code via SMS. The customers need check the new SMS and input OTP.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://nft-swap-test.azurewebsites.net/api/v1/verify</code></p>
+<h3 id='json-object-payload-parameters-3'>JSON Object Payload Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>phone</td>
+<td>false</td>
+<td>The member&#39;s phone number</td>
+</tr>
+<tr>
+<td>country_code</td>
+<td>false</td>
+<td>The member&#39;s country code. Default JP</td>
+</tr>
+<tr>
+<td>code</td>
+<td>true</td>
+<td>The OTP code was send vis SMS</td>
+</tr>
+</tbody></table>
+<h3 id='json-object-response'>JSON Object Response</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The SWAPay user id</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>The member&#39;s phone number</td>
+</tr>
+<tr>
+<td>country_code</td>
+<td>The member&#39;s country code. Default JP</td>
+</tr>
+<tr>
+<td>phone_confirmed_at</td>
+<td>The time when the phone is confirmed.</td>
 </tr>
 </tbody></table>
 <h1 id='membership-card'>Membership card</h1><h2 id='card-registration'>Card registration</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/cards'</span> <span class="se">\</span>
