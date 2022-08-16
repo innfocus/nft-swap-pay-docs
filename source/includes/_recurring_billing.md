@@ -298,5 +298,5 @@ This endpoint will help you to upload list recurring billings. You can export li
 
 Parameter | Type  | Required | Description
 --------- | ----- | -------- | -----------
-csv | File | true | CSV file data 
+file | File | true | CSV file data 
 
