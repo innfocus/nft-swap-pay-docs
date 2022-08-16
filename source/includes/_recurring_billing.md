@@ -103,8 +103,9 @@ description | String | false | Description of the transaction
 customer_id | String | false | The customer id on merchant system 
 user_id | String | false | SWAPay user id (if the user_id is submitted, the customer_id is not needed) 
 customer_order_id | String | false | The order id on merchant systems 
-date_payment | DateTime | false | 
-date_start | DateTime | false | 
+date_payment | DateTime | false | When to make payment for the first time  
+date_start | DateTime | false | Time to start the recurring payment  
+date_end | DateTime | false | when you want to stop paying in the future  
 success_url | String | false | Redirect to `success_url` after successful payment 
 callback_url | String | false | JSON-formatted `POST` notification message will be sent to `callback_url` when order status is changed. If the callback is empty, we can send information to merchant's email. 
 cancel_url | String | false | Redirect to `cancel_url` when buyer cancels the order	
