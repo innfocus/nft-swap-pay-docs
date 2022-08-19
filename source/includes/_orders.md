@@ -231,7 +231,7 @@ per_page | 30 |
 ## Get status a Order
 
 ```shell
-curl --location --request GET "https://nft-swap-test.azurewebsites.net/api/v1/orders/2" \
+curl --location --request GET "https://nft-swap-test.azurewebsites.net/api/v1/store/orders/5c73f272-ebc8-4428-8a84-36e3d0230910" \
 --header 'Authorization: meowmeowmeow'
 ```
 
@@ -239,7 +239,7 @@ curl --location --request GET "https://nft-swap-test.azurewebsites.net/api/v1/or
 
 ```json
 {
-    "id": "764acfd2-18dc-45ca-9596-fcd5ec4ddcc6",
+    "id": "5c73f272-ebc8-4428-8a84-36e3d0230910",
     "pay_amount": 1000.0,
     "currency": null,
     "customer_id": null,
@@ -262,7 +262,7 @@ This endpoint get a specific order information.
 
 ### HTTP Request
 
-`GET https://nft-swap-test.azurewebsites.net/api/v1/orders/{id}`
+`GET https://nft-swap-test.azurewebsites.net/api/v1/store/orders/{id}`
 
 ### URL Parameters
 
