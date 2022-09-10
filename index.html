@@ -328,6 +328,9 @@
                     <a href="#order-response-fields" class="toc-h2 toc-link" data-title="Order Response Fields">Order Response Fields</a>
                   </li>
                   <li>
+                    <a href="#add-contact-to-order" class="toc-h2 toc-link" data-title="Add contact to order">Add contact to order</a>
+                  </li>
+                  <li>
                     <a href="#update-a-order" class="toc-h2 toc-link" data-title="Update a order">Update a order</a>
                   </li>
                   <li>
@@ -680,6 +683,64 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <td></td>
 </tr>
 </tbody></table>
+<h2 id='add-contact-to-order'>Add contact to order</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s2">"https://nft-swap-test.azurewebsites.net/api/v1/store/orders/contact"</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow'</span> <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "id": "fad32381-6bcb-4e46-ad45-8019abfc00f6",
+    "phone": "09078115642",
+    "country_code": "JP",
+    "email": "test@gmail.com"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c73f272-ebc8-4428-8a84-36e3d0230910"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_order_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample order"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"consumer_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"success_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"cancel_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"callback_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WAITING_FOR_PAYMENT"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user_create"</span><span class="p">:</span><span class="w"> </span><span class="s2">"af40eee0-81ad-4e29-a8ea-87603b3f8282"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-07-08T07:43:02.612+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user_update"</span><span class="p">:</span><span class="w"> </span><span class="s2">"af40eee0-81ad-4e29-a8ea-87603b3f8282"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"update_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-07-08T07:43:02.612+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"payment_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/gateway/payment/764acfd2-18dc-45ca-9596-fcd5ec4ddcc6"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint will add email or phone to order. The customers will need verify their contact.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST https://nft-swap-test.azurewebsites.net/api/v1/store/orders/contact</code></p>
+<h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the order</td>
+</tr>
+<tr>
+<td>email</td>
+<td>The email of customer</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>The phone of customer</td>
+</tr>
+<tr>
+<td>country_code</td>
+<td>The customer&#39;s country code. Default JP</td>
+</tr>
+</tbody></table>
 <h2 id='update-a-order'>Update a order</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> PUT <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/store/orders/c2b5512c-7ef2-4590-bfb7-3eb2874b2187'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
@@ -727,7 +788,7 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint will help you to change the payment details of transactions.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>PUT https://nft-swap-test.azurewebsites.net/api/v1/store/orders/{id}</code></p>
 <h3 id='json-object-payload-parameters-2'>JSON Object Payload Parameters</h3>
 <table><thead>
@@ -796,7 +857,7 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all Orders.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET https://nft-swap-test.azurewebsites.net/api/v1/store/orders</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -843,7 +904,7 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint get a specific order information.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET https://nft-swap-test.azurewebsites.net/api/v1/store/orders/{id}</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
