@@ -112,7 +112,7 @@ create_date  | DateTime |
 curl --location --request POST "https://nft-swap-test.azurewebsites.net/api/v1/store/orders/contact" \
 --header 'Authorization: meowmeowmeow' --header 'Content-Type: application/json' \
 --data-raw '{
-    "id": "fad32381-6bcb-4e46-ad45-8019abfc00f6",
+    "order_id": "fad32381-6bcb-4e46-ad45-8019abfc00f6",
     "phone": "09078115642",
     "country_code": "JP",
     "email": "test@gmail.com"
@@ -152,7 +152,7 @@ This endpoint will add email or phone to order. The customers will need verify t
 
 Parameter | Description
 --------- | -----------
-id | The ID of the order
+order_id | The ID of the order
 email | The email of customer
 phone | The phone of customer
 country_code | The customer's country code. Default JP
