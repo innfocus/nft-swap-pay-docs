@@ -686,7 +686,7 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <h2 id='add-contact-to-order'>Add contact to order</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s2">"https://nft-swap-test.azurewebsites.net/api/v1/store/orders/contact"</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow'</span> <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
-    "id": "fad32381-6bcb-4e46-ad45-8019abfc00f6",
+    "order_id": "fad32381-6bcb-4e46-ad45-8019abfc00f6",
     "phone": "09078115642",
     "country_code": "JP",
     "email": "test@gmail.com"
@@ -725,7 +725,7 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
+<td>order_id</td>
 <td>The ID of the order</td>
 </tr>
 <tr>
