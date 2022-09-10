@@ -106,6 +106,57 @@ update_date | DateTime |
 create_date  | DateTime | 
 
 
+## Add contact to order
+
+```shell
+curl --location --request POST "https://nft-swap-test.azurewebsites.net/api/v1/store/orders/contact" \
+--header 'Authorization: meowmeowmeow' --header 'Content-Type: application/json' \
+--data-raw '{
+    "id": "fad32381-6bcb-4e46-ad45-8019abfc00f6",
+    "phone": "09078115642",
+    "country_code": "JP",
+    "email": "test@gmail.com"
+}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": "5c73f272-ebc8-4428-8a84-36e3d0230910",
+    "pay_amount": 1000.0,
+    "currency": null,
+    "customer_id": null,
+    "customer_order_id": null,
+    "description": "Sample order",
+    "consumer_id": null,
+    "success_url": null,
+    "cancel_url": null,
+    "callback_url": null,
+    "status": "WAITING_FOR_PAYMENT",
+    "user_create": "af40eee0-81ad-4e29-a8ea-87603b3f8282",
+    "create_date": "2022-07-08T07:43:02.612+00:00",
+    "user_update": "af40eee0-81ad-4e29-a8ea-87603b3f8282",
+    "update_date": "2022-07-08T07:43:02.612+00:00",
+    "payment_url": "/gateway/payment/764acfd2-18dc-45ca-9596-fcd5ec4ddcc6"
+}
+```
+
+This endpoint will add email or phone to order. The customers will need verify their contact.
+
+### HTTP Request
+
+`POST https://nft-swap-test.azurewebsites.net/api/v1/store/orders/contact`
+
+### Parameters
+
+Parameter | Description
+--------- | -----------
+id | The ID of the order
+email | The email of customer
+phone | The phone of customer
+country_code | The customer's country code. Default JP
+
 ## Update a order
 
 ```shell
