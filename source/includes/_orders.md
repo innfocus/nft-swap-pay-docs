@@ -81,6 +81,12 @@ customer_order_id | String | false | The order id on merchant systems
 success_url | String | false | Redirect to `success_url` after successful payment 
 callback_url | String | false | JSON-formatted `POST` notification message will be sent to `callback_url` when order status is changed. If the callback is empty, we can send information to merchant's email. 
 cancel_url | String | false | Redirect to `cancel_url` when buyer cancels the order	
+user_id | String | false | The customer ID on SWAPay system (Returned in the user registration api)
+consumer_email | String | false | Email of customer	
+consumer_phone | String | false | Phone of consumer	
+
+System will send confirmation message after payment with contact information registered with `user_id`.  
+If there is no `user_id`, you can send `consumer_email` or `consumer_phone`. So that the system can send a confirmation message after payment
 
 ## Order Response Fields
 
