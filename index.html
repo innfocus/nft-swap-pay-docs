@@ -1373,9 +1373,19 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <td>Phone number</td>
 </tr>
 <tr>
+<td>confirmed</td>
+<td>Boolean</td>
+<td><code>true</code> if the customer&#39;s email is confirmed. <code>false</code> if the customer&#39;s email isn&#39;t confirmed</td>
+</tr>
+<tr>
 <td>phone_confirmed_at</td>
+<td>DateTime</td>
 <td>The time when the phone is confirmed.</td>
-<td></td>
+</tr>
+<tr>
+<td>provider</td>
+<td>String</td>
+<td><code>PHONE</code> if customer is registered with phone number. <code>EMAIL</code> if customer is registered with email address</td>
 </tr>
 <tr>
 <td>address</td>
@@ -1388,14 +1398,9 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <td>The avatar URL</td>
 </tr>
 <tr>
-<td>update_date</td>
-<td>DateTime</td>
-<td></td>
-</tr>
-<tr>
 <td>create_date</td>
 <td>DateTime</td>
-<td></td>
+<td>The time when customer is registered</td>
 </tr>
 </tbody></table>
 <h2 id='get-user-profile'>Get User profile</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/customers/b68904c8-cb4b-4685-a7fb-3ee0cd99f5c2'</span> <span class="se">\</span>
