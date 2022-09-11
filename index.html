@@ -586,7 +586,28 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <td>false</td>
 <td>Redirect to <code>cancel_url</code> when buyer cancels the order</td>
 </tr>
+<tr>
+<td>user_id</td>
+<td>String</td>
+<td>false</td>
+<td>The customer ID on SWAPay system (Returned in the user registration api)</td>
+</tr>
+<tr>
+<td>consumer_email</td>
+<td>String</td>
+<td>false</td>
+<td>Email of customer</td>
+</tr>
+<tr>
+<td>consumer_phone</td>
+<td>String</td>
+<td>false</td>
+<td>Phone of consumer</td>
+</tr>
 </tbody></table>
+
+<p>System will send confirmation message after payment with contact information registered with <code>user_id</code>.<br>
+If there is no <code>user_id</code>, you can send <code>consumer_email</code> or <code>consumer_phone</code>. So that the system can send a confirmation message after payment</p>
 <h2 id='order-response-fields'>Order Response Fields</h2>
 <table><thead>
 <tr>
