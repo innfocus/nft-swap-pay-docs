@@ -205,6 +205,59 @@ email | true | The member's email
 phone | true | The member's phone 
 address | false | The member's address 
 
+## Re-send verification message
+
+
+```shell
+curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/customers/b68904c8-cb4b-4685-a7fb-3ee0cd99f5c2/resend_verification' \
+--header 'Authorization: meowmeowmeow'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": "b68904c8-cb4b-4685-a7fb-3ee0cd99f5c2",
+    "confirmed": false,
+    "phone_confirmed_at": null,
+    "username": null,
+    "first_name": null,
+    "last_name": null,
+    "display_name": "lybiasoft@gmail.com",
+    "phone": null,
+    "address": null,
+    "avatar": null,
+    "email": "lybiasoft@gmail.com",
+    "country_code": null,
+    "phone_e164": null,
+    "provider": "EMAIL",
+    "customer_id": null,
+    "create_date": "2022-09-10T23:55:55.003+00:00"
+}
+```
+
+> Abnormal
+
+```json
+{
+    "code": "E0035",
+    "message": "The customer is confirmed",
+    "errors": null
+}
+```
+
+This endpoint will help you resend the verification message to user.
+
+### HTTP Request
+
+`POST https://nft-swap-test.azurewebsites.net/api/v1/customers/{id}/resend_verification`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+id | The ID of the user
+
 ## Verify user with phone number
 
 ```shell
