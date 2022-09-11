@@ -75,11 +75,12 @@ email | String | Email
 first_name | String | First name  
 last_name | String | Last name  
 phone | String | Phone number
-phone_confirmed_at | The time when the phone is confirmed. 
+confirmed | Boolean | `true` if the customer's email is confirmed. `false` if the customer's email isn't confirmed  
+phone_confirmed_at | DateTime | The time when the phone is confirmed. 
+provider | String | `PHONE` if customer is registered with phone number. `EMAIL` if customer is registered with email address   
 address | String | Address 
 avatar | String | The avatar URL 
-update_date | DateTime |   
-create_date  | DateTime | 
+create_date  | DateTime | The time when customer is registered
 
 ## Get User profile
 
