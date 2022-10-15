@@ -957,8 +957,24 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <td>The Waiting for payment status means that we still are waiting for payment.</td>
 </tr>
 <tr>
+<td>OTP_CONFIRMING</td>
+<td>Waiting for OTP confirming from Email/SMS.</td>
+</tr>
+<tr>
+<td>OTP_TIMEOUT</td>
+<td>Cannot confirm OTP after 30 minutes.</td>
+</tr>
+<tr>
+<td>AUTHENTICATING_3DS</td>
+<td>Waiting for 3DS Authentication.</td>
+</tr>
+<tr>
+<td>TIMEOUT_3DS</td>
+<td>3DS timeout after 30 minutes.</td>
+</tr>
+<tr>
 <td>PROCESSING</td>
-<td></td>
+<td>The transaction is paid and waiting to be confirmed.</td>
 </tr>
 <tr>
 <td>COMPLETE</td>
@@ -966,15 +982,15 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 </tr>
 <tr>
 <td>REFUNDED</td>
-<td></td>
+<td>The transaction is refunded.</td>
 </tr>
 <tr>
-<td>ON_HOLD</td>
-<td></td>
-</tr>
-<tr>
-<td>REJECTED</td>
+<td>CANCEL</td>
 <td>The payment has been declined either by your payment operator or due to security reasons by our system.</td>
+</tr>
+<tr>
+<td>ERROR</td>
+<td>Error returned from GMO</td>
 </tr>
 </tbody></table>
 <h2 id='callback-response-message'>Callback Response Message</h2>
