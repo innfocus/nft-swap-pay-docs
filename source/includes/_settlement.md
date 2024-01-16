@@ -128,9 +128,9 @@ Parameter | Required | Description
 --------- | -------- | -----------
 id | true | ID of the transaction 
 
-# Settlement - 3DS-1.0
+# Settlement - 3DS-2
 
-## 3DS-1.0 card number
+## 3DS-2 card number
 
 ```shell
 curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/payment' \
@@ -138,7 +138,7 @@ curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/p
 --header 'Content-Type: application/json' \
 --data-raw '{
     "id": "09e68717-391a-4b01-87cb-0ccd7305eb8e",
-    "card_no": "5123450131003312",
+    "card_no": "4111111111111111",
     "expire": "2512",
     "security_code": "123",
     "holder_name": "LYBIA SOFT"
@@ -167,7 +167,7 @@ This endpoint will help you to start payment for a transaction
 Parameter | Required | Description
 --------- | -------- | -----------
 id | true | ID of the transaction 
-acs | true | 1 => (3DS1.0)
+acs | true | 1 => (3DS2.0)
 acs_url | true | 3DS password input screen URL
 md | true | Transaction ID on GMO System
 
