@@ -15,7 +15,7 @@ curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/p
 --data-raw '{
     "id": "8405b5f8-0244-4bd5-97cb-748ddeac6b13",
     "card_no": "4100000000000100",
-    "expire": "2512",
+    "expire": "12/25",
     "security_code": "123",
     "holder_name": "LYBIA SOFT"
 }'
@@ -128,7 +128,7 @@ Parameter | Required | Description
 --------- | -------- | -----------
 id | true | ID of the transaction 
 
-# Settlement - 3DS-2
+# Settlement - 3DS-2 (support for the GMO Gateway and  the FinCode Gateway)
 
 ## 3DS-2 card number
 
@@ -138,8 +138,8 @@ curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/p
 --header 'Content-Type: application/json' \
 --data-raw '{
     "id": "09e68717-391a-4b01-87cb-0ccd7305eb8e",
-    "card_no": "4111111111111111",
-    "expire": "2512",
+    "card_no": "4100000000000100",
+    "expire": "12/25",
     "security_code": "123",
     "holder_name": "LYBIA SOFT"
 }'
@@ -150,7 +150,7 @@ curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/p
 ```json
 {
     "id": "09e68717-391a-4b01-87cb-0ccd7305eb8e",
-    "acs": "1",
+    "acs": "2",
     "acs_url": "https://3c80-2405-4802-9119-ab90-e86d-6d5a-d791-666c.ap.ngrok.io/gateway/3ds/09e68717-391a-4b01-87cb-0ccd7305eb8e/3b79e76d924d7bdd29b10e001e08d500",
     "md": "3b79e76d924d7bdd29b10e001e08d500"
 }
@@ -167,7 +167,7 @@ This endpoint will help you to start payment for a transaction
 Parameter | Required | Description
 --------- | -------- | -----------
 id | true | ID of the transaction 
-acs | true | 1 => (3DS2.0)
+acs | true | 2 => (3DS2.0)
 acs_url | true | 3DS password input screen URL
 md | true | Transaction ID on GMO System
 
