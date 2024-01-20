@@ -286,8 +286,8 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-a9e5f7b8.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
+    <link href="stylesheets/screen-1cb1b028.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-966d6edc.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-b12a2749.js"></script>
 
     <script>
@@ -365,7 +365,7 @@
               </ul>
           </li>
           <li>
-            <a href="#settlement-3ds-2" class="toc-h1 toc-link" data-title="Settlement - 3DS-2">Settlement - 3DS-2</a>
+            <a href="#settlement-3ds-2-support-for-the-gmo-gateway-and-the-fincode-gateway" class="toc-h1 toc-link" data-title="Settlement - 3DS-2 (support for the GMO Gateway and  the FinCode Gateway)">Settlement - 3DS-2 (support for the GMO Gateway and  the FinCode Gateway)</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#3ds-2-card-number" class="toc-h2 toc-link" data-title="3DS-2 card number">3DS-2 card number</a>
@@ -1057,7 +1057,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <span class="nt">--data-raw</span> <span class="s1">'{
     "id": "8405b5f8-0244-4bd5-97cb-748ddeac6b13",
     "card_no": "4100000000000100",
-    "expire": "2512",
+    "expire": "12/25",
     "security_code": "123",
     "holder_name": "LYBIA SOFT"
 }'</span>
@@ -1188,13 +1188,13 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <td>ID of the transaction</td>
 </tr>
 </tbody></table>
-<h1 id='settlement-3ds-2'>Settlement - 3DS-2</h1><h2 id='3ds-2-card-number'>3DS-2 card number</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/payment'</span> <span class="se">\</span>
+<h1 id='settlement-3ds-2-support-for-the-gmo-gateway-and-the-fincode-gateway'>Settlement - 3DS-2 (support for the GMO Gateway and  the FinCode Gateway)</h1><h2 id='3ds-2-card-number'>3DS-2 card number</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/payment'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow.'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
     "id": "09e68717-391a-4b01-87cb-0ccd7305eb8e",
-    "card_no": "4111111111111111",
-    "expire": "2512",
+    "card_no": "4100000000000100",
+    "expire": "12/25",
     "security_code": "123",
     "holder_name": "LYBIA SOFT"
 }'</span>
@@ -1204,7 +1204,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09e68717-391a-4b01-87cb-0ccd7305eb8e"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"acs"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acs"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"acs_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://3c80-2405-4802-9119-ab90-e86d-6d5a-d791-666c.ap.ngrok.io/gateway/3ds/09e68717-391a-4b01-87cb-0ccd7305eb8e/3b79e76d924d7bdd29b10e001e08d500"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"md"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3b79e76d924d7bdd29b10e001e08d500"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1228,7 +1228,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <tr>
 <td>acs</td>
 <td>true</td>
-<td>1 =&gt; (3DS2.0)</td>
+<td>2 =&gt; (3DS2.0)</td>
 </tr>
 <tr>
 <td>acs_url</td>
