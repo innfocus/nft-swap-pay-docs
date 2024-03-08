@@ -175,7 +175,7 @@ curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/s
 --data-raw '{
     "id": "c2b5512c-7ef2-4590-bfb7-3eb2874b2187",
     "card_no": "4111111111111111",
-    "expire": "2512",
+    "expire": "1225",
     "security_code": "123",
     "holder_name": "LYBIA SOFT",
     "user_id": "af40eee0-81ad-4e29-a8ea-87603b3f8282"
