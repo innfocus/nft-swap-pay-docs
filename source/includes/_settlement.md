@@ -67,7 +67,7 @@ Parameter | Required | Description
 --------- | -------- | -----------
 id | true | ID of the transaction 
 card_no | true | credit card number 
-expire | true | Credit card expiration date - YYMM format
+expire | true | Credit card expiration date - MMYY format
 security_code | true | security code - The 3- or 4-digit number printed on the card
 holder_name | true | Credit card name
 
