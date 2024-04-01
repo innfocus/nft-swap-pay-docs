@@ -422,7 +422,7 @@
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='https://staging-console.nft-swapay.com/' target="_blank">Start here</a></li>
+            <li><a href='https://staging-console.swa-pay.com/' target="_blank">Start here</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -431,13 +431,13 @@
         <h1 id='introduction'>Introduction</h1>
 <p>Welcome to the SWAPAY API!</p>
 
-<p>The SWAPAY API endpoint is <a href="https://nft-swap-test.azurewebsites.net">https://nft-swap-test.azurewebsites.net</a>.</p>
+<p>The SWAPAY API endpoint is <a href="https://staging-api.swa-pay.com">https://staging-api.swa-pay.com</a>.</p>
 <h1 id='authentication'>Authentication</h1>
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"https://nft-swap-test.azurewebsites.net"</span> <span class="se">\</span>
+curl <span class="s2">"https://staging-api.swa-pay.com"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
 </code></pre></div>
 <blockquote>
@@ -453,7 +453,7 @@ curl <span class="s2">"https://nft-swap-test.azurewebsites.net"</span> <span cla
 <aside class="notice">
 You must replace <code>meowmeowmeow</code> with your personal API key.
 </aside>
-<h1 id='orders'>Orders</h1><h2 id='create-a-new-order'>Create a new Order</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/order'</span> <span class="se">\</span>
+<h1 id='orders'>Orders</h1><h2 id='create-a-new-order'>Create a new Order</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://staging-api.swa-pay.com/api/v1/order'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -495,7 +495,7 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
     </span><span class="nl">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-07-25T05:34:31.631+00:00"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"user_update"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"update_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"payment_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://nft-swap-test.azurewebsites.net/gateway/payment/8405b5f8-0244-4bd5-97cb-748ddeac6b13"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"payment_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://staging-api.swa-pay.com/gateway/payment/8405b5f8-0244-4bd5-97cb-748ddeac6b13"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"pay_method"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"pay_times"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -511,7 +511,7 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 </span></code></pre></div>
 <p>This endpoint will help you to start a transaction</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>POST https://nft-swap-test.azurewebsites.net/api/v1/order</code></p>
+<p><code>POST https://staging-api.swa-pay.com/api/v1/order</code></p>
 <h3 id='json-object-payload-parameters'>JSON Object Payload Parameters</h3>
 <table><thead>
 <tr>
@@ -690,7 +690,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <td></td>
 </tr>
 </tbody></table>
-<h2 id='add-contact-to-order'>Add contact to order</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s2">"https://nft-swap-test.azurewebsites.net/api/v1/store/orders/contact"</span> <span class="se">\</span>
+<h2 id='add-contact-to-order'>Add contact to order</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s2">"https://staging-api.swa-pay.com/api/v1/store/orders/contact"</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow'</span> <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
     "order_id": "fad32381-6bcb-4e46-ad45-8019abfc00f6",
@@ -723,7 +723,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 </span></code></pre></div>
 <p>This endpoint will add email or phone to order. The customers will need verify their contact.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST https://nft-swap-test.azurewebsites.net/api/v1/store/orders/contact</code></p>
+<p><code>POST https://staging-api.swa-pay.com/api/v1/store/orders/contact</code></p>
 <h3 id='parameters'>Parameters</h3>
 <table><thead>
 <tr>
@@ -748,7 +748,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <td>The customer&#39;s country code. Default JP</td>
 </tr>
 </tbody></table>
-<h2 id='update-a-order'>Update a order</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> PUT <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/store/orders/c2b5512c-7ef2-4590-bfb7-3eb2874b2187'</span> <span class="se">\</span>
+<h2 id='update-a-order'>Update a order</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> PUT <span class="s1">'https://staging-api.swa-pay.com/api/v1/store/orders/c2b5512c-7ef2-4590-bfb7-3eb2874b2187'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -796,7 +796,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 </span></code></pre></div>
 <p>This endpoint will help you to change the payment details of transactions.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>PUT https://nft-swap-test.azurewebsites.net/api/v1/store/orders/{id}</code></p>
+<p><code>PUT https://staging-api.swa-pay.com/api/v1/store/orders/{id}</code></p>
 <h3 id='json-object-payload-parameters-2'>JSON Object Payload Parameters</h3>
 <table><thead>
 <tr>
@@ -825,7 +825,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <td></td>
 </tr>
 </tbody></table>
-<h2 id='get-all-orders'>Get All Orders</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/store/orders'</span> <span class="se">\</span>
+<h2 id='get-all-orders'>Get All Orders</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'https://staging-api.swa-pay.com/api/v1/store/orders'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow'</span>
 </code></pre></div>
 <blockquote>
@@ -857,7 +857,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
         </span><span class="nl">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-07-25T05:34:31.631+00:00"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"user_update"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="nl">"update_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"payment_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://nft-swap-test.azurewebsites.net/gateway/payment/8405b5f8-0244-4bd5-97cb-748ddeac6b13"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"payment_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://staging-api.swa-pay.com/gateway/payment/8405b5f8-0244-4bd5-97cb-748ddeac6b13"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"pay_method"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="nl">"pay_times"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -865,7 +865,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 </span></code></pre></div>
 <p>This endpoint retrieves all Orders.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>GET https://nft-swap-test.azurewebsites.net/api/v1/store/orders</code></p>
+<p><code>GET https://staging-api.swa-pay.com/api/v1/store/orders</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -885,7 +885,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <td></td>
 </tr>
 </tbody></table>
-<h2 id='get-status-a-order'>Get status a Order</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s2">"https://nft-swap-test.azurewebsites.net/api/v1/store/orders/5c73f272-ebc8-4428-8a84-36e3d0230910"</span> <span class="se">\</span>
+<h2 id='get-status-a-order'>Get status a Order</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s2">"https://staging-api.swa-pay.com/api/v1/store/orders/5c73f272-ebc8-4428-8a84-36e3d0230910"</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow'</span>
 </code></pre></div>
 <blockquote>
@@ -912,7 +912,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 </span></code></pre></div>
 <p>This endpoint get a specific order information.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>GET https://nft-swap-test.azurewebsites.net/api/v1/store/orders/{id}</code></p>
+<p><code>GET https://staging-api.swa-pay.com/api/v1/store/orders/{id}</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1051,7 +1051,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 </tbody></table>
 <h1 id='settlement-no-3ds'>Settlement - No 3DS</h1>
 <p>Make a payment by communicating with the card company.</p>
-<h2 id='when-making-a-payment-using-a-token'>When making a payment using a token</h2><h2 id='when-paying-with-a-member-id'>When paying with a member ID</h2><h2 id='when-making-a-payment-using-a-card-number-no-3ds'>When making a payment using a card number - No 3DS</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/payment'</span> <span class="se">\</span>
+<h2 id='when-making-a-payment-using-a-token'>When making a payment using a token</h2><h2 id='when-paying-with-a-member-id'>When paying with a member ID</h2><h2 id='when-making-a-payment-using-a-card-number-no-3ds'>When making a payment using a card number - No 3DS</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://staging-api.swa-pay.com/api/v1/payment'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow.'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1097,7 +1097,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 </span></code></pre></div>
 <p>This endpoint will help you to payment for a transaction</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>POST https://nft-swap-test.azurewebsites.net/api/v1/payment</code></p>
+<p><code>POST https://staging-api.swa-pay.com/api/v1/payment</code></p>
 <h3 id='json-object-payload-parameters'>JSON Object Payload Parameters</h3>
 <table><thead>
 <tr>
@@ -1132,7 +1132,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <td>Credit card name</td>
 </tr>
 </tbody></table>
-<h2 id='cancel-a-payment'>Cancel a payment</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/payment_cancel'</span> <span class="se">\</span>
+<h2 id='cancel-a-payment'>Cancel a payment</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://staging-api.swa-pay.com/api/v1/payment_cancel'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow.'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1173,7 +1173,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 </span></code></pre></div>
 <p>This endpoint will help you to payment for a transaction</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST https://nft-swap-test.azurewebsites.net/api/v1/payment</code></p>
+<p><code>POST https://staging-api.swa-pay.com/api/v1/payment</code></p>
 <h3 id='json-object-payload-parameters-2'>JSON Object Payload Parameters</h3>
 <table><thead>
 <tr>
@@ -1188,7 +1188,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <td>ID of the transaction</td>
 </tr>
 </tbody></table>
-<h1 id='settlement-3ds-2-support-for-the-gmo-gateway-and-the-fincode-gateway'>Settlement - 3DS-2 (support for the GMO Gateway and  the FinCode Gateway)</h1><h2 id='3ds-2-card-number'>3DS-2 card number</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/payment'</span> <span class="se">\</span>
+<h1 id='settlement-3ds-2-support-for-the-gmo-gateway-and-the-fincode-gateway'>Settlement - 3DS-2 (support for the GMO Gateway and  the FinCode Gateway)</h1><h2 id='3ds-2-card-number'>3DS-2 card number</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://staging-api.swa-pay.com/api/v1/payment'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow.'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1211,7 +1211,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 </span></code></pre></div>
 <p>This endpoint will help you to start payment for a transaction</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>POST https://nft-swap-test.azurewebsites.net/api/v1/payment</code></p>
+<p><code>POST https://staging-api.swa-pay.com/api/v1/payment</code></p>
 <h3 id='json-object-payload-parameters-3'>JSON Object Payload Parameters</h3>
 <table><thead>
 <tr>
@@ -1241,7 +1241,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <td>Transaction ID on GMO System</td>
 </tr>
 </tbody></table>
-<h1 id='users'>Users</h1><h2 id='user-registration'>User registration</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/customers'</span> <span class="se">\</span>
+<h1 id='users'>Users</h1><h2 id='user-registration'>User registration</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://staging-api.swa-pay.com/api/v1/customers'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1277,7 +1277,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 </span></code></pre></div>
 <p>This endpoint will help you register a user on SWAPAY system.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>POST https://nft-swap-test.azurewebsites.net/api/v1/customers</code></p>
+<p><code>POST https://staging-api.swa-pay.com/api/v1/customers</code></p>
 <h3 id='json-object-payload-parameters'>JSON Object Payload Parameters</h3>
 <table><thead>
 <tr>
@@ -1402,7 +1402,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <td>The time when customer is registered</td>
 </tr>
 </tbody></table>
-<h2 id='get-user-profile'>Get User profile</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/customers/b68904c8-cb4b-4685-a7fb-3ee0cd99f5c2'</span> <span class="se">\</span>
+<h2 id='get-user-profile'>Get User profile</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'https://staging-api.swa-pay.com/api/v1/customers/b68904c8-cb4b-4685-a7fb-3ee0cd99f5c2'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow'</span>
 </code></pre></div>
 <blockquote>
@@ -1438,7 +1438,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 </span></code></pre></div>
 <p>This endpoint will help you get a user profile on SWAPAY system.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST https://nft-swap-test.azurewebsites.net/api/v1/customers/{id}</code></p>
+<p><code>POST https://staging-api.swa-pay.com/api/v1/customers/{id}</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1451,7 +1451,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <td>The ID of the user</td>
 </tr>
 </tbody></table>
-<h2 id='update-user-profile'>Update User profile</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/customers/9af4f665-9869-4c95-99ca-51d14a32d50f'</span> <span class="se">\</span>
+<h2 id='update-user-profile'>Update User profile</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://staging-api.swa-pay.com/api/v1/customers/9af4f665-9869-4c95-99ca-51d14a32d50f'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1494,7 +1494,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 </span></code></pre></div>
 <p>This endpoint will help you update user profile on SWAPAY system.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>POST https://nft-swap-test.azurewebsites.net/api/v1/customers/{id}</code></p>
+<p><code>POST https://staging-api.swa-pay.com/api/v1/customers/{id}</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1541,7 +1541,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <td>The member&#39;s address</td>
 </tr>
 </tbody></table>
-<h2 id='re-send-verification-message'>Re-send verification message</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/customers/b68904c8-cb4b-4685-a7fb-3ee0cd99f5c2/resend_verification'</span> <span class="se">\</span>
+<h2 id='re-send-verification-message'>Re-send verification message</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://staging-api.swa-pay.com/api/v1/customers/b68904c8-cb4b-4685-a7fb-3ee0cd99f5c2/resend_verification'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow'</span>
 </code></pre></div>
 <blockquote>
@@ -1577,7 +1577,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 </span></code></pre></div>
 <p>This endpoint will help you resend the verification message to user.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>POST https://nft-swap-test.azurewebsites.net/api/v1/customers/{id}/resend_verification</code></p>
+<p><code>POST https://staging-api.swa-pay.com/api/v1/customers/{id}/resend_verification</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1590,7 +1590,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <td>The ID of the user</td>
 </tr>
 </tbody></table>
-<h2 id='verify-user-with-phone-number'>Verify user with phone number</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/verify'</span> <span class="se">\</span>
+<h2 id='verify-user-with-phone-number'>Verify user with phone number</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://staging-api.swa-pay.com/api/v1/verify'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
     "phone": "09078115642",
@@ -1616,7 +1616,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 </span></code></pre></div>
 <p>This endpoint will help the customers verify their phone number. SWAPay system will send an OTP code via SMS. The customers need check the new SMS and input OTP.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>POST https://nft-swap-test.azurewebsites.net/api/v1/verify</code></p>
+<p><code>POST https://staging-api.swa-pay.com/api/v1/verify</code></p>
 <h3 id='json-object-payload-parameters-3'>JSON Object Payload Parameters</h3>
 <table><thead>
 <tr>
@@ -1665,7 +1665,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <td>The time when the phone is confirmed.</td>
 </tr>
 </tbody></table>
-<h1 id='membership-card'>Membership card</h1><h2 id='card-registration'>Card registration</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://nft-swap-test.azurewebsites.net/api/v1/cards'</span> <span class="se">\</span>
+<h1 id='membership-card'>Membership card</h1><h2 id='card-registration'>Card registration</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://staging-api.swa-pay.com/api/v1/cards'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1691,7 +1691,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 </span></code></pre></div>
 <p>This endpoint will help you register the card information with the specified member.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>POST https://nft-swap-test.azurewebsites.net/api/v1/cards</code></p>
+<p><code>POST https://staging-api.swa-pay.com/api/v1/cards</code></p>
 <h3 id='json-object-payload-parameters'>JSON Object Payload Parameters</h3>
 <table><thead>
 <tr>
