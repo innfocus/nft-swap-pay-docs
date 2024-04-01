@@ -9,7 +9,7 @@ Make a payment by communicating with the card company.
 ## When making a payment using a card number - No 3DS
 
 ```shell
-curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/payment' \
+curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/payment' \
 --header 'Authorization: meowmeowmeow.' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -59,7 +59,7 @@ This endpoint will help you to payment for a transaction
 
 ### HTTP Request
 
-`POST https://nft-swap-test.azurewebsites.net/api/v1/payment`
+`POST https://staging-api.swa-pay.com/api/v1/payment`
 
 ### JSON Object Payload Parameters
 
@@ -75,7 +75,7 @@ holder_name | true | Credit card name
 ## Cancel a payment
 
 ```shell
-curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/payment_cancel' \
+curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/payment_cancel' \
 --header 'Authorization: meowmeowmeow.' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -120,7 +120,7 @@ This endpoint will help you to payment for a transaction
 
 ### HTTP Request
 
-`POST https://nft-swap-test.azurewebsites.net/api/v1/payment`
+`POST https://staging-api.swa-pay.com/api/v1/payment`
 
 ### JSON Object Payload Parameters
 
@@ -133,7 +133,7 @@ id | true | ID of the transaction
 ## 3DS-2 card number
 
 ```shell
-curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/payment' \
+curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/payment' \
 --header 'Authorization: meowmeowmeow.' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -160,7 +160,7 @@ This endpoint will help you to start payment for a transaction
 
 ### HTTP Request
 
-`POST https://nft-swap-test.azurewebsites.net/api/v1/payment`
+`POST https://staging-api.swa-pay.com/api/v1/payment`
 
 ### JSON Object Payload Parameters
 

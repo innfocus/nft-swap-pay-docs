@@ -4,7 +4,7 @@
 
 
 ```shell
-curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/customers' \
+curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/customers' \
 --header 'Authorization: meowmeowmeow' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -45,7 +45,7 @@ This endpoint will help you register a user on SWAPAY system.
 
 ### HTTP Request
 
-`POST https://nft-swap-test.azurewebsites.net/api/v1/customers`
+`POST https://staging-api.swa-pay.com/api/v1/customers`
 
 ### JSON Object Payload Parameters
 
@@ -86,7 +86,7 @@ create_date  | DateTime | The time when customer is registered
 
 
 ```shell
-curl --location --request GET 'https://nft-swap-test.azurewebsites.net/api/v1/customers/b68904c8-cb4b-4685-a7fb-3ee0cd99f5c2' \
+curl --location --request GET 'https://staging-api.swa-pay.com/api/v1/customers/b68904c8-cb4b-4685-a7fb-3ee0cd99f5c2' \
 --header 'Authorization: meowmeowmeow'
 ```
 
@@ -127,7 +127,7 @@ This endpoint will help you get a user profile on SWAPAY system.
 
 ### HTTP Request
 
-`POST https://nft-swap-test.azurewebsites.net/api/v1/customers/{id}`
+`POST https://staging-api.swa-pay.com/api/v1/customers/{id}`
 
 ### URL Parameters
 
@@ -139,7 +139,7 @@ id | The ID of the user
 
 
 ```shell
-curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/customers/9af4f665-9869-4c95-99ca-51d14a32d50f' \
+curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/customers/9af4f665-9869-4c95-99ca-51d14a32d50f' \
 --header 'Authorization: meowmeowmeow' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -187,7 +187,7 @@ This endpoint will help you update user profile on SWAPAY system.
 
 ### HTTP Request
 
-`POST https://nft-swap-test.azurewebsites.net/api/v1/customers/{id}`
+`POST https://staging-api.swa-pay.com/api/v1/customers/{id}`
 
 ### URL Parameters
 
@@ -209,7 +209,7 @@ address | false | The member's address
 
 
 ```shell
-curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/customers/b68904c8-cb4b-4685-a7fb-3ee0cd99f5c2/resend_verification' \
+curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/customers/b68904c8-cb4b-4685-a7fb-3ee0cd99f5c2/resend_verification' \
 --header 'Authorization: meowmeowmeow'
 ```
 
@@ -250,7 +250,7 @@ This endpoint will help you resend the verification message to user.
 
 ### HTTP Request
 
-`POST https://nft-swap-test.azurewebsites.net/api/v1/customers/{id}/resend_verification`
+`POST https://staging-api.swa-pay.com/api/v1/customers/{id}/resend_verification`
 
 ### URL Parameters
 
@@ -261,7 +261,7 @@ id | The ID of the user
 ## Verify user with phone number
 
 ```shell
-curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/verify' \
+curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/verify' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "phone": "09078115642",
@@ -291,7 +291,7 @@ This endpoint will help the customers verify their phone number. SWAPay system w
 
 ### HTTP Request
 
-`POST https://nft-swap-test.azurewebsites.net/api/v1/verify`
+`POST https://staging-api.swa-pay.com/api/v1/verify`
 
 ### JSON Object Payload Parameters
 

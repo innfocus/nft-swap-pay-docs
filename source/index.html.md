@@ -5,7 +5,7 @@ language_tabs: # must be one of https://github.com/rouge-ruby/rouge/wiki/List-of
   - shell
 
 toc_footers:
-  - <a href='https://staging-console.nft-swapay.com/' target="_blank">Start here</a>
+  - <a href='https://staging-console.swa-pay.com/' target="_blank">Start here</a>
 
 includes:
   - orders
@@ -28,7 +28,7 @@ meta:
 
 Welcome to the SWAPAY API!
 
-The SWAPAY API endpoint is [https://nft-swap-test.azurewebsites.net](https://nft-swap-test.azurewebsites.net).
+The SWAPAY API endpoint is [https://staging-api.swa-pay.com](https://staging-api.swa-pay.com).
 
 
 # Authentication
@@ -38,7 +38,7 @@ The SWAPAY API endpoint is [https://nft-swap-test.azurewebsites.net](https://nft
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl "https://nft-swap-test.azurewebsites.net" \
+curl "https://staging-api.swa-pay.com" \
   -H "Authorization: meowmeowmeow"
 ```
 

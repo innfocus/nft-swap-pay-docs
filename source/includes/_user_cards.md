@@ -4,7 +4,7 @@
 
 
 ```shell
-curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/cards' \
+curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/cards' \
 --header 'Authorization: meowmeowmeow' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -34,7 +34,7 @@ This endpoint will help you register the card information with the specified mem
 
 ### HTTP Request
 
-`POST https://nft-swap-test.azurewebsites.net/api/v1/cards`
+`POST https://staging-api.swa-pay.com/api/v1/cards`
 
 ### JSON Object Payload Parameters
 

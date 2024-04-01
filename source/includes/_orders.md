@@ -4,7 +4,7 @@
 
 
 ```shell
-curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/order' \
+curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/order' \
 --header 'Authorization: meowmeowmeow' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -47,7 +47,7 @@ curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/o
     "create_date": "2022-07-25T05:34:31.631+00:00",
     "user_update": null,
     "update_date": null,
-    "payment_url": "https://nft-swap-test.azurewebsites.net/gateway/payment/8405b5f8-0244-4bd5-97cb-748ddeac6b13",
+    "payment_url": "https://staging-api.swa-pay.com/gateway/payment/8405b5f8-0244-4bd5-97cb-748ddeac6b13",
     "pay_method": null,
     "pay_times": null
 }
@@ -67,7 +67,7 @@ This endpoint will help you to start a transaction
 
 ### HTTP Request
 
-`POST https://nft-swap-test.azurewebsites.net/api/v1/order`
+`POST https://staging-api.swa-pay.com/api/v1/order`
 
 ### JSON Object Payload Parameters
 
@@ -115,7 +115,7 @@ create_date  | DateTime |
 ## Add contact to order
 
 ```shell
-curl --location --request POST "https://nft-swap-test.azurewebsites.net/api/v1/store/orders/contact" \
+curl --location --request POST "https://staging-api.swa-pay.com/api/v1/store/orders/contact" \
 --header 'Authorization: meowmeowmeow' --header 'Content-Type: application/json' \
 --data-raw '{
     "order_id": "fad32381-6bcb-4e46-ad45-8019abfc00f6",
@@ -152,7 +152,7 @@ This endpoint will add email or phone to order. The customers will need verify t
 
 ### HTTP Request
 
-`POST https://nft-swap-test.azurewebsites.net/api/v1/store/orders/contact`
+`POST https://staging-api.swa-pay.com/api/v1/store/orders/contact`
 
 ### Parameters
 
@@ -166,7 +166,7 @@ country_code | The customer's country code. Default JP
 ## Update a order
 
 ```shell
-curl --location --request PUT 'https://nft-swap-test.azurewebsites.net/api/v1/store/orders/c2b5512c-7ef2-4590-bfb7-3eb2874b2187' \
+curl --location --request PUT 'https://staging-api.swa-pay.com/api/v1/store/orders/c2b5512c-7ef2-4590-bfb7-3eb2874b2187' \
 --header 'Authorization: meowmeowmeow' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -218,7 +218,7 @@ This endpoint will help you to change the payment details of transactions.
 
 ### HTTP Request
 
-`PUT https://nft-swap-test.azurewebsites.net/api/v1/store/orders/{id}`
+`PUT https://staging-api.swa-pay.com/api/v1/store/orders/{id}`
 
 ### JSON Object Payload Parameters
 
@@ -231,7 +231,7 @@ date_payment | DateTime | false |
 ## Get All Orders
 
 ```shell
-curl --location --request GET 'https://nft-swap-test.azurewebsites.net/api/v1/store/orders' \
+curl --location --request GET 'https://staging-api.swa-pay.com/api/v1/store/orders' \
 --header 'Authorization: meowmeowmeow'
 ```
 
@@ -264,7 +264,7 @@ curl --location --request GET 'https://nft-swap-test.azurewebsites.net/api/v1/st
         "create_date": "2022-07-25T05:34:31.631+00:00",
         "user_update": null,
         "update_date": null,
-        "payment_url": "https://nft-swap-test.azurewebsites.net/gateway/payment/8405b5f8-0244-4bd5-97cb-748ddeac6b13",
+        "payment_url": "https://staging-api.swa-pay.com/gateway/payment/8405b5f8-0244-4bd5-97cb-748ddeac6b13",
         "pay_method": null,
         "pay_times": null
     }
@@ -275,7 +275,7 @@ This endpoint retrieves all Orders.
 
 ### HTTP Request
 
-`GET https://nft-swap-test.azurewebsites.net/api/v1/store/orders`
+`GET https://staging-api.swa-pay.com/api/v1/store/orders`
 
 ### Query Parameters
 
@@ -288,7 +288,7 @@ per_page | 30 |
 ## Get status a Order
 
 ```shell
-curl --location --request GET "https://nft-swap-test.azurewebsites.net/api/v1/store/orders/5c73f272-ebc8-4428-8a84-36e3d0230910" \
+curl --location --request GET "https://staging-api.swa-pay.com/api/v1/store/orders/5c73f272-ebc8-4428-8a84-36e3d0230910" \
 --header 'Authorization: meowmeowmeow'
 ```
 
@@ -319,7 +319,7 @@ This endpoint get a specific order information.
 
 ### HTTP Request
 
-`GET https://nft-swap-test.azurewebsites.net/api/v1/store/orders/{id}`
+`GET https://staging-api.swa-pay.com/api/v1/store/orders/{id}`
 
 ### URL Parameters
 

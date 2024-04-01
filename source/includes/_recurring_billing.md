@@ -4,7 +4,7 @@
 
 
 ```shell
-curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/store/recurring_billing' \
+curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/store/recurring_billing' \
 --header 'Authorization: meowmeowmeow' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -51,7 +51,7 @@ curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/s
     "monthly_payment_date": null,
     "user_update": null,
     "update_date": "2022-08-11T22:57:07.625+00:00",
-    "payment_url": "https://nft-swap-test.azurewebsites.net/gateway/payment/3e8cba26-c349-49ca-b2e7-4416577994f2",
+    "payment_url": "https://staging-api.swa-pay.com/gateway/payment/3e8cba26-c349-49ca-b2e7-4416577994f2",
     "pay_method": null,
     "pay_times": null,
     "consumer_email": null,
@@ -90,7 +90,7 @@ This endpoint will help you to start a recurring transaction
 
 ### HTTP Request
 
-`POST https://nft-swap-test.azurewebsites.net/api/v1/store/recurring_billing`
+`POST https://staging-api.swa-pay.com/api/v1/store/recurring_billing`
 
 ### JSON Object Payload Parameters
 
@@ -114,7 +114,7 @@ cancel_url | String | false | Redirect to `cancel_url` when buyer cancels the or
 
 
 ```shell
-curl --location --request PUT 'https://nft-swap-test.azurewebsites.net/api/v1/store/recurring_billing/b87395d6-e334-43be-bd72-800053c53283' \
+curl --location --request PUT 'https://staging-api.swa-pay.com/api/v1/store/recurring_billing/b87395d6-e334-43be-bd72-800053c53283' \
 --header 'Authorization: meowmeowmeow' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -156,7 +156,7 @@ This endpoint will help you to change the payment details of transactions.
 
 ### HTTP Request
 
-`PUT https://nft-swap-test.azurewebsites.net/api/v1/store/recurring_billing/{id}`
+`PUT https://staging-api.swa-pay.com/api/v1/store/recurring_billing/{id}`
 
 ### JSON Object Payload Parameters
 
@@ -169,7 +169,7 @@ date_payment | DateTime | false |
 ## Making a payment using a card number
 
 ```shell
-curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/store/recurring_billing/payment' \
+curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/store/recurring_billing/payment' \
 --header 'Authorization: meowmeowmeow.' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -218,7 +218,7 @@ The payment flow same as one time order.
 
 ### HTTP Request
 
-`POST https://nft-swap-test.azurewebsites.net/api/v1/store/recurring_billing/payment`
+`POST https://staging-api.swa-pay.com/api/v1/store/recurring_billing/payment`
 
 ### JSON Object Payload Parameters
 
@@ -234,7 +234,7 @@ user_id | true | SWAPAY user ID
 ## Export CSV
 
 ```shell
-curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/store/recurring_billing/export' \
+curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/store/recurring_billing/export' \
 --header 'Authorization: meowmeowmeow' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -251,7 +251,7 @@ This endpoint will help you to download list recurring billings
 
 ### HTTP Request
 
-`POST https://nft-swap-test.azurewebsites.net/api/v1/store/recurring_billing/export`
+`POST https://staging-api.swa-pay.com/api/v1/store/recurring_billing/export`
 
 ### JSON Object Payload Parameters
 
@@ -275,7 +275,7 @@ Status | String | Recurring billing status
 ## Upload CSV
 
 ```shell
-curl --location --request POST 'https://nft-swap-test.azurewebsites.net/api/v1/store/recurring_billing/export' \
+curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/store/recurring_billing/export' \
 --header 'Authorization: meowmeowmeow' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -292,7 +292,7 @@ This endpoint will help you to upload list recurring billings. You can export li
 
 ### HTTP Request
 
-`POST https://nft-swap-test.azurewebsites.net/api/v1/store/recurring_billing/import`
+`POST https://staging-api.swa-pay.com/api/v1/store/recurring_billing/import`
 
 ### Form data parameters
 
