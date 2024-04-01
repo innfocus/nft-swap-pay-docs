@@ -28,7 +28,8 @@ meta:
 
 Welcome to the SWAPAY API!
 
-The SWAPAY API endpoint is [https://staging-api.swa-pay.com](https://staging-api.swa-pay.com).
+The Sandbox SWAPAY API endpoint is [https://staging-api.swa-pay.com](https://staging-api.swa-pay.com).  
+The Production SWAPAY API endpoint is [https://api.swa-pay.com](https://api.swa-pay.com). 
 
 
 # Authentication
