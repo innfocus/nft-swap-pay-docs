@@ -171,3 +171,44 @@ acs | true | 2 => (3DS2.0)
 acs_url | true | 3DS password input screen URL
 md | true | Transaction ID on GMO System
 
+
+# Settlement - PAYPAY (support for the GMO Gateway and  the FinCode Gateway)
+
+## Payment with PayPay method 
+
+```shell
+curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/payment' \
+--header 'Authorization: {store_token}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": "09e68717-391a-4b01-87cb-0ccd7305eb8e",
+    "payment_method": "paypay"
+}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": "09e68717-391a-4b01-87cb-0ccd7305eb8e",
+    "acs": "2",
+    "acs_url": "https://3c80-2405-4802-9119-ab90-e86d-6d5a-d791-666c.ap.ngrok.io/gateway/3ds/09e68717-391a-4b01-87cb-0ccd7305eb8e/3b79e76d924d7bdd29b10e001e08d500",
+    "md": "3b79e76d924d7bdd29b10e001e08d500"
+}
+```
+
+This endpoint will help you to start payment for a transaction
+
+### HTTP Request
+
+`POST https://staging-api.swa-pay.com/api/v1/payment`
+
+### JSON Object Payload Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+id | true | ID of the transaction 
+acs | true | 2 => (3DS2.0)
+acs_url | true | 3DS password input screen URL
+md | true | Transaction ID on GMO System
+
