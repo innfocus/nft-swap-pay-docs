@@ -53,5 +53,58 @@ Field | Type | Description
 id | UUID |  Card ID on SWAPay System
 card_seq | String | Card registration serial number 
 forward | String | Destination code 
-short_card_no | String | the masked value card number  
+short_card_no | String | the masked value card number 
+
+
+## Card Remove
+
+```shell
+curl --location --request DELETE 'https://staging-api.swa-pay.com/api/v1/cards/{id}' \
+--header 'Authorization: {store_token}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": "06d43140-51d8-40a7-b457-221f46d74c23"
+}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": "06d43140-51d8-40a7-b457-221f46d74c23",
+    "short_card_no": "*************100",
+    "card_name": null,
+    "expire": "12/25",
+    "holder_name": "LYBIA SOFT",
+    "card_type": "VISA",
+    "status": "DELETE",
+    "security_code": null,
+    "create_date": "2024-05-23T04:29:47.751+00:00",
+    "update_date": "2024-05-27T05:50:38.670+00:00",
+}
+```
+
+Remove card by card_id
+
+### HTTP Request
+
+`DELETE https://staging-api.swa-pay.com/api/v1/cards/{id}`
+
+### JSON Object Payload Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+id | true | The SWAPay card id (UUID)
+
+## Response Fields
+
+Field | Type | Description
+----- | ---- | -------
+id | UUID |  Card ID on SWAPay System
+card_seq | String | Card registration serial number 
+expire | String | Card expiration date (format MM/YY)
+status | String | card status
+holder_name | String | card holder
+short_card_no | String | the masked value card number
+card_type | String | card type 
 
