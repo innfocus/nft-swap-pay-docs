@@ -291,6 +291,18 @@ REFUNDED | The transaction is refunded.
 CANCEL | The payment has been declined either by your payment operator or due to security reasons by our system.  
 ERROR | Error returned from GMO 
 
+
+## Payment Method of order
+
+Name | Value | Meaning
+---- | ----- | -------
+CREDIT_CARD | 0 | Credit card payment
+CASH | 1 | Cash payment
+PAYPAY | 2 | Paypay payment
+FAMIPAY | 3 | Famipay payment
+LINEPAY | 4 | Linepay payment
+APPLEPAY | 5 | Applepay payment
+
 ## Callback Response Message
 
 > Each JSON-formatted `POST` notification message like this:

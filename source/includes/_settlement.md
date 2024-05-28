@@ -94,6 +94,7 @@ curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/payment_c
     "customer_order_id": "1001",
     "description": "NFT",
     "consumer_id": null,
+    "pay_method": "0",
     "success_url": "https://swapay.co.jp/",
     "cancel_url": "https://swapay.co.jp/",
     "callback_url": "https://149c-123-20-166-241.ap.ngrok.io/gateway/callback",
@@ -120,7 +121,7 @@ This endpoint will help you to payment for a transaction
 
 ### HTTP Request
 
-`POST https://staging-api.swa-pay.com/api/v1/payment`
+`POST https://staging-api.swa-pay.com/api/v1/payment_cancel`
 
 ### JSON Object Payload Parameters
 
@@ -150,6 +151,7 @@ curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/payment' 
 ```json
 {
     "id": "09e68717-391a-4b01-87cb-0ccd7305eb8e",
+    "pay_method": "0",
     "acs": "2",
     "acs_url": "https://3c80-2405-4802-9119-ab90-e86d-6d5a-d791-666c.ap.ngrok.io/gateway/3ds/09e68717-391a-4b01-87cb-0ccd7305eb8e/3b79e76d924d7bdd29b10e001e08d500",
     "md": "3b79e76d924d7bdd29b10e001e08d500"
@@ -164,12 +166,13 @@ This endpoint will help you to start payment for a transaction
 
 ### JSON Object Payload Parameters
 
-Parameter | Required | Description
+Parameter | Type | Description
 --------- | -------- | -----------
-id | true | ID of the transaction 
-acs | true | 2 => (3DS2.0)
-acs_url | true | 3DS password input screen URL
-md | true | Transaction ID on GMO System
+id | UUID | ID of the transaction 
+acs | String | 2 => (3DS2.0)
+acs_url | String | 3DS password input screen URL
+md | String | Transaction ID on GMO System
+pay_method | String | 0 => (Credit card payment)
 
 
 # Settlement - PAYPAY (support for the GMO Gateway and  the FinCode Gateway)
@@ -181,7 +184,7 @@ curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/payment' 
 --header 'Authorization: {store_token}' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "id": "09e68717-391a-4b01-87cb-0ccd7305eb8e",
+    "id": "1c2705ce-4eed-47eb-a753-0e6b0d6c151a",
     "payment_method": "paypay"
 }'
 ```
@@ -190,14 +193,27 @@ curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/payment' 
 
 ```json
 {
-    "id": "09e68717-391a-4b01-87cb-0ccd7305eb8e",
-    "acs": "2",
-    "acs_url": "https://3c80-2405-4802-9119-ab90-e86d-6d5a-d791-666c.ap.ngrok.io/gateway/3ds/09e68717-391a-4b01-87cb-0ccd7305eb8e/3b79e76d924d7bdd29b10e001e08d500",
-    "md": "3b79e76d924d7bdd29b10e001e08d500"
+    "id": "1c2705ce-4eed-47eb-a753-0e6b0d6c151a",
+    "pay_amount": 2600.0,
+    "currency": "JPY",
+    "customer_id": null,
+    "customer_order_id": "689190",
+    "status": "WAITING_FOR_PAYMENT",
+    "update_date": "2024-05-27T08:10:47.261+00:00",
+    "create_date": "2024-05-27T08:10:47.261+00:00",
+    "pay_method": "2",
+    "pay_times": null,
+    "order_id_csv": null,
+    "actual_payment_date": null,
+    "confirmed_at": null,
+    "acs": null,
+    "acs_url": null,
+    "redirect_url": "https://staging-api.swa-pay.com/api/v1/gmo/paypay/start/1c2705ce-4eed-47eb-a753-0e6b0d6c151a"
 }
 ```
 
 This endpoint will help you to start payment for a transaction
+
 
 ### HTTP Request
 
@@ -208,7 +224,84 @@ This endpoint will help you to start payment for a transaction
 Parameter | Required | Description
 --------- | -------- | -----------
 id | true | ID of the transaction 
-acs | true | 2 => (3DS2.0)
-acs_url | true | 3DS password input screen URL
-md | true | Transaction ID on GMO System
+payment_method | true | value: paypay
+customer_id | false | The customer id on merchant system
 
+### JSON Object Payload Parameters
+
+Parameter | Type | Description
+--------- | -------- | -----------
+id | UUID | ID of the transaction
+pay_amount | Double | Amount of the transaction
+currency | String | The currency used for payment. Default is JPY
+customer_id | String | The customer id on merchant system
+customer_order_id | String | The order id on merchant systems
+status | String | Status of Payment request
+redirect_url | String | Redirect URL for payment with PayPay
+pay_method | String | 2 => (Paypay payment)
+
+
+# Settlement - LinePay (support for the GMO Gateway)
+
+## Payment with LinePay method 
+
+```shell
+curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/payment' \
+--header 'Authorization: {store_token}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": "09e68717-391a-4b01-87cb-0ccd7305eb8e",
+    "payment_method": "linepay"
+}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+        "id": "6cce744b-4122-44e8-992f-2ef6a53e2835",
+    "pay_amount": 2600.0,
+    "currency": "JPY",
+    "customer_id": null,
+    "customer_order_id": "3780402",
+    "status": "WAITING_FOR_PAYMENT",
+    "update_date": "2024-05-28T03:00:44.037+00:00",
+    "create_date": "2024-05-28T03:00:44.037+00:00",
+    "pay_method": "4",
+    "pay_times": null,
+    "order_id_csv": null,
+    "actual_payment_date": null,
+    "confirmed_at": null,
+    "acs": null,
+    "acs_url": null,
+    "redirect_url": "https://staging-api.swa-pay.com/api/v1/gmo/linepay/start/6cce744b-4122-44e8-992f-2ef6a53e2835"
+}
+```
+
+This endpoint will help you to start payment for a transaction
+
+
+### HTTP Request
+
+`POST https://staging-api.swa-pay.com/api/v1/payment`
+
+### JSON Object Payload Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+id | true | ID of the transaction 
+payment_method | true | value: paypay
+customer_id | false | The customer id on merchant system
+
+### JSON Object Payload Parameters
+
+Parameter | Type | Description
+--------- | -------- | -----------
+id | UUID | ID of the transaction
+pay_amount | Double | Amount of the transaction
+currency | String | The currency used for payment. Default is JPY
+customer_id | String | The customer id on merchant system
+customer_order_id | String | The order id on merchant systems
+status | String | Status of Payment request
+redirect_url | String | Redirect URL for payment with Linepay
+pay_method | String | 4 => (linepay payment)
