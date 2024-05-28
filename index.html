@@ -340,6 +340,9 @@
                     <a href="#order-status" class="toc-h2 toc-link" data-title="Order Status">Order Status</a>
                   </li>
                   <li>
+                    <a href="#payment-method-of-order" class="toc-h2 toc-link" data-title="Payment Method of order">Payment Method of order</a>
+                  </li>
+                  <li>
                     <a href="#callback-response-message" class="toc-h2 toc-link" data-title="Callback Response Message">Callback Response Message</a>
                   </li>
               </ul>
@@ -374,6 +377,14 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#payment-with-paypay-method" class="toc-h2 toc-link" data-title="Payment with PayPay method">Payment with PayPay method</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#settlement-linepay-support-for-the-gmo-gateway" class="toc-h1 toc-link" data-title="Settlement - LinePay (support for the GMO Gateway)">Settlement - LinePay (support for the GMO Gateway)</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#payment-with-linepay-method" class="toc-h2 toc-link" data-title="Payment with LinePay method">Payment with LinePay method</a>
                   </li>
               </ul>
           </li>
@@ -927,6 +938,45 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <td>Error returned from GMO</td>
 </tr>
 </tbody></table>
+<h2 id='payment-method-of-order'>Payment Method of order</h2>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CREDIT_CARD</td>
+<td>0</td>
+<td>Credit card payment</td>
+</tr>
+<tr>
+<td>CASH</td>
+<td>1</td>
+<td>Cash payment</td>
+</tr>
+<tr>
+<td>PAYPAY</td>
+<td>2</td>
+<td>Paypay payment</td>
+</tr>
+<tr>
+<td>FAMIPAY</td>
+<td>3</td>
+<td>Famipay payment</td>
+</tr>
+<tr>
+<td>LINEPAY</td>
+<td>4</td>
+<td>Linepay payment</td>
+</tr>
+<tr>
+<td>APPLEPAY</td>
+<td>5</td>
+<td>Applepay payment</td>
+</tr>
+</tbody></table>
 <h2 id='callback-response-message'>Callback Response Message</h2>
 <blockquote>
 <p>Each JSON-formatted <code>POST</code> notification message like this:</p>
@@ -1104,6 +1154,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
     </span><span class="nl">"customer_order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NFT"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"consumer_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"success_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://swapay.co.jp/"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"cancel_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://swapay.co.jp/"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"callback_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://149c-123-20-166-241.ap.ngrok.io/gateway/callback"</span><span class="p">,</span><span class="w">
@@ -1127,7 +1178,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 </span></code></pre></div>
 <p>This endpoint will help you to payment for a transaction</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST https://staging-api.swa-pay.com/api/v1/payment</code></p>
+<p><code>POST https://staging-api.swa-pay.com/api/v1/payment_cancel</code></p>
 <h3 id='json-object-payload-parameters-2'>JSON Object Payload Parameters</h3>
 <table><thead>
 <tr>
@@ -1158,6 +1209,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09e68717-391a-4b01-87cb-0ccd7305eb8e"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"acs"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"acs_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://3c80-2405-4802-9119-ab90-e86d-6d5a-d791-666c.ap.ngrok.io/gateway/3ds/09e68717-391a-4b01-87cb-0ccd7305eb8e/3b79e76d924d7bdd29b10e001e08d500"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"md"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3b79e76d924d7bdd29b10e001e08d500"</span><span class="w">
@@ -1170,36 +1222,41 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Required</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>true</td>
+<td>UUID</td>
 <td>ID of the transaction</td>
 </tr>
 <tr>
 <td>acs</td>
-<td>true</td>
+<td>String</td>
 <td>2 =&gt; (3DS2.0)</td>
 </tr>
 <tr>
 <td>acs_url</td>
-<td>true</td>
+<td>String</td>
 <td>3DS password input screen URL</td>
 </tr>
 <tr>
 <td>md</td>
-<td>true</td>
+<td>String</td>
 <td>Transaction ID on GMO System</td>
+</tr>
+<tr>
+<td>pay_method</td>
+<td>String</td>
+<td>0 =&gt; (Credit card payment)</td>
 </tr>
 </tbody></table>
 <h1 id='settlement-paypay-support-for-the-gmo-gateway-and-the-fincode-gateway'>Settlement - PAYPAY (support for the GMO Gateway and  the FinCode Gateway)</h1><h2 id='payment-with-paypay-method'>Payment with PayPay method</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://staging-api.swa-pay.com/api/v1/payment'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: {store_token}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
-    "id": "09e68717-391a-4b01-87cb-0ccd7305eb8e",
+    "id": "1c2705ce-4eed-47eb-a753-0e6b0d6c151a",
     "payment_method": "paypay"
 }'</span>
 </code></pre></div>
@@ -1207,10 +1264,22 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09e68717-391a-4b01-87cb-0ccd7305eb8e"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"acs"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"acs_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://3c80-2405-4802-9119-ab90-e86d-6d5a-d791-666c.ap.ngrok.io/gateway/3ds/09e68717-391a-4b01-87cb-0ccd7305eb8e/3b79e76d924d7bdd29b10e001e08d500"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"md"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3b79e76d924d7bdd29b10e001e08d500"</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1c2705ce-4eed-47eb-a753-0e6b0d6c151a"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">2600.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"689190"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WAITING_FOR_PAYMENT"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"update_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-05-27T08:10:47.261+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-05-27T08:10:47.261+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_times"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"order_id_csv"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"actual_payment_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"confirmed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acs"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acs_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"redirect_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://staging-api.swa-pay.com/api/v1/gmo/paypay/start/1c2705ce-4eed-47eb-a753-0e6b0d6c151a"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint will help you to start payment for a transaction</p>
@@ -1230,19 +1299,169 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <td>ID of the transaction</td>
 </tr>
 <tr>
-<td>acs</td>
+<td>payment_method</td>
 <td>true</td>
-<td>2 =&gt; (3DS2.0)</td>
+<td>value: paypay</td>
 </tr>
 <tr>
-<td>acs_url</td>
-<td>true</td>
-<td>3DS password input screen URL</td>
+<td>customer_id</td>
+<td>false</td>
+<td>The customer id on merchant system</td>
+</tr>
+</tbody></table>
+<h3 id='json-object-payload-parameters-5'>JSON Object Payload Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>UUID</td>
+<td>ID of the transaction</td>
 </tr>
 <tr>
-<td>md</td>
+<td>pay_amount</td>
+<td>Double</td>
+<td>Amount of the transaction</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>String</td>
+<td>The currency used for payment. Default is JPY</td>
+</tr>
+<tr>
+<td>customer_id</td>
+<td>String</td>
+<td>The customer id on merchant system</td>
+</tr>
+<tr>
+<td>customer_order_id</td>
+<td>String</td>
+<td>The order id on merchant systems</td>
+</tr>
+<tr>
+<td>status</td>
+<td>String</td>
+<td>Status of Payment request</td>
+</tr>
+<tr>
+<td>redirect_url</td>
+<td>String</td>
+<td>Redirect URL for payment with PayPay</td>
+</tr>
+<tr>
+<td>pay_method</td>
+<td>String</td>
+<td>2 =&gt; (Paypay payment)</td>
+</tr>
+</tbody></table>
+<h1 id='settlement-linepay-support-for-the-gmo-gateway'>Settlement - LinePay (support for the GMO Gateway)</h1><h2 id='payment-with-linepay-method'>Payment with LinePay method</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://staging-api.swa-pay.com/api/v1/payment'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: {store_token}'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "id": "09e68717-391a-4b01-87cb-0ccd7305eb8e",
+    "payment_method": "linepay"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6cce744b-4122-44e8-992f-2ef6a53e2835"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">2600.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3780402"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WAITING_FOR_PAYMENT"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"update_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-05-28T03:00:44.037+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-05-28T03:00:44.037+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_times"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"order_id_csv"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"actual_payment_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"confirmed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acs"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acs_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"redirect_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://staging-api.swa-pay.com/api/v1/gmo/linepay/start/6cce744b-4122-44e8-992f-2ef6a53e2835"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint will help you to start payment for a transaction</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>POST https://staging-api.swa-pay.com/api/v1/payment</code></p>
+<h3 id='json-object-payload-parameters-6'>JSON Object Payload Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
 <td>true</td>
-<td>Transaction ID on GMO System</td>
+<td>ID of the transaction</td>
+</tr>
+<tr>
+<td>payment_method</td>
+<td>true</td>
+<td>value: paypay</td>
+</tr>
+<tr>
+<td>customer_id</td>
+<td>false</td>
+<td>The customer id on merchant system</td>
+</tr>
+</tbody></table>
+<h3 id='json-object-payload-parameters-7'>JSON Object Payload Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>UUID</td>
+<td>ID of the transaction</td>
+</tr>
+<tr>
+<td>pay_amount</td>
+<td>Double</td>
+<td>Amount of the transaction</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>String</td>
+<td>The currency used for payment. Default is JPY</td>
+</tr>
+<tr>
+<td>customer_id</td>
+<td>String</td>
+<td>The customer id on merchant system</td>
+</tr>
+<tr>
+<td>customer_order_id</td>
+<td>String</td>
+<td>The order id on merchant systems</td>
+</tr>
+<tr>
+<td>status</td>
+<td>String</td>
+<td>Status of Payment request</td>
+</tr>
+<tr>
+<td>redirect_url</td>
+<td>String</td>
+<td>Redirect URL for payment with Linepay</td>
+</tr>
+<tr>
+<td>pay_method</td>
+<td>String</td>
+<td>4 =&gt; (linepay payment)</td>
 </tr>
 </tbody></table>
 <h1 id='users'>Users</h1><h2 id='user-registration'>User registration</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://staging-api.swa-pay.com/api/v1/customers'</span> <span class="se">\</span>
