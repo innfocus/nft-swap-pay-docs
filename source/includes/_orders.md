@@ -15,7 +15,9 @@ curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/order' \
     "description": "NFT",
     "success_url": "https://swapay.co.jp/",
     "callback_url": "https://swapay.co.jp/",
-    "cancel_url": "https://swapay.co.jp/"
+    "cancel_url": "https://swapay.co.jp/",
+    "selected_payment_type": "1",
+    "selected_installment_term": 6
 }'
 ```
 
@@ -50,7 +52,7 @@ curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/order' \
     "payment_url": "https://staging-api.swa-pay.com/gateway/payment/8405b5f8-0244-4bd5-97cb-748ddeac6b13",
     "pay_method": null,
     "pay_times": null,
-    "selected_payment_type": "1",
+    "selected_payment_type": "INSTALLMENT",
     "selected_installment_term": 6
 }
 ```
@@ -166,8 +168,8 @@ curl --location --request PUT 'https://staging-api.swa-pay.com/api/v1/store/orde
     "consumer_email": null,
     "user_id": null,
     "subscribe": null,
-    "selected_payment_type": "INSTALLMENT",
-    "selected_installment_term": 6
+    "selected_payment_type": "ONE_TIME",
+    "selected_installment_term": null
 }
 ```
 
