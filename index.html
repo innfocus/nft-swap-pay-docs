@@ -491,7 +491,7 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
     "success_url": "https://swapay.co.jp/",
     "callback_url": "https://swapay.co.jp/",
     "cancel_url": "https://swapay.co.jp/",
-    "selected_payment_type": "1",
+    "selected_payment_type": "INSTALLMENT",
     "selected_installment_term": 6
 }'</span>
 </code></pre></div>
@@ -621,7 +621,7 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <td>selected_payment_type</td>
 <td>String or null</td>
 <td>false</td>
-<td>Enum: &quot;0&quot; &quot;1&quot; &quot;5&quot; 0: One-time payment, 1: Installment payment, 5: Revolving payment</td>
+<td>Enum: &quot;ONE_TIME&quot; &quot;INSTALLMENT&quot; &quot;REVOLVING&quot; ONE_TIME: One-time payment (default), INSTALLMENT: Installment payment, REVOLVING: Revolving payment</td>
 </tr>
 <tr>
 <td>selected_installment_term</td>
@@ -1018,17 +1018,17 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 </thead><tbody>
 <tr>
 <td>ONE_TIME</td>
-<td>0</td>
+<td>ONE_TIME</td>
 <td>One Time payment</td>
 </tr>
 <tr>
 <td>INSTALLMENT</td>
-<td>1</td>
+<td>INSTALLMENT</td>
 <td>INSTALLMENT type payment</td>
 </tr>
 <tr>
 <td>REVOLVING</td>
-<td>5</td>
+<td>REVOLVING</td>
 <td>REVOLVING type payment</td>
 </tr>
 </tbody></table>
