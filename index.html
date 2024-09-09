@@ -490,7 +490,9 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
     "description": "NFT",
     "success_url": "https://swapay.co.jp/",
     "callback_url": "https://swapay.co.jp/",
-    "cancel_url": "https://swapay.co.jp/"
+    "cancel_url": "https://swapay.co.jp/",
+    "selected_payment_type": "1",
+    "selected_installment_term": 6
 }'</span>
 </code></pre></div>
 <blockquote>
@@ -524,7 +526,7 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
     </span><span class="nl">"payment_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://staging-api.swa-pay.com/gateway/payment/8405b5f8-0244-4bd5-97cb-748ddeac6b13"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"pay_method"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"pay_times"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"selected_payment_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"selected_payment_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSTALLMENT"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"selected_installment_term"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -786,8 +788,8 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
     </span><span class="nl">"consumer_email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"subscribe"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"selected_payment_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INSTALLMENT"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"selected_installment_term"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
+    </span><span class="nl">"selected_payment_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONE_TIME"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"selected_installment_term"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint will help you to change the payment details of transactions.</p>
