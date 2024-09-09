@@ -16,7 +16,7 @@ curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/order' \
     "success_url": "https://swapay.co.jp/",
     "callback_url": "https://swapay.co.jp/",
     "cancel_url": "https://swapay.co.jp/",
-    "selected_payment_type": "1",
+    "selected_payment_type": "INSTALLMENT",
     "selected_installment_term": 6
 }'
 ```
@@ -88,7 +88,7 @@ cancel_url | String | false | Redirect to `cancel_url` when buyer cancels the or
 user_id | String | false | The customer ID on SWAPay system (Returned in the user registration api)
 consumer_email | String | false | Email of customer	
 consumer_phone | String | false | Phone of consumer
-selected_payment_type | String or null | false | Enum: "0" "1" "5" 0: One-time payment (default), 1: Installment payment, 5: Revolving payment
+selected_payment_type | String or null | false | Enum: "ONE_TIME" "INSTALLMENT" "REVOLVING" ONE_TIME: One-time payment (default), INSTALLMENT: Installment payment, REVOLVING: Revolving payment
 selected_installment_term | String or null | false | Enum: "3" "5" "6" "10" "12" "15" "18" "20" "24" (For installments) Number of payments
 
 System will send confirmation message after payment with contact information registered with `user_id`.  
@@ -317,9 +317,9 @@ APPLEPAY | 5 | Applepay payment
 
 Name | Value | Meaning
 ---- | ----- | -------
-ONE_TIME | 0 | One Time payment
-INSTALLMENT | 1 | INSTALLMENT type payment
-REVOLVING | 5 | REVOLVING type payment
+ONE_TIME | ONE_TIME | One Time payment
+INSTALLMENT | INSTALLMENT | INSTALLMENT type payment
+REVOLVING | REVOLVING | REVOLVING type payment
 
 ## Callback Response Message
 
