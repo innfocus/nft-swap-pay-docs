@@ -89,8 +89,7 @@ user_id | String | false | The customer ID on SWAPay system (Returned in the use
 consumer_email | String | false | Email of customer	
 consumer_phone | String | false | Phone of consumer
 selected_payment_type | String or null | false | Enum: "0" "1" "5" 0: One-time payment, 1: Installment payment, 5: Revolving payment
-selected_installment_term | String or null | false | Enum: "3" "5" "6" "10" "12" "15" "18" "20" "24"
-(For installments) Number of payments
+selected_installment_term | String or null | false | Enum: "3" "5" "6" "10" "12" "15" "18" "20" "24" (For installments) Number of payments
 
 System will send confirmation message after payment with contact information registered with `user_id`.  
 If there is no `user_id`, you can send `consumer_email` or `consumer_phone`. So that the system can send a confirmation message after payment
