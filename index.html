@@ -343,6 +343,9 @@
                     <a href="#payment-method-of-order" class="toc-h2 toc-link" data-title="Payment Method of order">Payment Method of order</a>
                   </li>
                   <li>
+                    <a href="#pay-type-method-for-payment" class="toc-h2 toc-link" data-title="Pay Type Method for payment">Pay Type Method for payment</a>
+                  </li>
+                  <li>
                     <a href="#callback-response-message" class="toc-h2 toc-link" data-title="Callback Response Message">Callback Response Message</a>
                   </li>
               </ul>
@@ -610,7 +613,21 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 <td>false</td>
 <td>Phone of consumer</td>
 </tr>
+<tr>
+<td>selected_payment_type</td>
+<td>String or null</td>
+<td>false</td>
+<td>Enum: &quot;0&quot; &quot;1&quot; &quot;5&quot; 0: One-time payment, 1: Installment payment, 5: Revolving payment</td>
+</tr>
+<tr>
+<td>selected_installment_term</td>
+<td>String or null</td>
+<td>false</td>
+<td>num: &quot;3&quot; &quot;5&quot; &quot;6&quot; &quot;10&quot; &quot;12&quot; &quot;15&quot; &quot;18&quot; &quot;20&quot; &quot;24&quot;</td>
+</tr>
 </tbody></table>
+
+<p>(For installments) Number of payments</p>
 
 <p>System will send confirmation message after payment with contact information registered with <code>user_id</code>.<br>
 If there is no <code>user_id</code>, you can send <code>consumer_email</code> or <code>consumer_phone</code>. So that the system can send a confirmation message after payment</p>
@@ -712,7 +729,19 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <td>DateTime</td>
 <td></td>
 </tr>
+<tr>
+<td>selected_payment_type</td>
+<td>String or null</td>
+<td>value: &quot;ONE_TIME&quot; &quot;INSTALLMENT&quot; &quot;REVOLVING&quot;</td>
+</tr>
+<tr>
+<td>selected_installment_term</td>
+<td>String or null</td>
+<td>false</td>
+</tr>
 </tbody></table>
+
+<p>(For installments) Number of payments</p>
 <h2 id='update-a-order'>Update a order</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> PUT <span class="s1">'https://staging-api.swa-pay.com/api/v1/store/orders/c2b5512c-7ef2-4590-bfb7-3eb2874b2187'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
@@ -975,6 +1004,30 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <td>APPLEPAY</td>
 <td>5</td>
 <td>Applepay payment</td>
+</tr>
+</tbody></table>
+<h2 id='pay-type-method-for-payment'>Pay Type Method for payment</h2>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ONE_TIME</td>
+<td>0</td>
+<td>One Time payment</td>
+</tr>
+<tr>
+<td>INSTALLMENT</td>
+<td>1</td>
+<td>INSTALLMENT type payment</td>
+</tr>
+<tr>
+<td>REVOLVING</td>
+<td>5</td>
+<td>REVOLVING type payment</td>
 </tr>
 </tbody></table>
 <h2 id='callback-response-message'>Callback Response Message</h2>
