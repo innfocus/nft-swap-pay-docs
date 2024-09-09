@@ -83,7 +83,10 @@ callback_url | String | false | JSON-formatted `POST` notification message will 
 cancel_url | String | false | Redirect to `cancel_url` when buyer cancels the order	
 user_id | String | false | The customer ID on SWAPay system (Returned in the user registration api)
 consumer_email | String | false | Email of customer	
-consumer_phone | String | false | Phone of consumer	
+consumer_phone | String | false | Phone of consumer
+selected_payment_type | String or null | false | Enum: "0" "1" "5" 0: One-time payment, 1: Installment payment, 5: Revolving payment
+selected_installment_term | String or null | false | num: "3" "5" "6" "10" "12" "15" "18" "20" "24"
+(For installments) Number of payments
 
 System will send confirmation message after payment with contact information registered with `user_id`.  
 If there is no `user_id`, you can send `consumer_email` or `consumer_phone`. So that the system can send a confirmation message after payment
@@ -110,6 +113,9 @@ payment_url | String | The customer will process the payment at this site.
 pay_times | Number |    
 update_date | DateTime |   
 create_date  | DateTime | 
+selected_payment_type | String or null | value: "ONE_TIME" "INSTALLMENT" "REVOLVING"
+selected_installment_term | String or null | false | num: "3" "5" "6" "10" "12" "15" "18" "20" "24"
+(For installments) Number of payments
 
 ## Update a order
 
@@ -302,6 +308,14 @@ PAYPAY | 2 | Paypay payment
 FAMIPAY | 3 | Famipay payment
 LINEPAY | 4 | Linepay payment
 APPLEPAY | 5 | Applepay payment
+
+## Pay Type Method for payment
+
+Name | Value | Meaning
+---- | ----- | -------
+ONE_TIME | 0 | One Time payment
+INSTALLMENT | 1 | INSTALLMENT type payment
+REVOLVING | 5 | REVOLVING type payment
 
 ## Callback Response Message
 
