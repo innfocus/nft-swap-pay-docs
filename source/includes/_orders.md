@@ -88,7 +88,7 @@ cancel_url | String | false | Redirect to `cancel_url` when buyer cancels the or
 user_id | String | false | The customer ID on SWAPay system (Returned in the user registration api)
 consumer_email | String | false | Email of customer	
 consumer_phone | String | false | Phone of consumer
-selected_payment_type | String or null | false | Enum: "0" "1" "5" 0: One-time payment, 1: Installment payment, 5: Revolving payment
+selected_payment_type | String or null | false | Enum: "0" "1" "5" 0: One-time payment (default), 1: Installment payment, 5: Revolving payment
 selected_installment_term | String or null | false | Enum: "3" "5" "6" "10" "12" "15" "18" "20" "24" (For installments) Number of payments
 
 System will send confirmation message after payment with contact information registered with `user_id`.  
@@ -116,7 +116,7 @@ payment_url | String | The customer will process the payment at this site.
 pay_times | Number |    
 update_date | DateTime |   
 create_date  | DateTime | 
-selected_payment_type | String or null | Enum: "ONE_TIME" "INSTALLMENT" "REVOLVING"
+selected_payment_type | String or null | Enum: "ONE_TIME" "INSTALLMENT" "REVOLVING" 
 selected_installment_term | String or null | Enum: "3" "5" "6" "10" "12" "15" "18" "20" "24" (For installments) Number of payments
 
 ## Update a order
