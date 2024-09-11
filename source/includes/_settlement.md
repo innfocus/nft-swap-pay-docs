@@ -59,7 +59,13 @@ This endpoint will help you to payment for a transaction
 
 ### HTTP Request
 
-`POST https://staging-api.swa-pay.com/api/v1/payment`
+`POST /v1/payment`
+
+Production environment
+`https://api.swa-pay.com/api/v1/payment`
+
+Staging environment
+`https://staging-api.swa-pay.com/api/v1/payment`
 
 ### JSON Object Payload Parameters
 
@@ -121,7 +127,13 @@ This endpoint will help you to payment for a transaction
 
 ### HTTP Request
 
-`POST https://staging-api.swa-pay.com/api/v1/payment_cancel`
+`POST /v1/payment_cancel`
+
+Production environment
+`https://api.swa-pay.com/api/v1/payment_cancel`
+
+Staging environment
+`https://staging-api.swa-pay.com/api/v1/payment_cancel`
 
 ### JSON Object Payload Parameters
 
@@ -162,7 +174,13 @@ This endpoint will help you to start payment for a transaction
 
 ### HTTP Request
 
-`POST https://staging-api.swa-pay.com/api/v1/payment`
+`POST /v1/payment`
+
+Production environment
+`https://api.swa-pay.com/api/v1/payment`
+
+Staging environment
+`https://staging-api.swa-pay.com/api/v1/payment`
 
 ### JSON Object Payload Parameters
 
@@ -217,7 +235,13 @@ This endpoint will help you to start payment for a transaction
 
 ### HTTP Request
 
-`POST https://staging-api.swa-pay.com/api/v1/payment`
+`POST /v1/payment`
+
+Production environment
+`https://api.swa-pay.com/api/v1/payment`
+
+Staging environment
+`https://staging-api.swa-pay.com/api/v1/payment`
 
 ### JSON Object Payload Parameters
 
@@ -283,7 +307,13 @@ This endpoint will help you to start payment for a transaction
 
 ### HTTP Request
 
-`POST https://staging-api.swa-pay.com/api/v1/payment`
+`POST /v1/payment`
+
+Production environment
+`https://api.swa-pay.com/api/v1/payment`
+
+Staging environment
+`https://staging-api.swa-pay.com/api/v1/payment`
 
 ### JSON Object Payload Parameters
 

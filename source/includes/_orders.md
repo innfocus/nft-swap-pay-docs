@@ -71,7 +71,13 @@ This endpoint will help you to start a transaction
 
 ### HTTP Request
 
-`POST https://staging-api.swa-pay.com/api/v1/order`
+`POST /v1/order`
+
+Production environment
+`https://api.swa-pay.com/api/v1/order`
+
+Staging environment
+`https://staging-api.swa-pay.com/api/v1/order`
 
 ### JSON Object Payload Parameters
 
@@ -176,7 +182,13 @@ This endpoint will help you to change the payment details of transactions.
 
 ### HTTP Request
 
-`PUT https://staging-api.swa-pay.com/api/v1/store/orders/{id}`
+`PUT /v1/store/orders/{id}`
+
+Production environment
+`https://api.swa-pay.com/api/v1/store/orders/{id}`
+
+Staging environment
+`https://staging-api.swa-pay.com/api/v1/store/orders/{id}`
 
 ### JSON Object Payload Parameters
 
@@ -233,7 +245,13 @@ This endpoint retrieves all Orders.
 
 ### HTTP Request
 
-`GET https://staging-api.swa-pay.com/api/v1/store/orders`
+`GET /v1/store/orders`
+
+Production environment
+`https://api.swa-pay.com/api/v1/store/orders`
+
+Staging environment
+`https://staging-api.swa-pay.com/api/v1/store/orders`
 
 ### Query Parameters
 
@@ -277,7 +295,13 @@ This endpoint get a specific order information.
 
 ### HTTP Request
 
-`GET https://staging-api.swa-pay.com/api/v1/store/orders/{id}`
+`GET /v1/store/orders/{id}`
+
+Production environment
+`https://api.swa-pay.com/api/v1/store/orders/{id}`
+
+Staging environment
+`https://staging-api.swa-pay.com/api/v1/store/orders/{id}`
 
 ### URL Parameters
 

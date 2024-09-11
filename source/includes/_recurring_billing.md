@@ -90,7 +90,13 @@ This endpoint will help you to start a recurring transaction
 
 ### HTTP Request
 
-`POST https://staging-api.swa-pay.com/api/v1/store/recurring_billing`
+`POST /v1/store/recurring_billing`
+
+Production environment
+`https://api.swa-pay.com/api/v1/store/recurring_billing`
+
+Staging environment
+`https://staging-api.swa-pay.com/api/v1/store/recurring_billing`
 
 ### JSON Object Payload Parameters
 
@@ -218,7 +224,13 @@ The payment flow same as one time order.
 
 ### HTTP Request
 
-`POST https://staging-api.swa-pay.com/api/v1/store/recurring_billing/payment`
+`POST /v1/store/recurring_billing/payment`
+
+Production environment
+`https://api.swa-pay.com/api/v1/store/recurring_billing/payment`
+
+Staging environment
+`https://staging-api.swa-pay.com/api/v1/store/recurring_billing/payment`
 
 ### JSON Object Payload Parameters
 
@@ -251,7 +263,13 @@ This endpoint will help you to download list recurring billings
 
 ### HTTP Request
 
-`POST https://staging-api.swa-pay.com/api/v1/store/recurring_billing/export`
+`POST /v1/store/recurring_billing/export`
+
+Production environment
+`https://api.swa-pay.com/api/v1/store/recurring_billing/export`
+
+Staging environment
+`https://staging-api.swa-pay.com/api/v1/store/recurring_billing/export`
 
 ### JSON Object Payload Parameters
 
@@ -292,7 +310,13 @@ This endpoint will help you to upload list recurring billings. You can export li
 
 ### HTTP Request
 
-`POST https://staging-api.swa-pay.com/api/v1/store/recurring_billing/import`
+`POST /v1/store/recurring_billing/import`
+
+Production environment
+`https://api.swa-pay.com/api/v1/store/recurring_billing/import`
+
+Staging environment
+`https://staging-api.swa-pay.com/api/v1/store/recurring_billing/import`
 
 ### Form data parameters
 

@@ -34,7 +34,13 @@ This endpoint will help you register the card information with the specified mem
 
 ### HTTP Request
 
-`POST https://staging-api.swa-pay.com/api/v1/cards`
+`POST /v1/cards`
+
+Production environment
+`https://api.swa-pay.com/api/v1/cards`
+
+Staging environment
+`https://staging-api.swa-pay.com/api/v1/cards`
 
 ### JSON Object Payload Parameters
 
@@ -88,7 +94,13 @@ Remove card by card_id
 
 ### HTTP Request
 
-`DELETE https://staging-api.swa-pay.com/api/v1/cards/{id}`
+`DELETE /v1/cards/{id}`
+
+Production environment
+`https://api.swa-pay.com/api/v1/cards/{id}`
+
+Staging environment
+`https://staging-api.swa-pay.com/api/v1/cards/{id}`
 
 ### JSON Object Payload Parameters
 

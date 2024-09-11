@@ -45,7 +45,13 @@ This endpoint will help you register a user on SWAPAY system.
 
 ### HTTP Request
 
-`POST https://staging-api.swa-pay.com/api/v1/customers`
+`POST /v1/customers`
+
+Production environment
+`https://api.swa-pay.com/api/v1/customers`
+
+Staging environment
+`https://staging-api.swa-pay.com/api/v1/customers`
 
 ### JSON Object Payload Parameters
 
@@ -127,7 +133,13 @@ This endpoint will help you get a user profile on SWAPAY system.
 
 ### HTTP Request
 
-`POST https://staging-api.swa-pay.com/api/v1/customers/{id}`
+`POST /v1/customers/{id}`
+
+Production environment
+`https://api.swa-pay.com/api/v1/customers/{id}`
+
+Staging environment
+`https://staging-api.swa-pay.com/api/v1/customers/{id}`
 
 ### URL Parameters
 
@@ -187,7 +199,13 @@ This endpoint will help you update user profile on SWAPAY system.
 
 ### HTTP Request
 
-`POST https://staging-api.swa-pay.com/api/v1/customers/{id}`
+`POST /v1/customers/{id}`
+
+Production environment
+`https://api.swa-pay.com/api/v1/customers/{id}`
+
+Staging environment
+`https://staging-api.swa-pay.com/api/v1/customers/{id}`
 
 ### URL Parameters
 
@@ -250,7 +268,13 @@ This endpoint will help you resend the verification message to user.
 
 ### HTTP Request
 
-`POST https://staging-api.swa-pay.com/api/v1/customers/{id}/resend_verification`
+`POST /v1/customers/{id}/resend_verification`
+
+Production environment
+`https://api.swa-pay.com/api/v1/customers/{id}/resend_verification`
+
+Staging environment
+`https://staging-api.swa-pay.com/api/v1/customers/{id}/resend_verification`
 
 ### URL Parameters
 
@@ -291,7 +315,13 @@ This endpoint will help the customers verify their phone number. SWAPay system w
 
 ### HTTP Request
 
-`POST https://staging-api.swa-pay.com/api/v1/verify`
+`POST /v1/verify`
+
+Production environment
+`https://api.swa-pay.com/api/v1/verify`
+
+Staging environment
+`https://staging-api.swa-pay.com/api/v1/verify`
 
 ### JSON Object Payload Parameters
 
