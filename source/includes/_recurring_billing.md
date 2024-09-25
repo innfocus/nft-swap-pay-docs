@@ -228,7 +228,7 @@ callback_url | String | false | JSON-formatted `POST` notification message will 
 cancel_url | String | false | Redirect to `cancel_url` when buyer cancels the order
 first_payment_deadline| DateTime | false | processing date first payment
 
-## Order Response Fields
+### Order Response Fields
 
 Field | Type | Description
 ----- | ---- | -------
