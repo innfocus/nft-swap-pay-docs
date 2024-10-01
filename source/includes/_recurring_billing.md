@@ -378,7 +378,7 @@ card_no | true | credit card number
 expire | true | Credit card expiration date - MMYY format
 security_code | true | security code - The 3- or 4-digit number printed on the card
 holder_name | true | Credit card name 
-user_id | true | SWAPAY user ID 
+user_id | true | The ID of the customer who will be the purchaser. 
 
 
 ### JSON Object Payload Parameters (Payment with member)
@@ -386,6 +386,6 @@ user_id | true | SWAPAY user ID
 Parameter | Required | Description
 --------- | -------- | -----------
 id | true | ID of the transaction
-card_id | true | credit card number 
-user_id | true | SWAPAY user ID 
+card_id | true | The ID of the card used for this payment.
+user_id | true | The ID of the customer who will be the purchaser.
 
