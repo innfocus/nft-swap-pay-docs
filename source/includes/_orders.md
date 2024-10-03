@@ -321,9 +321,9 @@ OTP_TIMEOUT | Cannot confirm OTP after 30 minutes.
 AUTHENTICATING_3DS | Waiting for 3DS Authentication. 
 TIMEOUT_3DS | 3DS timeout after 30 minutes. 
 PROCESSING | The transaction is paid and waiting to be confirmed.  
-COMPLETE | Transaction was successfully. 
+COMPLETE | The transaction was successfully. 
 REFUNDED | The transaction is refunded.  
-CANCEL | This payment has been cancelled. The order status is "not paid" and has been canceled by the user or merchant. 
+CANCEL | This payment has been canceled while the transaction status was "TEMPORARY_SAVE" or "WAITING_FOR_PAYMENT" and was canceled by the user or merchant. 
 ERROR |  An error occurred during the payment process.
 
 
