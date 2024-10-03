@@ -314,6 +314,7 @@ id | The ID of the order
 
 Status Code | Meaning
 ---------- | -------
+TEMPORARY_SAVE| The temporary save status of the order.
 WAITING_FOR_PAYMENT | The Waiting for payment status means that we still are waiting for payment. 
 OTP_CONFIRMING | Waiting for OTP confirming from Email/SMS. 
 OTP_TIMEOUT | Cannot confirm OTP after 30 minutes. 
@@ -322,8 +323,8 @@ TIMEOUT_3DS | 3DS timeout after 30 minutes.
 PROCESSING | The transaction is paid and waiting to be confirmed.  
 COMPLETE | Transaction was successfully. 
 REFUNDED | The transaction is refunded.  
-CANCEL | The payment has been declined either by your payment operator or due to security reasons by our system.  
-ERROR | Error returned from GMO 
+CANCEL | This payment has been cancelled. The order status is "not paid" and has been canceled by the user or merchant. 
+ERROR |  An error occurred during the payment process.
 
 
 ## Payment Method of order
