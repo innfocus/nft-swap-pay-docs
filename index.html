@@ -967,6 +967,10 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 </tr>
 </thead><tbody>
 <tr>
+<td>TEMPORARY_SAVE</td>
+<td>The temporary save status of the order.</td>
+</tr>
+<tr>
 <td>WAITING_FOR_PAYMENT</td>
 <td>The Waiting for payment status means that we still are waiting for payment.</td>
 </tr>
@@ -1000,11 +1004,11 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 </tr>
 <tr>
 <td>CANCEL</td>
-<td>The payment has been declined either by your payment operator or due to security reasons by our system.</td>
+<td>This payment has been cancelled. The order status is &quot;not paid&quot; and has been canceled by the user or merchant.</td>
 </tr>
 <tr>
 <td>ERROR</td>
-<td>Error returned from GMO</td>
+<td>An error occurred during the payment process.</td>
 </tr>
 </tbody></table>
 <h2 id='payment-method-of-order'>Payment Method of order</h2>
