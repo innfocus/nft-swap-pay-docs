@@ -443,6 +443,9 @@
                   <li>
                     <a href="#making-a-payment-using-a-card-number" class="toc-h2 toc-link" data-title="Making a payment using a card number">Making a payment using a card number</a>
                   </li>
+                  <li>
+                    <a href="#termination-of-subscription" class="toc-h2 toc-link" data-title="Termination of subscription">Termination of subscription</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -2812,6 +2815,142 @@ The payment flow same as one time order.
 <td>user_id</td>
 <td>true</td>
 <td>The ID of the customer who will be the purchaser.</td>
+</tr>
+</tbody></table>
+<h2 id='termination-of-subscription'>Termination of subscription</h2>
+<blockquote>
+<p>Discontinue the subscription specified by ID and stop billing.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> DELETE <span class="s1">'https://staging-api.swa-pay.com/api/v1/store/recurring_billing/9346119c-2a27-4697-ada9-bab6873c3d69'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9346119c-2a27-4697-ada9-bab6873c3d69"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"subscribe_order_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"service_name_monthly"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1100.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"service_name_initial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test init"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"initial_cost_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">5500.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_payment_deadline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-10-19T17:00:00.000+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date_start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-11-24T00:00:00.000+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date_end"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_times"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"monthly_payment_day"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CANCEL"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"consumer_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ta pham kim Hieu"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"consumer_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hieutaphamkim89@gmail.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"consumer_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0964-47-7058"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"store"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"955b8cc3-02dd-434e-927b-f718638536c1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"store_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"store fincode n3"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"office_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"gateway"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FIN_CODE_GATEWAY"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1Registered address"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"merchant"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"95969926-0272-4021-82a9-2c58db5daadb"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin@nft-swapay.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"confirmed"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ADMIN"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"affiliate_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin@nft-swapay.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"display_gateway"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GMO_GATEWAY"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HCM city"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"invoice_business_registration_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s2201"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"representative_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"account_number"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"trading_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEMPORARY_SALES_PAYMENT"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4f301013-4e7f-4d5c-8254-f1dc8200bd77"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hieu"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ta pham kim"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hieutaphamkim89@gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0964-47-7058"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"confirmed"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USER"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"affiliate_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ta pham kim Hieu"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"display_gateway"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GMO_GATEWAY"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ho Chi Minh"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"invoice_business_registration_number"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"representative_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"account_number"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"merchant"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"95969926-0272-4021-82a9-2c58db5daadb"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin@nft-swapay.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"confirmed"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ADMIN"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"affiliate_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin@nft-swapay.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"display_gateway"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GMO_GATEWAY"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HCM city"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"invoice_business_registration_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s2201"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"representative_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"account_number"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-10-24T15:00:58.483+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"productions"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"initial"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tax_invoice"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_untaxed"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_taxed"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tax_invoice_initial"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_untaxed_initial"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_taxed_initial"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint will help you to change the payment details of transactions.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>DELETE /v1/store/recurring_billing/{id}</code></p>
+
+<p>Production environment
+<code>https://api.swa-pay.com/api/v1/store/recurring_billing/{id}</code></p>
+
+<p>Staging environment
+<code>https://staging-api.swa-pay.com/api/v1/store/recurring_billing/{id}</code></p>
+<h3 id='json-object-payload-parameters-3'>JSON Object Payload Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>UUID</td>
+<td>true</td>
+<td>ID of the transaction</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
