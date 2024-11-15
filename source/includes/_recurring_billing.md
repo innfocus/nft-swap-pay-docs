@@ -389,3 +389,134 @@ id | true | ID of the transaction
 card_id | true | The ID of the card used for this payment.
 user_id | true | The ID of the customer who will be the purchaser.
 
+##  Termination of subscription
+> Discontinue the subscription specified by ID and stop billing.
+
+```shell
+curl --location --request DELETE 'https://staging-api.swa-pay.com/api/v1/store/recurring_billing/9346119c-2a27-4697-ada9-bab6873c3d69' \
+--header 'Authorization: meowmeowmeow' \
+--header 'Content-Type: application/json'
+
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": "9346119c-2a27-4697-ada9-bab6873c3d69",
+    "subscribe_order_name": "test",
+    "service_name_monthly": "test",
+    "pay_amount": 1100.0,
+    "service_name_initial": "test init",
+    "initial_cost_amount": 5500.0,
+    "first_payment_deadline": "2024-10-19T17:00:00.000+00:00",
+    "date_start": "2024-11-24T00:00:00.000+00:00",
+    "date_end": null,
+    "pay_times": null,
+    "monthly_payment_day": 24,
+    "status": "CANCEL",
+    "consumer_name": "ta pham kim Hieu",
+    "consumer_email": "hieutaphamkim89@gmail.com",
+    "consumer_phone": "0964-47-7058",
+    "store": {
+        "id": "955b8cc3-02dd-434e-927b-f718638536c1",
+        "store_name": "store fincode n3",
+        "office_name": "1",
+        "gateway": "FIN_CODE_GATEWAY",
+        "address": "1",
+        "address2": "1Registered address",
+        "postal_code": "1",
+        "merchant": {
+            "id": "95969926-0272-4021-82a9-2c58db5daadb",
+            "first_name": null,
+            "last_name": null,
+            "email": "admin@nft-swapay.com",
+            "phone": null,
+            "avatar": null,
+            "confirmed": null,
+            "role": "ADMIN",
+            "status": "ACTIVE",
+            "affiliate_code": null,
+            "parent_id": null,
+            "display_name": "admin@nft-swapay.com",
+            "display_gateway": "GMO_GATEWAY",
+            "address": "HCM city",
+            "invoice_business_registration_number": "s2201",
+            "company_name": null,
+            "representative_name": null,
+            "account_number": null
+        },
+        "trading_type": "TEMPORARY_SALES_PAYMENT"
+    },
+    "user": {
+        "id": "4f301013-4e7f-4d5c-8254-f1dc8200bd77",
+        "first_name": "Hieu",
+        "last_name": "ta pham kim",
+        "email": "hieutaphamkim89@gmail.com",
+        "phone": "0964-47-7058",
+        "avatar": null,
+        "confirmed": null,
+        "role": "USER",
+        "status": "ACTIVE",
+        "affiliate_code": null,
+        "parent_id": null,
+        "display_name": "ta pham kim Hieu",
+        "display_gateway": "GMO_GATEWAY",
+        "address": "Ho Chi Minh",
+        "invoice_business_registration_number": null,
+        "company_name": null,
+        "representative_name": null,
+        "account_number": null
+    },
+    "merchant": {
+        "id": "95969926-0272-4021-82a9-2c58db5daadb",
+        "first_name": null,
+        "last_name": null,
+        "email": "admin@nft-swapay.com",
+        "phone": null,
+        "avatar": null,
+        "confirmed": null,
+        "role": "ADMIN",
+        "status": "ACTIVE",
+        "affiliate_code": null,
+        "parent_id": null,
+        "display_name": "admin@nft-swapay.com",
+        "display_gateway": "GMO_GATEWAY",
+        "address": "HCM city",
+        "invoice_business_registration_number": "s2201",
+        "company_name": null,
+        "representative_name": null,
+        "account_number": null
+    },
+    "currency": "JPY",
+    "create_date": "2024-10-24T15:00:58.483+00:00",
+    "description": "test",
+    "productions": null,
+    "initial": null,
+    "tax_invoice": null,
+    "amount_untaxed": null,
+    "amount_taxed": null,
+    "tax_invoice_initial": null,
+    "amount_untaxed_initial": null,
+    "amount_taxed_initial": null
+}
+```
+
+This endpoint will help you to change the payment details of transactions.
+
+### HTTP Request
+
+`DELETE /v1/store/recurring_billing/{id}`
+
+Production environment
+`https://api.swa-pay.com/api/v1/store/recurring_billing/{id}`
+
+Staging environment
+`https://staging-api.swa-pay.com/api/v1/store/recurring_billing/{id}`
+
+### JSON Object Payload Parameters
+
+Parameter | Type  | Required | Description
+--------- | ----- | -------- | -----------
+id | UUID | true | ID of the transaction
+
