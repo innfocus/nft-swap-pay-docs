@@ -370,7 +370,7 @@ REVOLVING | REVOLVING | REVOLVING type payment
     "first_name": "Hieu",
     "last_name": "ta pham kim",
     "email": "hieutaphamkim89@gmail.com",
-    "phone": "0964-47-7058",
+    "phone": "0964-11-1111",
     "affiliate_code": null,
     "display_name": "ta pham kim Hieu",
     "address": "Ho Chi Minh"
