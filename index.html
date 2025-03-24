@@ -1104,53 +1104,122 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 </thead><tbody>
 <tr>
 <td>id</td>
-<td></td>
-<td></td>
+<td>UUID</td>
+<td>Unique identifier of the payment request</td>
 </tr>
 <tr>
 <td>pay_amount</td>
-<td></td>
-<td></td>
+<td>Double</td>
+<td>Payment amount</td>
 </tr>
 <tr>
 <td>currency</td>
-<td></td>
-<td></td>
+<td>String</td>
+<td>Currency code (e.g., &quot;JPY&quot;, &quot;USD&quot;)</td>
 </tr>
 <tr>
 <td>customer_id</td>
-<td></td>
-<td></td>
+<td>String or null</td>
+<td>Customer identifier (nullable)</td>
 </tr>
 <tr>
 <td>customer_order_id</td>
-<td></td>
-<td></td>
+<td>String</td>
+<td>ID of the order from the customer system</td>
 </tr>
 <tr>
 <td>status</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>pay_method</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>pay_times</td>
-<td></td>
-<td></td>
+<td>String</td>
+<td>Status of the payment request (e.g., PROCESSING, COMPLETE)</td>
 </tr>
 <tr>
 <td>update_date</td>
-<td></td>
-<td></td>
+<td>Timestamp (epoch millis)</td>
+<td>Last updated time of the transaction</td>
 </tr>
 <tr>
 <td>create_date</td>
-<td></td>
-<td></td>
+<td>Timestamp (epoch millis)</td>
+<td>Created time of the transaction</td>
+</tr>
+<tr>
+<td>pay_method</td>
+<td>String</td>
+<td>Payment method code (e.g., &quot;0&quot;)</td>
+</tr>
+<tr>
+<td>pay_times</td>
+<td>Int or null</td>
+<td>Number of payment installments (nullable)</td>
+</tr>
+<tr>
+<td>actual_payment_date</td>
+<td>Timestamp (epoch millis)</td>
+<td>Time the payment was actually made</td>
+</tr>
+<tr>
+<td>confirmed_at</td>
+<td>Timestamp (epoch millis) or null</td>
+<td>Time the transaction was confirmed</td>
+</tr>
+<tr>
+<td>authenticating_date</td>
+<td>Timestamp (epoch millis)</td>
+<td>Authentication time of the transaction</td>
+</tr>
+<tr>
+<td>user_payment</td>
+<td>Object</td>
+<td>Info of the user who made the payment (see below)</td>
+</tr>
+</tbody></table>
+<h4 id='user_payment-object-fields'>user_payment object fields</h4>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>UUID</td>
+<td>User ID</td>
+</tr>
+<tr>
+<td>first_name</td>
+<td>String</td>
+<td>User&#39;s first name</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>String</td>
+<td>User&#39;s last name</td>
+</tr>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>User&#39;s email</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>String</td>
+<td>User&#39;s phone number</td>
+</tr>
+<tr>
+<td>affiliate_code</td>
+<td>String or null</td>
+<td>Affiliate code if any</td>
+</tr>
+<tr>
+<td>display_name</td>
+<td>String</td>
+<td>Display name of the user</td>
+</tr>
+<tr>
+<td>address</td>
+<td>String</td>
+<td>User&#39;s address</td>
 </tr>
 </tbody></table>
 <h1 id='settlement-no-3ds'>Settlement - No 3DS</h1>
