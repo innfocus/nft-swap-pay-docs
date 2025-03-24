@@ -352,15 +352,29 @@ REVOLVING | REVOLVING | REVOLVING type payment
 
 ```json
 {
-    "id": "d1702c31-617a-4d51-afca-d135e7034f8a",
-    "pay_amount": 1000.0,
-    "currency": "JPY",
-    "customer_id": "1000",
-    "customer_order_id": "1001",
-    "status": "COMPLETE",
-    "update_date": null,
-    "pay_method": null,
-    "pay_times": null
+  "id": "0125709b-8837-42fa-a11d-d8f57ebc6e0f",
+  "pay_amount": 4000,
+  "currency": "JPY",
+  "customer_id": null,
+  "customer_order_id": "20250324_1460",
+  "status": "PROCESSING",
+  "update_date": 1742803936591,
+  "create_date": 1742803923044,
+  "pay_method": "0",
+  "pay_times": null,
+  "actual_payment_date": 1742803936591,
+  "confirmed_at": null,
+  "authenticating_date": 1742803936591,
+  "user_payment": {
+    "id": "4f301013-4e7f-4d5c-8254-f1dc8200bd77",
+    "first_name": "Hieu",
+    "last_name": "ta pham kim",
+    "email": "hieutaphamkim89@gmail.com",
+    "phone": "0964-47-7058",
+    "affiliate_code": null,
+    "display_name": "ta pham kim Hieu",
+    "address": "Ho Chi Minh"
+  }
 }
 ```
 
