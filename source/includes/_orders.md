@@ -369,15 +369,32 @@ We'll let you know when a transaction changes status via `callback_url`.
 ### Callback Response Fields
 
 Field | Type | Description
------ | ---- | -------
-id | |  
-pay_amount |  | 
-currency | |   
-customer_id | |  
-customer_order_id |  | 
-status | |    
-pay_method |  |   
-pay_times | |    
-update_date | |  
-create_date  | | 
+----- | ---- | -----------
+id | UUID | Unique identifier of the payment request
+pay_amount | Double | Payment amount
+currency | String | Currency code (e.g., "JPY", "USD")
+customer_id | String or null | Customer identifier (nullable)
+customer_order_id | String | ID of the order from the customer system
+status | String | Status of the payment request (e.g., PROCESSING, COMPLETE)
+update_date | Timestamp (epoch millis) | Last updated time of the transaction
+create_date | Timestamp (epoch millis) | Created time of the transaction
+pay_method | String | Payment method code (e.g., "0")
+pay_times | Int or null | Number of payment installments (nullable)
+actual_payment_date | Timestamp (epoch millis) | Time the payment was actually made
+confirmed_at | Timestamp (epoch millis) or null | Time the transaction was confirmed
+authenticating_date | Timestamp (epoch millis) | Authentication time of the transaction
+user_payment | Object | Info of the user who made the payment (see below)
+
+#### user_payment object fields
+
+Field | Type | Description
+----- | ---- | -----------
+id | UUID | User ID
+first_name | String | User's first name
+last_name | String | User's last name
+email | String | User's email
+phone | String | User's phone number
+affiliate_code | String or null | Affiliate code if any
+display_name | String | Display name of the user
+address | String | User's address
 
