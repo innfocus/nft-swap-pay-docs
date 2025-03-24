@@ -1082,15 +1082,29 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <p>Each JSON-formatted <code>POST</code> notification message like this:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d1702c31-617a-4d51-afca-d135e7034f8a"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"pay_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"customer_order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1001"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COMPLETE"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"update_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"pay_method"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"pay_times"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0125709b-8837-42fa-a11d-d8f57ebc6e0f"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"pay_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"customer_order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20250324_1460"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PROCESSING"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"update_date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1742803936591</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1742803923044</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"pay_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"pay_times"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"actual_payment_date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1742803936591</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"confirmed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"authenticating_date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1742803936591</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"user_payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4f301013-4e7f-4d5c-8254-f1dc8200bd77"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hieu"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ta pham kim"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hieutaphamkim89@gmail.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0964-47-7058"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"affiliate_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ta pham kim Hieu"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ho Chi Minh"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>We&#39;ll let you know when a transaction changes status via <code>callback_url</code>.</p>
