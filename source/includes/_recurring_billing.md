@@ -261,7 +261,10 @@ curl --location --request PUT 'https://staging-api.swa-pay.com/api/v1/store/recu
 --header 'Authorization: meowmeowmeow' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "pay_amount": 1000
+    "monthly_payment_day": "6",
+    "date_start": "2025-07-08",
+    "date_end": "2027-07-03",
+     "description": "Change payment day from 5 to 6 "
 }'
 
 ```
@@ -270,28 +273,105 @@ curl --location --request PUT 'https://staging-api.swa-pay.com/api/v1/store/recu
 
 ```json
 {
-    "id": "b87395d6-e334-43be-bd72-800053c53283",
-    "description": "Recurring Billing",
-    "pay_amount": 1000.0,
-    "pay_amount_in_month": 700.0,
-    "currency": "JPY",
-    "card_seq": null,
-    "short_card_no": null,
-    "success_url": "https://swapay.co.jp/",
-    "cancel_url": "https://swapay.co.jp/",
-    "callback_url": "https://3c80-2405-4802-9119-ab90-e86d-6d5a-d791-666c.ap.ngrok.io/gateway/receiving",
-    "customer_id": null,
+    "id": "4a03c284-e139-4f62-94a6-6e04f5208c85",
+    "subscribe_order_name": null,
+    "service_name_monthly": null,
+    "pay_amount": 8000.0,
+    "service_name_initial": null,
+    "initial_cost_amount": null,
+    "first_payment_deadline": null,
+    "date_start": "2025-07-04T10:00:00.000+00:00",
+    "date_end": "2027-07-03T00:00:00.000+00:00",
+    "pay_times": null,
+    "monthly_payment_day": 6,
     "status": "WAITING_FOR_PAYMENT",
-    "date_payment": "2022-08-13T02:17:04.635+00:00",
-    "date_start": "2022-08-01T10:00:00.000+00:00",
-    "date_end": null,
-    "date_cancel": null,
-    "user_create": null,
-    "create_date": "2022-08-13T02:17:04.635+00:00",
-    "user_update": null,
-    "update_date": "2022-08-13T02:17:04.635+00:00",
-    "file_path": null,
-    "file_path_history": null
+    "consumer_name": null,
+    "consumer_email": null,
+    "consumer_phone": null,
+    "store": {
+        "id": "955b8cc3-02dd-434e-927b-f718638536c1",
+        "store_name": "store fincode n3",
+        "office_name": "1",
+        "gateway": "FIN_CODE_GATEWAY",
+        "address": "1",
+        "address2": "1Registered address",
+        "postal_code": "1",
+        "merchant": {
+            "id": "95969926-0272-4021-82a9-2c58db5daadb",
+            "first_name": "Admin",
+            "last_name": "",
+            "email": "admin@nft-swapay.com",
+            "phone": null,
+            "avatar": null,
+            "confirmed": null,
+            "role": "ADMIN",
+            "status": "ACTIVE",
+            "affiliate_code": "Abcd1234",
+            "parent_id": null,
+            "display_name": "Admin",
+            "display_gateway": "GMO_GATEWAY",
+            "address": "HCM city",
+            "invoice_business_registration_number": "s2203",
+            "company_name": null,
+            "representative_name": null,
+            "account_number": null
+        },
+        "trading_type": "REGULAR_PAYMENT",
+        "receipt_enabled": true,
+        "send_payment_success_email": true
+    },
+    "user": {
+        "id": "4f301013-4e7f-4d5c-8254-f1dc8200bd77",
+        "first_name": "Hieu",
+        "last_name": "ta pham kim",
+        "email": "hieutaphamkim89@gmail.com",
+        "phone": "0964477058",
+        "avatar": null,
+        "confirmed": null,
+        "role": "USER",
+        "status": "ACTIVE",
+        "affiliate_code": null,
+        "parent_id": null,
+        "display_name": "ta pham kim Hieu",
+        "display_gateway": "GMO_GATEWAY",
+        "address": "Ho Chi Minh",
+        "invoice_business_registration_number": null,
+        "company_name": null,
+        "representative_name": null,
+        "account_number": null
+    },
+    "merchant": {
+        "id": "95969926-0272-4021-82a9-2c58db5daadb",
+        "first_name": "Admin",
+        "last_name": "",
+        "email": "admin@nft-swapay.com",
+        "phone": null,
+        "avatar": null,
+        "confirmed": null,
+        "role": "ADMIN",
+        "status": "ACTIVE",
+        "affiliate_code": "Abcd1234",
+        "parent_id": null,
+        "display_name": "Admin",
+        "display_gateway": "GMO_GATEWAY",
+        "address": "HCM city",
+        "invoice_business_registration_number": "s2203",
+        "company_name": null,
+        "representative_name": null,
+        "account_number": null
+    },
+    "currency": "JPY",
+    "create_date": "2025-07-02T12:19:51.454+00:00",
+    "description": "Change payment day from 5 to 6 ",
+    "productions": null,
+    "initial": null,
+    "tax_invoice": null,
+    "amount_untaxed": null,
+    "amount_taxed": null,
+    "tax_invoice_initial": null,
+    "amount_untaxed_initial": null,
+    "amount_taxed_initial": null,
+    "date_cancel": null
 }
 ```
 
@@ -299,15 +379,66 @@ This endpoint will help you to change the payment details of transactions.
 
 ### HTTP Request
 
-`PUT https://staging-api.swa-pay.com/api/v1/store/recurring_billing/{id}`
+`PUT /v1/store/recurring_billing/{id}`
+
+Production environment
+`https://api.swa-pay.com/api/v1/store/recurring_billing/{id}`
+
+Staging environment
+`https://staging-api.swa-pay.com/api/v1/store/recurring_billing/{id}`
+
 
 ### JSON Object Payload Parameters
 
 Parameter | Type  | Required | Description
 --------- | ----- | -------- | -----------
-pay_amount | Double | false | Recurring payment amount 
-description | String | false | Description of the transaction  
-date_payment | DateTime | false | 
+date_start | DateTime | false | Start date of the recurring payment period.
+date_end | DateTime | false | End date of the recurring payment period.
+monthly_payment_day| Number | false | Day of the month when payment is charged.
+description | String | false | Optional description of the recurring plan.
+
+### Order Response Fields
+Field | Type | Description
+----- | ---- | -------
+id | UUID | ID of the subscription order.
+subscribe_order_name | String | Name of the subscription order.
+service_name_monthly | String | Name of the monthly service.
+pay_amount | Double | Amount to be paid monthly.
+service_name_initial | String | Name of the initial service or setup.
+initial_cost_amount | Double | 	Initial setup cost or one-time fee.
+first_payment_deadline | DateTime | Deadline for the first payment.
+date_start | DateTime | Start date of the recurring payment period.
+date_start | DateTime | End date of the recurring payment period.
+currency | String | The currency used for payment. Default is JPY  
+user | Object User Paymment | false | Payment user information. (Optional)
+description | String | Description of the transaction (e.g. purpose or subscription details).
+store | Object Store| Store information.
+merchant | Object Merchant | Merchant information.
+monthly_payment_day | Number | Day of the month when the payment is charged.
+status | String | Status of the subscription order.
+consumer_name | String | Name of the consumer.
+consumer_email | String | Email address of the consumer.
+consumer_phone | String | Phone number of the consumer.   
+update_date | DateTime | Date when the record was last updated.
+create_date  | DateTime | Date when the record was created.
+productions | Object productions | Information about the subscribed products or services.
+tax_invoice | Double | Tax amount (monthly).
+amount_untaxed | Double | Monthly payment amount before tax.
+amount_taxed | Double | Monthly payment amount including tax.
+tax_invoice_initial | Double | Tax amount of the initial cost.
+amount_untaxed_initial | Double | Initial cost before tax.
+amount_taxed_initial | Double | Initial cost including tax.
+date_cancel | DateTime | Date when the subscription was canceled.
+
+## Subscription order Status
+
+Status Code | Meaning
+---------- | -------
+TEMPORARY_SAVE| The subscription order has been temporarily saved but not yet submitted for payment.
+WAITING_FOR_PAYMENT | The initial payment was completed, and the subscription is active. The system is now waiting for the upcoming recurring payments (e.g., monthly billing).
+COMPLETE | The recurring billing cycle has finished. All scheduled payments have been completed, and the subscription is now closed. 
+CANCEL | The subscription order was canceled by the user or merchant before payment was completed (i.e., while in TEMPORARY_SAVE or WAITING_FOR_PAYMENT status).
+ERROR | A failure occurred during the payment process, and the transaction could not be completed.
 
 ## Making a payment using a card number
 

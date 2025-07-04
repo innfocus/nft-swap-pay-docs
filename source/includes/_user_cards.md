@@ -46,7 +46,7 @@ Staging environment
 
 Parameter | Required | Description
 --------- | -------- | -----------
-user_id | false | The SWAPay user id 
+user_id | true | The SWAPay user id 
 card_no | true | credit card number 
 expire | true | Credit card expiration date - MMYY format
 security_code | true | security code - The 3- or 4-digit number printed on the card
