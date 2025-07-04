@@ -293,7 +293,7 @@ curl --location --request PUT 'https://staging-api.swa-pay.com/api/v1/store/recu
         "store_name": "store fincode n3",
         "office_name": "1",
         "gateway": "FIN_CODE_GATEWAY",
-        "address": "1",
+        "address": "HCM",
         "address2": "1Registered address",
         "postal_code": "1",
         "merchant": {
