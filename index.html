@@ -441,6 +441,9 @@
                     <a href="#update-a-recurring-billing" class="toc-h2 toc-link" data-title="Update a Recurring billing">Update a Recurring billing</a>
                   </li>
                   <li>
+                    <a href="#subscription-order-status" class="toc-h2 toc-link" data-title="Subscription order Status">Subscription order Status</a>
+                  </li>
+                  <li>
                     <a href="#making-a-payment-using-a-card-number" class="toc-h2 toc-link" data-title="Making a payment using a card number">Making a payment using a card number</a>
                   </li>
                   <li>
@@ -2174,7 +2177,7 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 </thead><tbody>
 <tr>
 <td>user_id</td>
-<td>false</td>
+<td>true</td>
 <td>The SWAPay user id</td>
 </tr>
 <tr>
@@ -2723,7 +2726,10 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
-    "pay_amount": 1000
+    "monthly_payment_day": "6",
+    "date_start": "2025-07-08",
+    "date_end": "2027-07-03",
+     "description": "Change payment day from 5 to 6 "
 }'</span>
 
 </code></pre></div>
@@ -2731,33 +2737,116 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b87395d6-e334-43be-bd72-800053c53283"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Recurring Billing"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"pay_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"pay_amount_in_month"</span><span class="p">:</span><span class="w"> </span><span class="mf">700.0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"card_seq"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"short_card_no"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"success_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://swapay.co.jp/"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cancel_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://swapay.co.jp/"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"callback_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://3c80-2405-4802-9119-ab90-e86d-6d5a-d791-666c.ap.ngrok.io/gateway/receiving"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4a03c284-e139-4f62-94a6-6e04f5208c85"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"subscribe_order_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"service_name_monthly"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">8000.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"service_name_initial"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"initial_cost_amount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"first_payment_deadline"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date_start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-04T10:00:00.000+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date_end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2027-07-03T00:00:00.000+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_times"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"monthly_payment_day"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
     </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WAITING_FOR_PAYMENT"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"date_payment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-08-13T02:17:04.635+00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"date_start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-08-01T10:00:00.000+00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"date_end"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"date_cancel"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"user_create"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-08-13T02:17:04.635+00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"user_update"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"update_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-08-13T02:17:04.635+00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"file_path"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"file_path_history"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="nl">"consumer_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"consumer_email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"consumer_phone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"store"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"955b8cc3-02dd-434e-927b-f718638536c1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"store_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"store fincode n3"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"office_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"gateway"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FIN_CODE_GATEWAY"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1Registered address"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"merchant"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"95969926-0272-4021-82a9-2c58db5daadb"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin@nft-swapay.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"confirmed"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ADMIN"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"affiliate_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Abcd1234"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"display_gateway"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GMO_GATEWAY"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HCM city"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"invoice_business_registration_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s2203"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"representative_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"account_number"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"trading_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REGULAR_PAYMENT"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"receipt_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"send_payment_success_email"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4f301013-4e7f-4d5c-8254-f1dc8200bd77"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hieu"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ta pham kim"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hieutaphamkim89@gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0964477058"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"confirmed"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USER"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"affiliate_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ta pham kim Hieu"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"display_gateway"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GMO_GATEWAY"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ho Chi Minh"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"invoice_business_registration_number"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"representative_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"account_number"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"merchant"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"95969926-0272-4021-82a9-2c58db5daadb"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin@nft-swapay.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"confirmed"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ADMIN"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"affiliate_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Abcd1234"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admin"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"display_gateway"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GMO_GATEWAY"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HCM city"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"invoice_business_registration_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s2203"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"representative_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"account_number"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-07-02T12:19:51.454+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Change payment day from 5 to 6 "</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"productions"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"initial"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tax_invoice"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_untaxed"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_taxed"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tax_invoice_initial"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_untaxed_initial"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount_taxed_initial"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date_cancel"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint will help you to change the payment details of transactions.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>PUT https://staging-api.swa-pay.com/api/v1/store/recurring_billing/{id}</code></p>
+<p><code>PUT /v1/store/recurring_billing/{id}</code></p>
+
+<p>Production environment
+<code>https://api.swa-pay.com/api/v1/store/recurring_billing/{id}</code></p>
+
+<p>Staging environment
+<code>https://staging-api.swa-pay.com/api/v1/store/recurring_billing/{id}</code></p>
 <h3 id='json-object-payload-parameters-2'>JSON Object Payload Parameters</h3>
 <table><thead>
 <tr>
@@ -2768,22 +2857,210 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 </tr>
 </thead><tbody>
 <tr>
-<td>pay_amount</td>
-<td>Double</td>
+<td>date_start</td>
+<td>DateTime</td>
 <td>false</td>
-<td>Recurring payment amount</td>
+<td>Start date of the recurring payment period.</td>
+</tr>
+<tr>
+<td>date_end</td>
+<td>DateTime</td>
+<td>false</td>
+<td>End date of the recurring payment period.</td>
+</tr>
+<tr>
+<td>monthly_payment_day</td>
+<td>Number</td>
+<td>false</td>
+<td>Day of the month when payment is charged.</td>
 </tr>
 <tr>
 <td>description</td>
 <td>String</td>
 <td>false</td>
-<td>Description of the transaction</td>
+<td>Optional description of the recurring plan.</td>
+</tr>
+</tbody></table>
+<h3 id='order-response-fields-2'>Order Response Fields</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>UUID</td>
+<td>ID of the subscription order.</td>
 </tr>
 <tr>
-<td>date_payment</td>
+<td>subscribe_order_name</td>
+<td>String</td>
+<td>Name of the subscription order.</td>
+</tr>
+<tr>
+<td>service_name_monthly</td>
+<td>String</td>
+<td>Name of the monthly service.</td>
+</tr>
+<tr>
+<td>pay_amount</td>
+<td>Double</td>
+<td>Amount to be paid monthly.</td>
+</tr>
+<tr>
+<td>service_name_initial</td>
+<td>String</td>
+<td>Name of the initial service or setup.</td>
+</tr>
+<tr>
+<td>initial_cost_amount</td>
+<td>Double</td>
+<td>Initial setup cost or one-time fee.</td>
+</tr>
+<tr>
+<td>first_payment_deadline</td>
 <td>DateTime</td>
+<td>Deadline for the first payment.</td>
+</tr>
+<tr>
+<td>date_start</td>
+<td>DateTime</td>
+<td>Start date of the recurring payment period.</td>
+</tr>
+<tr>
+<td>date_start</td>
+<td>DateTime</td>
+<td>End date of the recurring payment period.</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>String</td>
+<td>The currency used for payment. Default is JPY</td>
+</tr>
+<tr>
+<td>user</td>
+<td>Object User Paymment</td>
 <td>false</td>
-<td></td>
+</tr>
+<tr>
+<td>description</td>
+<td>String</td>
+<td>Description of the transaction (e.g. purpose or subscription details).</td>
+</tr>
+<tr>
+<td>store</td>
+<td>Object Store</td>
+<td>Store information.</td>
+</tr>
+<tr>
+<td>merchant</td>
+<td>Object Merchant</td>
+<td>Merchant information.</td>
+</tr>
+<tr>
+<td>monthly_payment_day</td>
+<td>Number</td>
+<td>Day of the month when the payment is charged.</td>
+</tr>
+<tr>
+<td>status</td>
+<td>String</td>
+<td>Status of the subscription order.</td>
+</tr>
+<tr>
+<td>consumer_name</td>
+<td>String</td>
+<td>Name of the consumer.</td>
+</tr>
+<tr>
+<td>consumer_email</td>
+<td>String</td>
+<td>Email address of the consumer.</td>
+</tr>
+<tr>
+<td>consumer_phone</td>
+<td>String</td>
+<td>Phone number of the consumer.</td>
+</tr>
+<tr>
+<td>update_date</td>
+<td>DateTime</td>
+<td>Date when the record was last updated.</td>
+</tr>
+<tr>
+<td>create_date</td>
+<td>DateTime</td>
+<td>Date when the record was created.</td>
+</tr>
+<tr>
+<td>productions</td>
+<td>Object productions</td>
+<td>Information about the subscribed products or services.</td>
+</tr>
+<tr>
+<td>tax_invoice</td>
+<td>Double</td>
+<td>Tax amount (monthly).</td>
+</tr>
+<tr>
+<td>amount_untaxed</td>
+<td>Double</td>
+<td>Monthly payment amount before tax.</td>
+</tr>
+<tr>
+<td>amount_taxed</td>
+<td>Double</td>
+<td>Monthly payment amount including tax.</td>
+</tr>
+<tr>
+<td>tax_invoice_initial</td>
+<td>Double</td>
+<td>Tax amount of the initial cost.</td>
+</tr>
+<tr>
+<td>amount_untaxed_initial</td>
+<td>Double</td>
+<td>Initial cost before tax.</td>
+</tr>
+<tr>
+<td>amount_taxed_initial</td>
+<td>Double</td>
+<td>Initial cost including tax.</td>
+</tr>
+<tr>
+<td>date_cancel</td>
+<td>DateTime</td>
+<td>Date when the subscription was canceled.</td>
+</tr>
+</tbody></table>
+<h2 id='subscription-order-status'>Subscription order Status</h2>
+<table><thead>
+<tr>
+<th>Status Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TEMPORARY_SAVE</td>
+<td>The subscription order has been temporarily saved but not yet submitted for payment.</td>
+</tr>
+<tr>
+<td>WAITING_FOR_PAYMENT</td>
+<td>The initial payment was completed, and the subscription is active. The system is now waiting for the upcoming recurring payments (e.g., monthly billing).</td>
+</tr>
+<tr>
+<td>COMPLETE</td>
+<td>The recurring billing cycle has finished. All scheduled payments have been completed, and the subscription is now closed.</td>
+</tr>
+<tr>
+<td>CANCEL</td>
+<td>The subscription order was canceled by the user or merchant before payment was completed (i.e., while in TEMPORARY_SAVE or WAITING_FOR_PAYMENT status).</td>
+</tr>
+<tr>
+<td>ERROR</td>
+<td>A failure occurred during the payment process, and the transaction could not be completed.</td>
 </tr>
 </tbody></table>
 <h2 id='making-a-payment-using-a-card-number'>Making a payment using a card number</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://staging-api.swa-pay.com/api/v1/store/recurring_billing/payment'</span> <span class="se">\</span>
