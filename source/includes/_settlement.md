@@ -150,9 +150,9 @@ curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/payment' 
 --header 'Authorization: meowmeowmeow.' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "id": "09e68717-391a-4b01-87cb-0ccd7305eb8e",
-    "card_no": "4100000000000100",
-    "expire": "12/25",
+    "id": "79ec92ea-e4fe-4b02-ae3d-b1aa962bae66",
+    "card_no": "4100 0000 0000 5000",
+    "expire": "1229",
     "security_code": "123",
     "holder_name": "LYBIA SOFT"
 }'
@@ -162,11 +162,23 @@ curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/payment' 
 
 ```json
 {
-    "id": "09e68717-391a-4b01-87cb-0ccd7305eb8e",
+    "pay_amount": 1000.0,
+    "currency": "JPY",
+    "customer_id": "102",
+    "customer_order_id": null,
+    "status": "AUTHENTICATING_3DS",
+    "update_date": "2025-08-13T07:03:39.080+00:00",
+    "create_date": "2025-08-13T07:03:39.080+00:00",
     "pay_method": "0",
+    "pay_times": null,
+    "order_id_csv": null,
+    "actual_payment_date": null,
+    "confirmed_at": null,
     "acs": "2",
-    "acs_url": "https://3c80-2405-4802-9119-ab90-e86d-6d5a-d791-666c.ap.ngrok.io/gateway/3ds/09e68717-391a-4b01-87cb-0ccd7305eb8e/3b79e76d924d7bdd29b10e001e08d500",
-    "md": "3b79e76d924d7bdd29b10e001e08d500"
+    "acs_url": "https://simulator.test.fincode.jp/payment/Tds2StubCallback.idPass?transId=63c06889-d237-4bcc-9e7b-dfe4bc05beae&t=a_akfQCPrfR4yazH6cedT1RA",
+    "redirect_url": "https://staging-api.swa-pay.com/api/v1/fincode/secure/authentication/79ec92ea-e4fe-4b02-ae3d-b1aa962bae66",
+    "user_payment": null,
+    "state": null
 }
 ```
 
@@ -186,12 +198,18 @@ Staging environment
 
 Parameter | Type | Description
 --------- | -------- | -----------
-id | UUID | ID of the transaction 
-acs | String | 2 => (3DS2.0)
-acs_url | String | 3DS password input screen URL
-md | String | Transaction ID on GMO System
+id | UUID | ID of the transaction
+pay_amount | Double | Amount of the transaction
+currency | String | The currency used for payment. Default is JPY
+customer_id | String | The customer id on merchant system
+customer_order_id | String | The order id on merchant systems
+status | String | Status of Payment request
+acs | String | Indicates whether to use 3D Secure authentication. (0: Do not use 3D Secure authentication (default)  2: Use 3D Secure 2.0 authentication)
+acs_url | String | URL of the 3D Secure authentication page returned directly from the payment gateway. Used only when your system implements the entire 3D Secure authentication process.
+redirect_url | String | 3D Secure authentication URL provided by Swapay. This URL is customized to simplify integration and can be used as an alternative to acs_url if you prefer Swapay to handle part or all of the 3D Secure authentication flow.
 pay_method | String | 0 => (Credit card payment)
-
+state | String | Returns the payment result (1: Payment successful, 2: Payment failed , 3: 3D Secure authentication required request *This field is only used for the Alphanote payment gateway.)
+  
 
 # Settlement - PAYPAY (support for the GMO Gateway and  the FinCode Gateway)
 
