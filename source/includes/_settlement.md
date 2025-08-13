@@ -196,19 +196,20 @@ Staging environment
 
 ### JSON Object Payload Parameters
 
-Parameter | Type | Description
---------- | -------- | -----------
-id | UUID | ID of the transaction
-pay_amount | Double | Amount of the transaction
-currency | String | The currency used for payment. Default is JPY
-customer_id | String | The customer id on merchant system
-customer_order_id | String | The order id on merchant systems
-status | String | Status of Payment request
-acs | String | Indicates whether to use 3D Secure authentication. (0: Do not use 3D Secure authentication (default)  2: Use 3D Secure 2.0 authentication)
-acs_url | String | URL of the 3D Secure authentication page returned directly from the payment gateway. Used only when your system implements the entire 3D Secure authentication process.
-redirect_url | String | 3D Secure authentication URL provided by Swapay. This URL is customized to simplify integration and can be used as an alternative to acs_url if you prefer Swapay to handle part or all of the 3D Secure authentication flow.
-pay_method | String | 0 => (Credit card payment)
-state | String | Returns the payment result (1: Payment successful, 2: Payment failed , 3: 3D Secure authentication required request *This field is only used for the Alphanote payment gateway.)
+| Parameter            | Type   | Description |
+|----------------------|--------|-------------|
+| `id`                 | UUID   | ID of the transaction. |
+| `pay_amount`         | Double | Amount of the transaction. |
+| `currency`           | String | The currency used for payment. Default is `JPY`. |
+| `customer_id`        | String | The customer ID in the merchant system. |
+| `customer_order_id`  | String | The order ID in the merchant system. |
+| `status`             | String | Status of the payment request. |
+| `acs`                | String | Indicates whether to use 3D Secure authentication.<br>`0`: Do not use 3D Secure authentication (default).<br>`2`: Use 3D Secure 2.0 authentication. |
+| `acs_url`            | String | URL of the 3D Secure authentication page returned directly from the payment gateway. Used only when your system implements the entire 3D Secure authentication process. |
+| `redirect_url`       | String | 3D Secure authentication URL provided by Swapay. This URL is customized to simplify integration and can be used as an alternative to `acs_url` if you prefer Swapay to handle part or all of the 3D Secure authentication flow. |
+| `pay_method`         | String | Payment method.<br>`0`: Credit card payment. |
+| `state`              | String | Payment result status.<br>`1`: Payment successful.<br>`2`: Payment failed.<br>`3`: 3D Secure authentication required.<br>*Only applicable for the Alphanote payment gateway.* |
+
   
 
 # Settlement - PAYPAY (support for the GMO Gateway and  the FinCode Gateway)
