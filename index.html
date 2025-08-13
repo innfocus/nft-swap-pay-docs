@@ -1395,9 +1395,9 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow.'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
-    "id": "09e68717-391a-4b01-87cb-0ccd7305eb8e",
-    "card_no": "4100000000000100",
-    "expire": "12/25",
+    "id": "79ec92ea-e4fe-4b02-ae3d-b1aa962bae66",
+    "card_no": "4100 0000 0000 5000",
+    "expire": "1229",
     "security_code": "123",
     "holder_name": "LYBIA SOFT"
 }'</span>
@@ -1406,11 +1406,23 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09e68717-391a-4b01-87cb-0ccd7305eb8e"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"102"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_order_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUTHENTICATING_3DS"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"update_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-08-13T07:03:39.080+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-08-13T07:03:39.080+00:00"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"pay_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_times"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"order_id_csv"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"actual_payment_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"confirmed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"acs"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"acs_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://3c80-2405-4802-9119-ab90-e86d-6d5a-d791-666c.ap.ngrok.io/gateway/3ds/09e68717-391a-4b01-87cb-0ccd7305eb8e/3b79e76d924d7bdd29b10e001e08d500"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"md"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3b79e76d924d7bdd29b10e001e08d500"</span><span class="w">
+    </span><span class="nl">"acs_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://simulator.test.fincode.jp/payment/Tds2StubCallback.idPass?transId=63c06889-d237-4bcc-9e7b-dfe4bc05beae&amp;t=a_akfQCPrfR4yazH6cedT1RA"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"redirect_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://staging-api.swa-pay.com/api/v1/fincode/secure/authentication/79ec92ea-e4fe-4b02-ae3d-b1aa962bae66"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user_payment"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint will help you to start payment for a transaction</p>
@@ -1436,24 +1448,54 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <td>ID of the transaction</td>
 </tr>
 <tr>
+<td>pay_amount</td>
+<td>Double</td>
+<td>Amount of the transaction</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>String</td>
+<td>The currency used for payment. Default is JPY</td>
+</tr>
+<tr>
+<td>customer_id</td>
+<td>String</td>
+<td>The customer id on merchant system</td>
+</tr>
+<tr>
+<td>customer_order_id</td>
+<td>String</td>
+<td>The order id on merchant systems</td>
+</tr>
+<tr>
+<td>status</td>
+<td>String</td>
+<td>Status of Payment request</td>
+</tr>
+<tr>
 <td>acs</td>
 <td>String</td>
-<td>2 =&gt; (3DS2.0)</td>
+<td>Indicates whether to use 3D Secure authentication. (0: Do not use 3D Secure authentication (default)  2: Use 3D Secure 2.0 authentication)</td>
 </tr>
 <tr>
 <td>acs_url</td>
 <td>String</td>
-<td>3DS password input screen URL</td>
+<td>URL of the 3D Secure authentication page returned directly from the payment gateway. Used only when your system implements the entire 3D Secure authentication process.</td>
 </tr>
 <tr>
-<td>md</td>
+<td>redirect_url</td>
 <td>String</td>
-<td>Transaction ID on GMO System</td>
+<td>3D Secure authentication URL provided by Swapay. This URL is customized to simplify integration and can be used as an alternative to acs_url if you prefer Swapay to handle part or all of the 3D Secure authentication flow.</td>
 </tr>
 <tr>
 <td>pay_method</td>
 <td>String</td>
 <td>0 =&gt; (Credit card payment)</td>
+</tr>
+<tr>
+<td>state</td>
+<td>String</td>
+<td>Returns the payment result (1: Payment successful, 2: Payment failed , 3: 3D Secure authentication required request *This field is only used for the Alphanote payment gateway.)</td>
 </tr>
 </tbody></table>
 <h1 id='settlement-paypay-support-for-the-gmo-gateway-and-the-fincode-gateway'>Settlement - PAYPAY (support for the GMO Gateway and  the FinCode Gateway)</h1><h2 id='payment-with-paypay-method'>Payment with PayPay method</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://staging-api.swa-pay.com/api/v1/payment'</span> <span class="se">\</span>
