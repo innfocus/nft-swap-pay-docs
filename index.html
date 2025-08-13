@@ -1443,59 +1443,59 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
+<td><code>id</code></td>
 <td>UUID</td>
-<td>ID of the transaction</td>
+<td>ID of the transaction.</td>
 </tr>
 <tr>
-<td>pay_amount</td>
+<td><code>pay_amount</code></td>
 <td>Double</td>
-<td>Amount of the transaction</td>
+<td>Amount of the transaction.</td>
 </tr>
 <tr>
-<td>currency</td>
+<td><code>currency</code></td>
 <td>String</td>
-<td>The currency used for payment. Default is JPY</td>
+<td>The currency used for payment. Default is <code>JPY</code>.</td>
 </tr>
 <tr>
-<td>customer_id</td>
+<td><code>customer_id</code></td>
 <td>String</td>
-<td>The customer id on merchant system</td>
+<td>The customer ID in the merchant system.</td>
 </tr>
 <tr>
-<td>customer_order_id</td>
+<td><code>customer_order_id</code></td>
 <td>String</td>
-<td>The order id on merchant systems</td>
+<td>The order ID in the merchant system.</td>
 </tr>
 <tr>
-<td>status</td>
+<td><code>status</code></td>
 <td>String</td>
-<td>Status of Payment request</td>
+<td>Status of the payment request.</td>
 </tr>
 <tr>
-<td>acs</td>
+<td><code>acs</code></td>
 <td>String</td>
-<td>Indicates whether to use 3D Secure authentication. (0: Do not use 3D Secure authentication (default)  2: Use 3D Secure 2.0 authentication)</td>
+<td>Indicates whether to use 3D Secure authentication.<br><code>0</code>: Do not use 3D Secure authentication (default).<br><code>2</code>: Use 3D Secure 2.0 authentication.</td>
 </tr>
 <tr>
-<td>acs_url</td>
+<td><code>acs_url</code></td>
 <td>String</td>
 <td>URL of the 3D Secure authentication page returned directly from the payment gateway. Used only when your system implements the entire 3D Secure authentication process.</td>
 </tr>
 <tr>
-<td>redirect_url</td>
+<td><code>redirect_url</code></td>
 <td>String</td>
-<td>3D Secure authentication URL provided by Swapay. This URL is customized to simplify integration and can be used as an alternative to acs_url if you prefer Swapay to handle part or all of the 3D Secure authentication flow.</td>
+<td>3D Secure authentication URL provided by Swapay. This URL is customized to simplify integration and can be used as an alternative to <code>acs_url</code> if you prefer Swapay to handle part or all of the 3D Secure authentication flow.</td>
 </tr>
 <tr>
-<td>pay_method</td>
+<td><code>pay_method</code></td>
 <td>String</td>
-<td>0 =&gt; (Credit card payment)</td>
+<td>Payment method.<br><code>0</code>: Credit card payment.</td>
 </tr>
 <tr>
-<td>state</td>
+<td><code>state</code></td>
 <td>String</td>
-<td>Returns the payment result (1: Payment successful, 2: Payment failed , 3: 3D Secure authentication required request *This field is only used for the Alphanote payment gateway.)</td>
+<td>Payment result status.<br><code>1</code>: Payment successful.<br><code>2</code>: Payment failed.<br><code>3</code>: 3D Secure authentication required.<br><em>Only applicable for the Alphanote payment gateway.</em></td>
 </tr>
 </tbody></table>
 <h1 id='settlement-paypay-support-for-the-gmo-gateway-and-the-fincode-gateway'>Settlement - PAYPAY (support for the GMO Gateway and  the FinCode Gateway)</h1><h2 id='payment-with-paypay-method'>Payment with PayPay method</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://staging-api.swa-pay.com/api/v1/payment'</span> <span class="se">\</span>
