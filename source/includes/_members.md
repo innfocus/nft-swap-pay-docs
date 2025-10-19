@@ -339,3 +339,100 @@ id | The SWAPay user id
 phone | The member's phone number
 country_code | The member's country code. Default JP
 phone_confirmed_at | The time when the phone is confirmed. 
+
+
+### HTTP Request
+`GET /v1/store/consumers`
+Production environment
+`https://api.swa-pay.com/api/v1/store/consumers`
+
+Staging environment
+`https://staging-api.swa-pay.com/api/v1/store/consumers`
+
+Query Parameters
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+page_no | 1 | 
+page_size | 20 | 
+keyword | | user_id, email, phone...
+
+
+## Consumer Response Fields
+
+| Field               | Type     | Description                                              |
+| ------------------- | -------- | -------------------------------------------------------- |
+| id                  | UUID     | Consumer ID on SWAPay                                    |
+| display_name        | String   | Display name (nullable)                                  |
+| phone               | String   | Phone number (nullable)                                  |
+| email               | String   | Email (nullable)                                         |
+| role                | String   | User role (e.g., `USER`)                                 |
+| country_code        | String   | Country code (e.g., `JP`)                                |
+| provider            | String   | Registration provider (`EMAIL`, `PHONE`, `CONSUMER`)     |
+| phone_e164          | String   | E.164 formatted phone (nullable)                         |
+| owner               | Object   | Owner info `{ id, display_name }`                        |
+| store               | Object   | Store info `{ id, store_name, office_name }`             |
+| customer_id         | String   | Customer ID on merchant system (nullable)                |
+| create_date         | DateTime | Created time (ISO-8601)                                  |
+| gmo_status          | String   | GMO registration status (`REGISTERED`, `NOT_REGISTERED`) |
+| status              | String   | Consumer status (`ACTIVE`, `NOT_YET`, …)                 |
+| order_id            | String   | Latest order ID (nullable)                               |
+| order_name          | String   | Latest order name/label (nullable)                       |
+| user_wallet_address | String   | Wallet address (nullable)                                |
+| honorific_title     | String   | Honorific title (nullable)                               |
+| delete_flg          | Boolean  | Deleted flag (nullable)                                  |
+| first_name          | String   | First name (nullable)                                    |
+| last_name           | String   | Last name (nullable)                                     |
+| user_name           | String   | Username (nullable)                                      |
+
+
+
+```shell
+curl --location --request GET '{{server}}/api/v1/store/consumers?page_no=1&page_size=10' \
+--header 'Authorization: meowmeowmeow'
+The above command returns JSON structured like this:
+{
+  "data": [
+    {
+      "id": "02eecc89-5ac8-4969-9e8f-d183fc8c84a4",
+      "display_name": "taphamkim hieu",
+      "phone": null,
+      "email": "hieutaphamkim89+1750@gmail.com",
+      "role": "USER",
+      "country_code": null,
+      "provider": "EMAIL",
+      "phone_e164": null,
+      "operation_agency": null,
+      "merchant": null,
+      "owner": { "id": "af40eee0-81ad-4e29-a8ea-87603b3f8282", "display_name": "Merchant" },
+      "store": { "id": "6a02b419-c8a4-4e85-bff2-2242686826f9", "store_name": "テスト", "office_name": "155" },
+      "customer_id": null,
+      "create_date": "2024-01-15T10:52:44.614+00:00",
+      "gmo_status": "REGISTERED",
+      "delete_flg": null,
+      "first_name": "hieu",
+      "last_name": "taphamkim",
+      "user_name": null,
+      "status": "ACTIVE",
+      "order_id": null,
+      "order_name": null,
+      "user_wallet_address": null,
+      "honorific_title": null
+    }
+  ],
+  "page_no": 1,
+  "page_size": 10,
+  "total_elements": 5,
+  "total_pages": 1,
+  "last": true
+}
+Abnormal
+
+{
+  "code": "E0401",
+  "message": "Unauthorized",
+  "errors": null
+}
+This endpoint returns a paginated list of consumers that belong to the current store context.
+```
