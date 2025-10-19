@@ -412,6 +412,9 @@
                   <li>
                     <a href="#verify-user-with-phone-number" class="toc-h2 toc-link" data-title="Verify user with phone number">Verify user with phone number</a>
                   </li>
+                  <li>
+                    <a href="#consumer-response-fields" class="toc-h2 toc-link" data-title="Consumer Response Fields">Consumer Response Fields</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -2176,7 +2179,205 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <td>The time when the phone is confirmed.</td>
 </tr>
 </tbody></table>
-<h1 id='membership-card'>Membership card</h1><h2 id='card-registration'>Card registration</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://staging-api.swa-pay.com/api/v1/cards'</span> <span class="se">\</span>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET /v1/store/consumers</code>
+Production environment
+<code>https://api.swa-pay.com/api/v1/store/consumers</code></p>
+
+<p>Staging environment
+<code>https://staging-api.swa-pay.com/api/v1/store/consumers</code></p>
+
+<p>Query Parameters</p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page_no</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>page_size</td>
+<td>20</td>
+<td></td>
+</tr>
+<tr>
+<td>keyword</td>
+<td></td>
+<td>user_id, email, phone...</td>
+</tr>
+</tbody></table>
+<h2 id='consumer-response-fields'>Consumer Response Fields</h2>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>UUID</td>
+<td>Consumer ID on SWAPay</td>
+</tr>
+<tr>
+<td>display_name</td>
+<td>String</td>
+<td>Display name (nullable)</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>String</td>
+<td>Phone number (nullable)</td>
+</tr>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>Email (nullable)</td>
+</tr>
+<tr>
+<td>role</td>
+<td>String</td>
+<td>User role (e.g., <code>USER</code>)</td>
+</tr>
+<tr>
+<td>country_code</td>
+<td>String</td>
+<td>Country code (e.g., <code>JP</code>)</td>
+</tr>
+<tr>
+<td>provider</td>
+<td>String</td>
+<td>Registration provider (<code>EMAIL</code>, <code>PHONE</code>, <code>CONSUMER</code>)</td>
+</tr>
+<tr>
+<td>phone_e164</td>
+<td>String</td>
+<td>E.164 formatted phone (nullable)</td>
+</tr>
+<tr>
+<td>owner</td>
+<td>Object</td>
+<td>Owner info <code>{ id, display_name }</code></td>
+</tr>
+<tr>
+<td>store</td>
+<td>Object</td>
+<td>Store info <code>{ id, store_name, office_name }</code></td>
+</tr>
+<tr>
+<td>customer_id</td>
+<td>String</td>
+<td>Customer ID on merchant system (nullable)</td>
+</tr>
+<tr>
+<td>create_date</td>
+<td>DateTime</td>
+<td>Created time (ISO-8601)</td>
+</tr>
+<tr>
+<td>gmo_status</td>
+<td>String</td>
+<td>GMO registration status (<code>REGISTERED</code>, <code>NOT_REGISTERED</code>)</td>
+</tr>
+<tr>
+<td>status</td>
+<td>String</td>
+<td>Consumer status (<code>ACTIVE</code>, <code>NOT_YET</code>, …)</td>
+</tr>
+<tr>
+<td>order_id</td>
+<td>String</td>
+<td>Latest order ID (nullable)</td>
+</tr>
+<tr>
+<td>order_name</td>
+<td>String</td>
+<td>Latest order name/label (nullable)</td>
+</tr>
+<tr>
+<td>user_wallet_address</td>
+<td>String</td>
+<td>Wallet address (nullable)</td>
+</tr>
+<tr>
+<td>honorific_title</td>
+<td>String</td>
+<td>Honorific title (nullable)</td>
+</tr>
+<tr>
+<td>delete_flg</td>
+<td>Boolean</td>
+<td>Deleted flag (nullable)</td>
+</tr>
+<tr>
+<td>first_name</td>
+<td>String</td>
+<td>First name (nullable)</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>String</td>
+<td>Last name (nullable)</td>
+</tr>
+<tr>
+<td>user_name</td>
+<td>String</td>
+<td>Username (nullable)</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'{{server}}/api/v1/store/consumers?page_no=1&amp;page_size=10'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow'</span>
+The above <span class="nb">command </span>returns JSON structured like this:
+<span class="o">{</span>
+  <span class="s2">"data"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: <span class="s2">"02eecc89-5ac8-4969-9e8f-d183fc8c84a4"</span>,
+      <span class="s2">"display_name"</span>: <span class="s2">"taphamkim hieu"</span>,
+      <span class="s2">"phone"</span>: null,
+      <span class="s2">"email"</span>: <span class="s2">"hieutaphamkim89+1750@gmail.com"</span>,
+      <span class="s2">"role"</span>: <span class="s2">"USER"</span>,
+      <span class="s2">"country_code"</span>: null,
+      <span class="s2">"provider"</span>: <span class="s2">"EMAIL"</span>,
+      <span class="s2">"phone_e164"</span>: null,
+      <span class="s2">"operation_agency"</span>: null,
+      <span class="s2">"merchant"</span>: null,
+      <span class="s2">"owner"</span>: <span class="o">{</span> <span class="s2">"id"</span>: <span class="s2">"af40eee0-81ad-4e29-a8ea-87603b3f8282"</span>, <span class="s2">"display_name"</span>: <span class="s2">"Merchant"</span> <span class="o">}</span>,
+      <span class="s2">"store"</span>: <span class="o">{</span> <span class="s2">"id"</span>: <span class="s2">"6a02b419-c8a4-4e85-bff2-2242686826f9"</span>, <span class="s2">"store_name"</span>: <span class="s2">"テスト"</span>, <span class="s2">"office_name"</span>: <span class="s2">"155"</span> <span class="o">}</span>,
+      <span class="s2">"customer_id"</span>: null,
+      <span class="s2">"create_date"</span>: <span class="s2">"2024-01-15T10:52:44.614+00:00"</span>,
+      <span class="s2">"gmo_status"</span>: <span class="s2">"REGISTERED"</span>,
+      <span class="s2">"delete_flg"</span>: null,
+      <span class="s2">"first_name"</span>: <span class="s2">"hieu"</span>,
+      <span class="s2">"last_name"</span>: <span class="s2">"taphamkim"</span>,
+      <span class="s2">"user_name"</span>: null,
+      <span class="s2">"status"</span>: <span class="s2">"ACTIVE"</span>,
+      <span class="s2">"order_id"</span>: null,
+      <span class="s2">"order_name"</span>: null,
+      <span class="s2">"user_wallet_address"</span>: null,
+      <span class="s2">"honorific_title"</span>: null
+    <span class="o">}</span>
+  <span class="o">]</span>,
+  <span class="s2">"page_no"</span>: 1,
+  <span class="s2">"page_size"</span>: 10,
+  <span class="s2">"total_elements"</span>: 5,
+  <span class="s2">"total_pages"</span>: 1,
+  <span class="s2">"last"</span>: <span class="nb">true</span>
+<span class="o">}</span>
+Abnormal
+
+<span class="o">{</span>
+  <span class="s2">"code"</span>: <span class="s2">"E0401"</span>,
+  <span class="s2">"message"</span>: <span class="s2">"Unauthorized"</span>,
+  <span class="s2">"errors"</span>: null
+<span class="o">}</span>
+This endpoint returns a paginated list of consumers that belong to the current store context.
+</code></pre></div><h1 id='membership-card'>Membership card</h1><h2 id='card-registration'>Card registration</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://staging-api.swa-pay.com/api/v1/cards'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
