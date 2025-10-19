@@ -72,7 +72,7 @@ Error Code | Meaning
 E0010 | Email is already used
 E0019 | Customer ID is already used
 
-## User Response Fields
+### User Response Fields
 
 Field | Type | Description
 ----- | ---- | -------
@@ -89,7 +89,6 @@ avatar | String | The avatar URL
 create_date  | DateTime | The time when customer is registered
 
 ## Get User profile
-
 
 ```shell
 curl --location --request GET 'https://staging-api.swa-pay.com/api/v1/customers/b68904c8-cb4b-4685-a7fb-3ee0cd99f5c2' \
@@ -340,54 +339,7 @@ phone | The member's phone number
 country_code | The member's country code. Default JP
 phone_confirmed_at | The time when the phone is confirmed. 
 
-
-### HTTP Request
-`GET /v1/store/consumers`
-Production environment
-`https://api.swa-pay.com/api/v1/store/consumers`
-
-Staging environment
-`https://staging-api.swa-pay.com/api/v1/store/consumers`
-
-Query Parameters
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-page_no | 1 | 
-page_size | 20 | 
-keyword | | user_id, email, phone...
-
-
-## Consumer Response Fields
-
-| Field               | Type     | Description                                              |
-| ------------------- | -------- | -------------------------------------------------------- |
-| id                  | UUID     | Consumer ID on SWAPay                                    |
-| display_name        | String   | Display name (nullable)                                  |
-| phone               | String   | Phone number (nullable)                                  |
-| email               | String   | Email (nullable)                                         |
-| role                | String   | User role (e.g., `USER`)                                 |
-| country_code        | String   | Country code (e.g., `JP`)                                |
-| provider            | String   | Registration provider (`EMAIL`, `PHONE`, `CONSUMER`)     |
-| phone_e164          | String   | E.164 formatted phone (nullable)                         |
-| owner               | Object   | Owner info `{ id, display_name }`                        |
-| store               | Object   | Store info `{ id, store_name, office_name }`             |
-| customer_id         | String   | Customer ID on merchant system (nullable)                |
-| create_date         | DateTime | Created time (ISO-8601)                                  |
-| gmo_status          | String   | GMO registration status (`REGISTERED`, `NOT_REGISTERED`) |
-| status              | String   | Consumer status (`ACTIVE`, `NOT_YET`, …)                 |
-| order_id            | String   | Latest order ID (nullable)                               |
-| order_name          | String   | Latest order name/label (nullable)                       |
-| user_wallet_address | String   | Wallet address (nullable)                                |
-| honorific_title     | String   | Honorific title (nullable)                               |
-| delete_flg          | Boolean  | Deleted flag (nullable)                                  |
-| first_name          | String   | First name (nullable)                                    |
-| last_name           | String   | Last name (nullable)                                     |
-| user_name           | String   | Username (nullable)                                      |
-
-
-
+## Obtain a list of Consumer
 ```shell
 curl --location --request GET '{{server}}/api/v1/store/consumers?page_no=1&page_size=10' \
 --header 'Authorization: meowmeowmeow'
@@ -419,11 +371,66 @@ The above command returns JSON structured like this:
       "order_name": null,
       "user_wallet_address": null,
       "honorific_title": null
-    }
+    },
+    {
+        "id": "c4a7e68b-c84c-459f-a3ed-3d2137d007e0",
+        "display_name": "Ta Pham Kim Hieu",
+        "phone": null,
+        "email": "hieutaphamkim89+20240523_1@gmail.com",
+        "role": "USER",
+        "country_code": null,
+        "provider": "EMAIL",
+        "phone_e164": null,
+        "operation_agency": null,
+        "merchant": null,
+        "owner": {"id": "af40eee0-81ad-4e29-a8ea-87603b3f8282","display_name": "Merchant"},
+        "store": {"id": "6a02b419-c8a4-4e85-bff2-2242686826f9","store_name": "テスト","office_name": "155"},
+        "customer_id": "hieutaphamkim89+20240527_1302@gmail.com",
+        "create_date": "2024-05-23T03:21:54.259+00:00",
+        "gmo_status": "REGISTERED",
+        "delete_flg": null,
+        "first_name": "Hieu",
+        "last_name": "Ta Pham Kim",
+        "user_name": null,
+        "status": "ACTIVE",
+        "order_id": null,
+        "order_name": null,
+        "user_wallet_address": null,
+        "honorific_title": null
+    },
+    {
+        "id": "065d6f2b-7310-4e92-b521-7707362c94ae",
+        "display_name": null,
+        "phone": null,
+        "email": null,
+        "role": "USER",
+        "country_code": null,
+        "provider": "CONSUMER",
+        "phone_e164": null,
+        "operation_agency": null,
+        "merchant": null,
+        "owner": {"id": "af40eee0-81ad-4e29-a8ea-87603b3f8282","display_name": "Merchant"},
+        "store": {
+            "id": "6a02b419-c8a4-4e85-bff2-2242686826f9",
+            "store_name": "テスト",
+            "office_name": "155"},
+        "customer_id": "hieutaphamkim89+20240523_2@gmail.com",
+        "create_date": "2024-05-23T06:55:11.356+00:00",
+        "gmo_status": "REGISTERED",
+        "delete_flg": null,
+        "first_name": null,
+        "last_name": null,
+        "user_name": null,
+        "status": "NOT_YET",
+        "order_id": null,
+        "order_name": null,
+        "user_wallet_address": null,
+        "honorific_title": null
+    },
   ],
   "page_no": 1,
   "page_size": 10,
-  "total_elements": 5,
+  "total_elements": 3,
   "total_pages": 1,
   "last": true
 }
@@ -436,3 +443,46 @@ Abnormal
 }
 This endpoint returns a paginated list of consumers that belong to the current store context.
 ```
+### HTTP Request
+`GET /v1/store/consumers`
+Production environment
+`https://api.swa-pay.com/api/v1/store/consumers`
+
+Staging environment
+`https://staging-api.swa-pay.com/api/v1/store/consumers`
+
+Query Parameters
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+page_no | 1 | 
+page_size | 10 | 
+keyword | | Keyword to search consumers by user_id, email, phone (and related identifiers). Partial match supported.
+
+### Consumer Response Fields
+| Field               | Type     | Description                                              |
+| ------------------- | -------- | -------------------------------------------------------- |
+| id                  | UUID     | Consumer ID on SWAPay                                    |
+| display_name        | String   | Display name (nullable)                                  |
+| phone               | String   | Phone number (nullable)                                  |
+| email               | String   | Email (nullable)                                         |
+| role                | String   | User role (e.g., `USER`)                                 |
+| country_code        | String   | Country code (e.g., `JP`)                                |
+| provider            | String   | Registration provider (`EMAIL`, `PHONE`, `CONSUMER`)     |
+| phone_e164          | String   | E.164 formatted phone (nullable)                         |
+| owner               | Object   | Owner info `{ id, display_name }`                        |
+| store               | Object   | Store info `{ id, store_name, office_name }`             |
+| customer_id         | String   | Customer ID on merchant system (nullable)                |
+| create_date         | DateTime | Created time (ISO-8601)                                  |
+| gmo_status          | String   | GMO registration status (`REGISTERED`, `NOT_REGISTERED`) |
+| status              | String   | Consumer status (`ACTIVE`, `NOT_YET`, …)                 |
+| order_id            | String   | Latest order ID (nullable)                               |
+| order_name          | String   | Latest order name/label (nullable)                       |
+| user_wallet_address | String   | Wallet address (nullable)                                |
+| honorific_title     | String   | Honorific title (nullable)                               |
+| delete_flg          | Boolean  | Deleted flag (nullable)                                  |
+| first_name          | String   | First name (nullable)                                    |
+| last_name           | String   | Last name (nullable)                                     |
+| user_name           | String   | Username (nullable)                                      |
+

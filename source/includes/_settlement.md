@@ -1,10 +1,119 @@
-# Settlement - No 3DS
+# Settlement
 
 Make a payment by communicating with the card company.
 
 ## When making a payment using a token
-
 ## When paying with a member ID
+If you omit tds_type or send a value other than "0", or the store has not enabled Pre-Authentication, the API will require 3DS2.
+
+```shell
+curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/payment' \
+--header 'Authorization: eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDUzMTU5NDV9.xT3EFN3SC51hORCMEaSDeoA1KEGwGm7cAXdIFQtxr28' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "id": "644c7d8a-d01d-41c6-a63f-4afd88fe9687",
+  "card_id": "9cd378b2-7086-4d69-b245-95b97f84f0da",
+  "user_id": "02eecc89-5ac8-4969-9e8f-d183fc8c84a4"
+}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": "644c7d8a-d01d-41c6-a63f-4afd88fe9687",
+    "pay_amount": 1200.0,
+    "currency": "JPY",
+    "customer_id": null,
+    "customer_order_id": "20251019_1531",
+    "status": "AUTHENTICATING_3DS",
+    "update_date": "2025-10-19T08:33:09.913+00:00",
+    "create_date": "2025-10-19T08:33:09.913+00:00",
+    "pay_method": "0",
+    "pay_times": null,
+    "order_id_csv": null,
+    "actual_payment_date": null,
+    "confirmed_at": null,
+    "acs": "2",
+    "acs_url": "https://simulator.test.fincode.jp/payment/Tds2StubCallback.idPass?transId=86008da1-5d64-4605-bd1f-3dab3c84f6bf&t=a_Kw9Mm5zRTbeCpgCggcYTLA",
+    "redirect_url": "https://staging-api.swa-pay.com/api/v1/fincode/secure/authentication/644c7d8a-d01d-41c6-a63f-4afd88fe9687",
+    "user_payment": {
+        "id": "02eecc89-5ac8-4969-9e8f-d183fc8c84a4",
+        "first_name": "hieu",
+        "last_name": "taphamkim",
+        "email": "hieutaphamkim89+1750@gmail.com",
+        "phone": null,
+        "affiliate_code": null,
+        "display_name": "taphamkim hieu",
+        "address": null
+    },
+    "state": null
+}
+```
+
+> tds_type = "0" → attempts No-3DS (gateway or risk policy may still require 3DS in rare cases).
+If the store has Pre-Authentication enabled and the card was pre-authorized (3DS2) at registration, subsequent payments may proceed with No-3DS (or 3DS2) based on risk routing and your tds_type.
+
+```shell
+curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/payment' \
+--header 'Authorization: eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDUzMTU5NDV9.xT3EFN3SC51hORCMEaSDeoA1KEGwGm7cAXdIFQtxr28' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": "{{order_id}}",
+    "card_id": "{{card_id}}",
+    "user_id": "02eecc89-5ac8-4969-9e8f-d183fc8c84a4",
+    "tds_type": "0"
+}'
+
+{
+    "id": "22be11b0-d075-496d-9bae-615daf730cd1",
+    "pay_amount": 1400.0,
+    "currency": "JPY",
+    "customer_id": null,
+    "customer_order_id": "20251019_1731",
+    "status": "COMPLETE",
+    "update_date": "2025-10-19T08:16:32.526+00:00",
+    "create_date": "2025-10-19T08:12:42.377+00:00",
+    "pay_method": "0",
+    "pay_times": null,
+    "order_id_csv": null,
+    "actual_payment_date": "2025-10-19T08:16:32.526+00:00",
+    "confirmed_at": null,
+    "acs": null,
+    "acs_url": null,
+    "redirect_url": null,
+    "user_payment": {
+        "id": "02eecc89-5ac8-4969-9e8f-d183fc8c84a4",
+        "first_name": "hieu",
+        "last_name": "taphamkim",
+        "email": "hieutaphamkim89+1750@gmail.com",
+        "phone": null,
+        "affiliate_code": null,
+        "display_name": "taphamkim hieu",
+        "address": null
+    },
+    "state": null
+}
+```
+
+### HTTP Request
+
+`POST /v1/payment`
+
+Production environment
+`https://api.swa-pay.com/api/v1/payment`
+
+Staging environment
+`https://staging-api.swa-pay.com/api/v1/payment`
+
+### JSON Object Payload Parameters
+| Parameter | Required | Description                                               |
+| --------- | -------- | --------------------------------------------------------- |
+| id        | true     | Transaction/order ID                                      |
+| card_id   | true     | Stored card ID on SWAPay                                  |
+| user_id   | true     | Payer’s user ID                                           |
+| tds_type  | false    | `"0"` = request No-3DS; omitted/other = **3DS2 required** |
+
 
 ## When making a payment using a card number - No 3DS
 
@@ -141,7 +250,8 @@ Parameter | Required | Description
 --------- | -------- | -----------
 id | true | ID of the transaction 
 
-# Settlement - 3DS-2 (support for the GMO Gateway and  the FinCode Gateway)
+
+# Settlement - 3DS-2 (support for the GMO Gateway, the FinCode Gateway and the Alpha note gateway)
 
 ## 3DS-2 card number
 
@@ -302,7 +412,7 @@ curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/payment' 
 
 ```json
 {
-        "id": "6cce744b-4122-44e8-992f-2ef6a53e2835",
+    "id": "6cce744b-4122-44e8-992f-2ef6a53e2835",
     "pay_amount": 2600.0,
     "currency": "JPY",
     "customer_id": null,
