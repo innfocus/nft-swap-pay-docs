@@ -1362,7 +1362,7 @@ If the store has Pre-Authentication enabled and the card was pre-authorized (3DS
 <tr>
 <td>tds_type</td>
 <td>false</td>
-<td><code>&quot;0&quot;</code> = request No-3DS; omitted/other = <strong>3DS2 required</strong></td>
+<td>&quot;0&quot;: Do not use 3D Secure authentication. &quot;2&quot;: Use 3D Secure 2.0 authentication (<strong>default</strong>)</td>
 </tr>
 </tbody></table>
 <h2 id='when-making-a-payment-using-a-card-number-no-3ds'>When making a payment using a card number - No 3DS</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://staging-api.swa-pay.com/api/v1/payment'</span> <span class="se">\</span>
@@ -3133,10 +3133,19 @@ Cards that passed the initial 3DS2 pre-auth can later be used with either 3DS2 o
 <p>Staging environment
 <code>https://staging-api.swa-pay.com/api/v1/store/consumers/{consumer_id}/cards</code></p>
 
-<p>URL Parameters
-| Parameter   | Description            |
-| ----------- | ---------------------- |
-| consumer_id | The ID of the consumer |</p>
+<p>URL Parameters</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>consumer_id</td>
+<td>The ID of the consumer</td>
+</tr>
+</tbody></table>
 
 <p>Error code list</p>
 
