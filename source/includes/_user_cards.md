@@ -386,6 +386,7 @@ Staging environment
 `https://staging-api.swa-pay.com/api/v1/store/consumers/{consumer_id}/cards`
 
 URL Parameters
+
 | Parameter   | Description            |
 | ----------- | ---------------------- |
 | consumer_id | The ID of the consumer |

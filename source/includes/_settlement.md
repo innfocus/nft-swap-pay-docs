@@ -112,7 +112,7 @@ Staging environment
 | id        | true     | Transaction/order ID                                      |
 | card_id   | true     | Stored card ID on SWAPay                                  |
 | user_id   | true     | Payer’s user ID                                           |
-| tds_type  | false    | `"0"` = request No-3DS; omitted/other = **3DS2 required** |
+| tds_type  | false    |  "0": Do not use 3D Secure authentication. "2": Use 3D Secure 2.0 authentication (**default**)|
 
 
 ## When making a payment using a card number - No 3DS
