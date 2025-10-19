@@ -444,7 +444,9 @@ Abnormal
 This endpoint returns a paginated list of consumers that belong to the current store context.
 ```
 ### HTTP Request
+
 `GET /v1/store/consumers`
+
 Production environment
 `https://api.swa-pay.com/api/v1/store/consumers`
 
