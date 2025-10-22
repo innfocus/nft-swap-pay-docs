@@ -3221,7 +3221,7 @@ This endpoint returns a paginated list of consumers that belong to the current s
 <td>Present only when Pre-Authentication is enabled. Contains the 3DS2 authentication transaction to complete card registration (e.g., id, status, pay_amount = 10, acs, acs_url, redirect_url, timestamps, user_payment). Use redirect_url (recommended) or acs_url to complete the 3DS2 challenge. (nullable)</td>
 </tr>
 <tr>
-<td>error.</td>
+<td>error</td>
 <td><code>Object</code></td>
 <td>Additional error payload when registration encounters an issue. Follows the standard error format { code, message, errors }. null on success. If not null, handle this instead of proceeding with transaction. (nullable)</td>
 </tr>
@@ -3284,7 +3284,7 @@ This endpoint returns a paginated list of consumers that belong to the current s
 <tr>
 <td><code>pay_method</code></td>
 <td>String</td>
-<td>Payment method.<br><code>0</code>: Credit card payment.</td>
+<td>Payment method: <code>0</code>: Credit card payment.</td>
 </tr>
 </tbody></table>
 
