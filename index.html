@@ -319,6 +319,9 @@
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
           </li>
           <li>
+            <a href="#store-information" class="toc-h1 toc-link" data-title="Store information">Store information</a>
+          </li>
+          <li>
             <a href="#orders" class="toc-h1 toc-link" data-title="Orders">Orders</a>
               <ul class="toc-list-h2">
                   <li>
@@ -418,10 +421,7 @@
             <a href="#membership-card" class="toc-h1 toc-link" data-title="Membership card">Membership card</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#card-registration-store-not-config-pre-authentication" class="toc-h2 toc-link" data-title="Card registration (Store not config Pre Authentication)">Card registration (Store not config Pre Authentication)</a>
-                  </li>
-                  <li>
-                    <a href="#card-registration-store-config-pre-authentication" class="toc-h2 toc-link" data-title="Card registration (Store config Pre Authentication)">Card registration (Store config Pre Authentication)</a>
+                    <a href="#card-registration" class="toc-h2 toc-link" data-title="Card registration">Card registration</a>
                   </li>
                   <li>
                     <a href="#card-remove" class="toc-h2 toc-link" data-title="Card Remove">Card Remove</a>
@@ -499,6 +499,409 @@ curl <span class="s2">"https://staging-api.swa-pay.com"</span> <span class="se">
 <aside class="notice">
 You must replace <code>meowmeowmeow</code> with your personal API key.
 </aside>
+<h1 id='store-information'>Store information</h1><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'{{server}}/api/v1/store/detail'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NjA1ODk5MTJ9.oDn9osvEp9jPoz05cQbXoTWV5HsnixLUTlDmk37dkew'</span>
+The above <span class="nb">command </span>returns JSON structured like this:
+<span class="o">{</span>
+    <span class="s2">"id"</span>: <span class="s2">"d228a8e2-b6eb-4c1c-8fa7-ea2e53cf2655"</span>,
+    <span class="s2">"store_name"</span>: <span class="s2">"storeC"</span>,
+    <span class="s2">"office_name"</span>: null,
+    <span class="s2">"representative"</span>: null,
+    <span class="s2">"postal_code"</span>: null,
+    <span class="s2">"province"</span>: null,
+    <span class="s2">"address"</span>: null,
+    <span class="s2">"address2"</span>: null,
+    <span class="s2">"phone"</span>: null,
+    <span class="s2">"token_store"</span>: <span class="s2">"eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NTUwODAwODl9.N15bEeIu4uU-QmrIgIWYY7MTrO-1WoeKjyEpcehiAWQ"</span>,
+    <span class="s2">"logos"</span>: null,
+    <span class="s2">"status"</span>: <span class="s2">"active"</span>,
+    <span class="s2">"create_date"</span>: <span class="s2">"2025-08-13T10:14:49.090+00:00"</span>,
+    <span class="s2">"update_date"</span>: <span class="s2">"2025-10-20T03:02:46.796+00:00"</span>,
+    <span class="s2">"merchant"</span>: null,
+    <span class="s2">"operation_agency"</span>: null,
+    <span class="s2">"owner"</span>: <span class="o">{</span>
+        <span class="s2">"id"</span>: <span class="s2">"3e7a4538-8a84-4963-9586-6b0b8dd6262b"</span>,
+        <span class="s2">"first_name"</span>: null,
+        <span class="s2">"last_name"</span>: null,
+        <span class="s2">"email"</span>: <span class="s2">"agency@nft-swapay.com"</span>,
+        <span class="s2">"phone"</span>: null,
+        <span class="s2">"avatar"</span>: null,
+        <span class="s2">"confirmed"</span>: null,
+        <span class="s2">"role"</span>: <span class="s2">"OPERATION_AGENCY"</span>,
+        <span class="s2">"status"</span>: <span class="s2">"ACTIVE"</span>,
+        <span class="s2">"affiliate_code"</span>: null,
+        <span class="s2">"parent_id"</span>: null,
+        <span class="s2">"display_name"</span>: <span class="s2">"agency@nft-swapay.com"</span>,
+        <span class="s2">"display_gateway"</span>: <span class="s2">"GMO_GATEWAY"</span>,
+        <span class="s2">"address"</span>: null,
+        <span class="s2">"invoice_business_registration_number"</span>: null,
+        <span class="s2">"company_name"</span>: null,
+        <span class="s2">"representative_name"</span>: null,
+        <span class="s2">"account_number"</span>: null,
+        <span class="s2">"user_id"</span>: null 
+        <span class="o">}</span>,
+    <span class="s2">"contract"</span>: <span class="o">{</span>
+        <span class="s2">"id"</span>: <span class="s2">"00ac55ca-748c-46e8-bf6c-ac825d7b682f"</span>,
+        <span class="s2">"status"</span>: <span class="s2">"ACTIVE"</span>,
+        <span class="s2">"corporate_number"</span>: <span class="s2">"1"</span>,
+        <span class="s2">"company_name"</span>: <span class="s2">"1"</span>,
+        <span class="s2">"company_name_phonetic"</span>: <span class="s2">"1"</span>,
+        <span class="s2">"post_code"</span>: <span class="s2">"1"</span>,
+        <span class="s2">"registered_address"</span>: <span class="s2">"1"</span>,
+        <span class="s2">"phone_number"</span>: <span class="s2">"1"</span>,
+        <span class="s2">"fax"</span>: <span class="s2">"1"</span>,
+        <span class="s2">"representative_name"</span>: <span class="s2">"1"</span>,
+        <span class="s2">"name_of_representative_furigana"</span>: <span class="s2">"1"</span>,
+        <span class="s2">"date_of_birth_of_representative"</span>: <span class="s2">"Fri Dec 22 2023 00:00:00 GMT+0700 (Indochina Time)"</span>,
+        <span class="s2">"representative_address_postal_code"</span>: <span class="s2">"1"</span>,
+        <span class="s2">"representative_address"</span>: <span class="s2">"1"</span>,
+        <span class="s2">"online_shop_name"</span>: <span class="s2">"1"</span>,
+        <span class="s2">"online_shop_url"</span>: <span class="s2">"1"</span>,
+        <span class="s2">"product_service_details"</span>: <span class="s2">"1"</span>,
+        <span class="s2">"average_spend_per_customer"</span>: <span class="s2">"1"</span>,
+        <span class="s2">"handling_product_minimum_unit_price"</span>: <span class="s2">"1"</span>,
+        <span class="s2">"products_handled_maximum_unit_price"</span>: <span class="s2">"1"</span>
+        <span class="o">}</span>,
+    <span class="s2">"api_key"</span>: null,
+    <span class="s2">"publishable_key"</span>: null,
+    <span class="s2">"alpha_id"</span>: null,
+    <span class="s2">"alpha_pass"</span>: null,
+    <span class="s2">"amount"</span>: 0.0,
+    <span class="s2">"flag_amount"</span>: <span class="nb">false</span>,
+    <span class="s2">"trading_type"</span>: <span class="s2">"REGULAR_PAYMENT"</span>,
+    <span class="s2">"payment_methods"</span>: <span class="o">[</span>
+        <span class="s2">"CREDIT_CARD"</span>
+    <span class="o">]</span>,
+    <span class="s2">"credit_card_types"</span>: <span class="o">[</span>
+        <span class="s2">"VISA_CARD"</span>,
+        <span class="s2">"MASTER_CARD"</span>,
+        <span class="s2">"JCB_CARD"</span>,
+        <span class="s2">"AMEX_CARD"</span>,
+        <span class="s2">"DINERS_CARD"</span>
+    <span class="o">]</span>,
+    <span class="s2">"site_id"</span>: null,
+    <span class="s2">"site_pass"</span>: null,
+    <span class="s2">"shop_id"</span>: null,
+    <span class="s2">"shop_pass"</span>: null,
+    <span class="s2">"public_key"</span>: null,
+    <span class="s2">"public_key_hash"</span>: null,
+    <span class="s2">"gateway_type"</span>: <span class="s2">"FIN_CODE_GATEWAY"</span>,
+    <span class="s2">"merchant_ccid"</span>: null,
+    <span class="s2">"merchant_secret_key"</span>: null,
+    <span class="s2">"token_api_key"</span>: null,
+    <span class="s2">"td_flag"</span>: null,
+    <span class="s2">"tenant"</span>: null,
+    <span class="s2">"min_amount"</span>: 1.0,
+    <span class="s2">"max_amount"</span>: 9999999.0,
+    <span class="s2">"limit_amount"</span>: <span class="nb">false</span>,
+    <span class="s2">"shop_name"</span>: null,
+    <span class="s2">"shop_name_kana"</span>: null,
+    <span class="s2">"parent_shop_id"</span>: null,
+    <span class="s2">"parent_shop_name"</span>: null,
+    <span class="s2">"shop_type"</span>: null,
+    <span class="s2">"back_account_list"</span>: null,
+    <span class="s2">"transfer_destination"</span>: <span class="s2">"DIRECT_MERCHANT"</span>,
+    <span class="s2">"methods"</span>: <span class="o">[</span>
+        <span class="s2">"ONE_TIME"</span>
+    <span class="o">]</span>,
+    <span class="s2">"receipt_enabled"</span>: <span class="nb">true</span>,
+    <span class="s2">"send_payment_success_email"</span>: <span class="nb">true</span>,
+    <span class="s2">"keywords"</span>: null,
+    <span class="s2">"pre_authentication"</span>: <span class="nb">true</span>
+<span class="o">}</span>
+Abnormal
+
+<span class="o">{</span>
+  <span class="s2">"code"</span>: <span class="s2">"E0401"</span>,
+  <span class="s2">"message"</span>: <span class="s2">"Invalid authorization code"</span>,
+  <span class="s2">"errors"</span>: null
+<span class="o">}</span>
+
+</code></pre></div>
+<p>The API returns the current store’s configuration and profile (e.g., name, status, payment gateway, enabled payment methods, amount limits, etc.).</p>
+
+<p>HTTP Request</p>
+
+<p><code>GET /v1/store/detail</code></p>
+
+<p>Production environment
+<code>https://api.swa-pay.com/api/v1/store/detail</code></p>
+
+<p>Staging environment
+<code>https://staging-api.swa-pay.com/api/v1/store/detail</code></p>
+
+<p>Store Response Fields</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><code>UUID</code></td>
+<td>Store ID on SWAPay</td>
+</tr>
+<tr>
+<td>store_name</td>
+<td><code>String</code></td>
+<td>Store name</td>
+</tr>
+<tr>
+<td>token_store</td>
+<td><code>String</code></td>
+<td>Store-scoped token (sensitive)</td>
+</tr>
+<tr>
+<td>status</td>
+<td><code>String</code></td>
+<td>Store status (<code>request_active</code>,<code>active</code>, <code>request_delete</code>, <code>deleted</code>)</td>
+</tr>
+<tr>
+<td>create_date</td>
+<td><code>DateTime</code></td>
+<td>Store creation time</td>
+</tr>
+<tr>
+<td>update_date</td>
+<td><code>DateTime</code></td>
+<td>Last updated time</td>
+</tr>
+<tr>
+<td>owner</td>
+<td><code>Object</code></td>
+<td>Owner info (see <strong>Owner Fields</strong>)</td>
+</tr>
+<tr>
+<td>contract</td>
+<td><code>Object</code></td>
+<td>Store’s signed contract info (see <strong>Contract Fields</strong>)</td>
+</tr>
+<tr>
+<td>amount</td>
+<td><code>Number</code></td>
+<td>Verification amount threshold (if used)</td>
+</tr>
+<tr>
+<td>flag_amount</td>
+<td><code>Boolean</code></td>
+<td>Whether <code>amount</code> rule is enabled</td>
+</tr>
+<tr>
+<td>trading_type</td>
+<td><code>String</code></td>
+<td>Operation method (<code>REGULAR_PAYMENT</code>, <code>ESCROW_PAYMENT</code>, <code>TEMPORARY_SALES_PAYMENT</code>)</td>
+</tr>
+<tr>
+<td>payment_methods</td>
+<td><code>Array&lt;String&gt;</code></td>
+<td>Enabled payment methods (e.g., <code>CREDIT_CARD</code>, <code>PAYPAY</code>, <code>LINEPAY</code>, <code>APPLEPAY</code>, <code>GOOGLE_PAY</code>)</td>
+</tr>
+<tr>
+<td>credit_card_types</td>
+<td><code>Array&lt;String&gt;</code></td>
+<td>Accepted card brands (<code>VISA_CARD</code>, <code>MASTER_CARD</code>, <code>JCB_CARD</code>, <code>AMEX_CARD</code>, <code>DINERS_CARD</code>)</td>
+</tr>
+<tr>
+<td>gateway_type</td>
+<td><code>String</code></td>
+<td>Configured gateway (e.g., <code>FIN_CODE_GATEWAY</code>, <code>ALPHA_NOTE_GATEWAY</code>, <code>GMO_GATEWAY</code>)</td>
+</tr>
+<tr>
+<td>min_amount</td>
+<td><code>Number</code></td>
+<td>Minimum allowed payment amount</td>
+</tr>
+<tr>
+<td>max_amount</td>
+<td><code>Number</code></td>
+<td>Maximum allowed payment amount</td>
+</tr>
+<tr>
+<td>limit_amount</td>
+<td><code>Boolean</code></td>
+<td>Whether min/max amount limits are enforced</td>
+</tr>
+<tr>
+<td>transfer_destination</td>
+<td><code>String</code></td>
+<td>Settlement destination policy (e.g., <code>DIRECT_MERCHANT</code>)</td>
+</tr>
+<tr>
+<td>methods</td>
+<td><code>Array&lt;String&gt;</code></td>
+<td>Allowed billing types (<code>ONE_TIME</code>, <code>INSTALLMENT</code>, <code>REVOLVING</code>, <code>SUBSCRIPTION</code>)</td>
+</tr>
+<tr>
+<td>receipt_enabled</td>
+<td><code>Boolean</code></td>
+<td>Whether receipt issuance is enabled</td>
+</tr>
+<tr>
+<td>send_payment_success_email</td>
+<td><code>Boolean</code></td>
+<td>Whether to send payment-success emails</td>
+</tr>
+<tr>
+<td>pre_authentication</td>
+<td><code>Boolean</code></td>
+<td>Require <strong>3DS2 pre-authentication</strong> at <strong>card registration</strong> (¥10 test charge → auto-refund on success)</td>
+</tr>
+</tbody></table>
+
+<p>Owner Fields</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><code>UUID</code></td>
+<td>Owner user ID</td>
+</tr>
+<tr>
+<td>email</td>
+<td><code>String</code></td>
+<td>Owner email</td>
+</tr>
+<tr>
+<td>role</td>
+<td><code>String</code></td>
+<td>Owner role (e.g., <code>OPERATION_AGENCY</code>, <code>MERCHANT</code>)</td>
+</tr>
+<tr>
+<td>status</td>
+<td><code>String</code></td>
+<td>Owner account status (e.g., <code>ACTIVE</code>)</td>
+</tr>
+<tr>
+<td>display_name</td>
+<td><code>String</code></td>
+<td>Owner display name</td>
+</tr>
+<tr>
+<td>display_gateway</td>
+<td><code>String</code></td>
+<td>Preferred display gateway (e.g., <code>GMO_GATEWAY</code>)</td>
+</tr>
+</tbody></table>
+
+<p>Contract Fields</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><code>UUID</code></td>
+<td>Contract ID</td>
+</tr>
+<tr>
+<td>status</td>
+<td><code>String</code></td>
+<td>Contract status (e.g., <code>ACTIVE</code>)</td>
+</tr>
+<tr>
+<td>corporate_number</td>
+<td><code>String</code></td>
+<td>Corporate number</td>
+</tr>
+<tr>
+<td>company_name</td>
+<td><code>String</code></td>
+<td>Company name</td>
+</tr>
+<tr>
+<td>company_name_phonetic</td>
+<td><code>String</code></td>
+<td>Company name (phonetic)</td>
+</tr>
+<tr>
+<td>post_code</td>
+<td><code>String</code></td>
+<td>Company postal code</td>
+</tr>
+<tr>
+<td>registered_address</td>
+<td><code>String</code></td>
+<td>Registered corporate address</td>
+</tr>
+<tr>
+<td>phone_number</td>
+<td><code>String</code></td>
+<td>Company phone number</td>
+</tr>
+<tr>
+<td>fax</td>
+<td><code>String</code></td>
+<td>Company fax</td>
+</tr>
+<tr>
+<td>representative_name</td>
+<td><code>String</code></td>
+<td>Legal representative name</td>
+</tr>
+<tr>
+<td>name_of_representative_furigana</td>
+<td><code>String</code></td>
+<td>Representative name (furigana)</td>
+</tr>
+<tr>
+<td>date_of_birth_of_representative</td>
+<td><code>String</code></td>
+<td>Representative’s DOB (as provided)</td>
+</tr>
+<tr>
+<td>representative_address_postal_code</td>
+<td><code>String</code></td>
+<td>Representative postal code</td>
+</tr>
+<tr>
+<td>representative_address</td>
+<td><code>String</code></td>
+<td>Representative address</td>
+</tr>
+<tr>
+<td>online_shop_name</td>
+<td><code>String</code></td>
+<td>Online shop name</td>
+</tr>
+<tr>
+<td>online_shop_url</td>
+<td><code>String</code></td>
+<td>Online shop URL</td>
+</tr>
+<tr>
+<td>product_service_details</td>
+<td><code>String</code></td>
+<td>Description of products/services</td>
+</tr>
+<tr>
+<td>average_spend_per_customer</td>
+<td><code>String</code></td>
+<td>Average spend per customer</td>
+</tr>
+<tr>
+<td>handling_product_minimum_unit_price</td>
+<td><code>String</code></td>
+<td>Minimum unit price handled</td>
+</tr>
+<tr>
+<td>products_handled_maximum_unit_price</td>
+<td><code>String</code></td>
+<td>Maximum unit price handled</td>
+</tr>
+</tbody></table>
 <h1 id='orders'>Orders</h1><h2 id='create-a-new-order'>Create a new Order</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://staging-api.swa-pay.com/api/v1/order'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: meowmeowmeow'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
@@ -1246,11 +1649,11 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://staging-api.swa-pay.com/api/v1/payment'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDUzMTU5NDV9.xT3EFN3SC51hORCMEaSDeoA1KEGwGm7cAXdIFQtxr28'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-<span class="nt">--data-raw</span> <span class="s1">'{
-  "id": "644c7d8a-d01d-41c6-a63f-4afd88fe9687",
-  "card_id": "9cd378b2-7086-4d69-b245-95b97f84f0da",
-  "user_id": "02eecc89-5ac8-4969-9e8f-d183fc8c84a4"
-}'</span>
+<span class="nt">--data-raw</span> <span class="o">{</span>
+  <span class="s2">"id"</span>: <span class="s2">"644c7d8a-d01d-41c6-a63f-4afd88fe9687"</span>,
+  <span class="s2">"card_id"</span>: <span class="s2">"9cd378b2-7086-4d69-b245-95b97f84f0da"</span>,
+  <span class="s2">"user_id"</span>: <span class="s2">"02eecc89-5ac8-4969-9e8f-d183fc8c84a4"</span>
+<span class="o">}</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1292,12 +1695,12 @@ If the store has Pre-Authentication enabled and the card was pre-authorized (3DS
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://staging-api.swa-pay.com/api/v1/payment'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDUzMTU5NDV9.xT3EFN3SC51hORCMEaSDeoA1KEGwGm7cAXdIFQtxr28'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-<span class="nt">--data-raw</span> <span class="s1">'{
-    "id": "{{order_id}}",
-    "card_id": "{{card_id}}",
-    "user_id": "02eecc89-5ac8-4969-9e8f-d183fc8c84a4",
-    "tds_type": "0"
-}'</span>
+<span class="nt">--data-raw</span> <span class="o">{</span>
+    <span class="s2">"id"</span>: <span class="s2">"{{order_id}}"</span>,
+    <span class="s2">"card_id"</span>: <span class="s2">"{{card_id}}"</span>,
+    <span class="s2">"user_id"</span>: <span class="s2">"02eecc89-5ac8-4969-9e8f-d183fc8c84a4"</span>,
+    <span class="s2">"tds_type"</span>: <span class="s2">"0"</span>
+<span class="o">}</span>
 
 <span class="o">{</span>
     <span class="s2">"id"</span>: <span class="s2">"22be11b0-d075-496d-9bae-615daf730cd1"</span>,
@@ -1324,11 +1727,30 @@ If the store has Pre-Authentication enabled and the card was pre-authorized (3DS
         <span class="s2">"phone"</span>: null,
         <span class="s2">"affiliate_code"</span>: null,
         <span class="s2">"display_name"</span>: <span class="s2">"taphamkim hieu"</span>,
-        <span class="s2">"address"</span>: null
-    <span class="o">}</span>,
+        <span class="s2">"address"</span>: null 
+        <span class="o">}</span>,
     <span class="s2">"state"</span>: null
 <span class="o">}</span>
-</code></pre></div><h3 id='http-request'>HTTP Request</h3>
+
+</code></pre></div>
+<blockquote>
+<p>Store Pre-Authentication not enabled</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E0429"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pre-Authentication is not enabled for this store. Please contact an administrator to enable it."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Card not 3DS-authenticated at registration</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E0430"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This card was not 3DS-authenticated at registration."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
 <p><code>POST /v1/payment</code></p>
 
 <p>Production environment
@@ -2554,46 +2976,49 @@ This endpoint returns a paginated list of consumers that belong to the current s
 <td>Username (nullable)</td>
 </tr>
 </tbody></table>
-<h1 id='membership-card'>Membership card</h1><h2 id='card-registration-store-not-config-pre-authentication'>Card registration (Store not config Pre Authentication)</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://staging-api.swa-pay.com/api/v1/cards'</span> <span class="se">\</span>
+<h1 id='membership-card'>Membership card</h1><h2 id='card-registration'>Card registration</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://staging-api.swa-pay.com/api/v1/cards'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzY5MDk3MzF9.Tb4wsSMTITRLvV4PaHhgu_8QTPhGXuDktPIhd2pvmJM'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-<span class="nt">--data-raw</span> <span class="s1">'{
-    "card_no": "4100 0000 0000 5000",
-    "expire": "1231",
-    "security_code": "123",
-    "holder_name": "ta pham kim hieu",
-    "user_id": "02eecc89-5ac8-4969-9e8f-d183fc8c84a4"
-}'</span>
+<span class="nt">--data-raw</span> <span class="o">{</span>
+    <span class="s2">"card_no"</span>: <span class="s2">"5100 0000 0000 0115"</span>,
+    <span class="s2">"expire"</span>: <span class="s2">"1231"</span>,
+    <span class="s2">"security_code"</span>: <span class="s2">"123"</span>,
+    <span class="s2">"holder_name"</span>: <span class="s2">"ta pham kim hieu"</span>,
+    <span class="s2">"user_id"</span>: <span class="s2">"08f504d9-3cfc-4b78-bf61-8faddf42df15"</span>,
+    <span class="s2">"success_url"</span>: <span class="s2">"https://swapay.co.jp/"</span>,
+    <span class="s2">"callback_url"</span>: <span class="s2">"https://2446-115-78-15-4.ap.ngrok.io/gateway/receiving"</span>,
+    <span class="s2">"cancel_url"</span>: <span class="s2">"https://swapay.co.jp/"</span>
+<span class="o">}</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9cd378b2-7086-4d69-b245-95b97f84f0da"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"short_card_no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"****************000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ca0123b5-b402-47fb-bc04-2bf6fa71f1b3"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"short_card_no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*************115"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"card_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"expire"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/31"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"holder_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ta pham kim hieu"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"card_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VISA"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"card_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MASTER"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"security_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"user_create"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02eecc89-5ac8-4969-9e8f-d183fc8c84a4"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-10-19T06:10:48.553+00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"user_update"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02eecc89-5ac8-4969-9e8f-d183fc8c84a4"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"update_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-10-19T06:10:48.553+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user_create"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08f504d9-3cfc-4b78-bf61-8faddf42df15"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-10-22T04:44:38.231+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user_update"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08f504d9-3cfc-4b78-bf61-8faddf42df15"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"update_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-10-22T04:44:38.231+00:00"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02eecc89-5ac8-4969-9e8f-d183fc8c84a4"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hieu"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"taphamkim"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hieutaphamkim89+1750@gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08f504d9-3cfc-4b78-bf61-8faddf42df15"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="nl">"confirmed"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="nl">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USER"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACTIVE"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOT_YET"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"affiliate_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="nl">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"taphamkim hieu"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="nl">"display_gateway"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GMO_GATEWAY"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="nl">"invoice_business_registration_number"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2606,7 +3031,37 @@ This endpoint returns a paginated list of consumers that belong to the current s
     </span><span class="nl">"store"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"gateway"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"card_gateway_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"pre_authorization"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="nl">"pre_authorization"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f7106ca2-e635-471e-9944-3071dfe56008"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"pay_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"customer_order_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUTHENTICATING_3DS"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"update_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-10-22T04:44:40.985+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-10-22T04:44:40.985+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"pay_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"pay_times"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"order_id_csv"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"actual_payment_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"confirmed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"acs"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"acs_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://simulator.test.fincode.jp/payment/Tds2StubCallback.idPass?transId=77974614-110b-4fb0-b314-9c117e3726bd&amp;t=a_cXKnXjgqT4ukDBY_fgVE4Q"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"redirect_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://staging-api.swa-pay.com/api/v1/fincode/secure/authentication/f7106ca2-e635-471e-9944-3071dfe56008"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"user_payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08f504d9-3cfc-4b78-bf61-8faddf42df15"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"affiliate_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint will help you register the card information with the specified member.</p>
@@ -2634,7 +3089,7 @@ This endpoint returns a paginated list of consumers that belong to the current s
 <tr>
 <td>card_no</td>
 <td>true</td>
-<td>credit card number</td>
+<td>Credit card number</td>
 </tr>
 <tr>
 <td>expire</td>
@@ -2644,7 +3099,7 @@ This endpoint returns a paginated list of consumers that belong to the current s
 <tr>
 <td>security_code</td>
 <td>true</td>
-<td>security code - The 3- or 4-digit number printed on the card</td>
+<td>Security code - The 3- or 4-digit number printed on the card</td>
 </tr>
 <tr>
 <td>holder_name</td>
@@ -2654,17 +3109,17 @@ This endpoint returns a paginated list of consumers that belong to the current s
 <tr>
 <td>success_url</td>
 <td>false</td>
-<td></td>
-</tr>
-<tr>
-<td>callback_url</td>
-<td>false</td>
-<td></td>
+<td>Redirect to <code>success_url</code> after successful payment</td>
 </tr>
 <tr>
 <td>cancel_url</td>
 <td>false</td>
-<td></td>
+<td>Redirect to <code>cancel_url</code> when buyer cancels the order</td>
+</tr>
+<tr>
+<td>callback_url</td>
+<td>false</td>
+<td>JSON-formatted <code>POST</code> notification message will be sent to <code>callback_url</code> when order status is changed. If the callback is empty, we can send information to merchant&#39;s email.</td>
 </tr>
 </tbody></table>
 <h3 id='card-response-fields'>Card Response Fields</h3>
@@ -2760,118 +3215,20 @@ This endpoint returns a paginated list of consumers that belong to the current s
 <td><code>Boolean</code></td>
 <td><code>true</code> if this card was <strong>successfully 3DS2 pre-authenticated</strong> at registration; <code>false</code> otherwise</td>
 </tr>
-</tbody></table>
-<h2 id='card-registration-store-config-pre-authentication'>Card registration (Store config Pre Authentication)</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://staging-api.swa-pay.com/api/v1/cards'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'Authorization: eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDUzMTU5NDV9.xT3EFN3SC51hORCMEaSDeoA1KEGwGm7cAXdIFQtxr28'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-<span class="nt">--data-raw</span> <span class="s1">'{
-    "card_no": "5100 0000 0000 5007",
-    "expire": "1231",
-    "security_code": "123",
-    "holder_name": "ta pham kim hieu",
-    "user_id": "02eecc89-5ac8-4969-9e8f-d183fc8c84a4",
-    "success_url": "https://swapay.co.jp/",
-    "callback_url": "https://2446-115-78-15-4.ap.ngrok.io/gateway/receiving",
-    "cancel_url": "https://swapay.co.jp/"
-}'</span>
-</code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a16d58d0-2411-47ab-8656-ba8a1e9a7c6f"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"pay_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"customer_order_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUTHENTICATING_3DS"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"update_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-10-19T07:58:37.080+00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-10-19T07:58:37.080+00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"pay_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"pay_times"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"order_id_csv"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"actual_payment_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"confirmed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"acs"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"acs_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://simulator.test.fincode.jp/payment/Tds2StubCallback.idPass?transId=d37bf06b-217d-4ffc-9ec9-31950241719a&amp;t=a_9NEsSz5nSo6K0sI38XAliw"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"redirect_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://staging-api.swa-pay.com/api/v1/fincode/secure/authentication/a16d58d0-2411-47ab-8656-ba8a1e9a7c6f"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"user_payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"02eecc89-5ac8-4969-9e8f-d183fc8c84a4"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hieu"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"taphamkim"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hieutaphamkim89+1750@gmail.com"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"affiliate_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"taphamkim hieu"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint will help you register the card information with the specified member.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST /v1/cards</code></p>
-
-<p>Production environment
-<code>https://api.swa-pay.com/api/v1/cards</code></p>
-
-<p>Staging environment
-<code>https://staging-api.swa-pay.com/api/v1/cards</code></p>
-<h3 id='json-object-payload-parameters-2'>JSON Object Payload Parameters</h3>
-<table><thead>
 <tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>user_id</td>
-<td>true</td>
-<td>The SWAPay user id</td>
+<td>transaction</td>
+<td><code>Object</code></td>
+<td>Present only when Pre-Authentication is enabled. Contains the 3DS2 authentication transaction to complete card registration (e.g., id, status, pay_amount = 10, acs, acs_url, redirect_url, timestamps, user_payment). Use redirect_url (recommended) or acs_url to complete the 3DS2 challenge. (nullable)</td>
 </tr>
 <tr>
-<td>card_no</td>
-<td>true</td>
-<td>credit card number</td>
-</tr>
-<tr>
-<td>expire</td>
-<td>true</td>
-<td>Credit card expiration date - MMYY format</td>
-</tr>
-<tr>
-<td>security_code</td>
-<td>true</td>
-<td>security code - The 3- or 4-digit number printed on the card</td>
-</tr>
-<tr>
-<td>holder_name</td>
-<td>true</td>
-<td>Credit card name</td>
-</tr>
-<tr>
-<td>success_url</td>
-<td>false</td>
-<td></td>
-</tr>
-<tr>
-<td>callback_url</td>
-<td>false</td>
-<td></td>
-</tr>
-<tr>
-<td>cancel_url</td>
-<td>false</td>
-<td></td>
+<td>error.</td>
+<td><code>Object</code></td>
+<td>Additional error payload when registration encounters an issue. Follows the standard error format { code, message, errors }. null on success. If not null, handle this instead of proceeding with transaction. (nullable)</td>
 </tr>
 </tbody></table>
 
-<p>Notes
-Raw PAN/CVV are not stored and are never returned by the API.
-If Pre-Authentication is enabled, the system will create a temporary order for ¥10, attempt a 3DS2 authentication + payment, and auto-refund that order on success.
-Cards that passed the initial 3DS2 pre-auth can later be used with either 3DS2 or No-3DS, depending on risk/routing settings.</p>
-<h3 id='3ds2-authentication-response-fields'>3DS2 Authentication Response Fields</h3>
+<p>Transaction Field</p>
+
 <table><thead>
 <tr>
 <th>Field</th>
@@ -2930,6 +3287,11 @@ Cards that passed the initial 3DS2 pre-auth can later be used with either 3DS2 o
 <td>Payment method.<br><code>0</code>: Credit card payment.</td>
 </tr>
 </tbody></table>
+
+<p>Notes
+Raw PAN/CVV are not stored and are never returned by the API.
+If Pre-Authentication is enabled, the system will create a temporary order for ¥10, attempt a 3DS2 authentication + payment, and auto-refund that order on success.
+Cards that passed the initial 3DS2 pre-auth can later be used with either 3DS2 or No-3DS, depending on risk/routing settings.</p>
 <h3 id='client-flow-high-level'>Client flow (high level)</h3>
 <ol>
 <li><strong>Register card</strong> via <code>POST /v1/cards</code>.</li>
@@ -2965,7 +3327,7 @@ Cards that passed the initial 3DS2 pre-auth can later be used with either 3DS2 o
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Remove card by card_id</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-2'>HTTP Request</h3>
 <p><code>DELETE /v1/cards/{id}</code></p>
 
 <p>Production environment
@@ -2973,7 +3335,7 @@ Cards that passed the initial 3DS2 pre-auth can later be used with either 3DS2 o
 
 <p>Staging environment
 <code>https://staging-api.swa-pay.com/api/v1/cards/{id}</code></p>
-<h3 id='json-object-payload-parameters-3'>JSON Object Payload Parameters</h3>
+<h3 id='json-object-payload-parameters-2'>JSON Object Payload Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3125,7 +3487,7 @@ Cards that passed the initial 3DS2 pre-auth can later be used with either 3DS2 o
 <span class="o">}</span>
 </code></pre></div>
 <p>This endpoint returns all saved cards of a given consumer within the current store context.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET /v1/store/consumers/{consumer_id}/cards</code></p>
 
 <p>Production environment
