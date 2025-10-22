@@ -140,7 +140,7 @@ Staging environment
 | card_gateway_id   | `String`   | Gateway-side card identifier *(nullable)*|
 | pre_authorization | `Boolean`  | `true` if this card was **successfully 3DS2 pre-authenticated** at registration; `false` otherwise |
 |transaction        |`Object`    | Present only when Pre-Authentication is enabled. Contains the 3DS2 authentication transaction to complete card registration (e.g., id, status, pay_amount = 10, acs, acs_url, redirect_url, timestamps, user_payment). Use redirect_url (recommended) or acs_url to complete the 3DS2 challenge. (nullable) |
-|error.             |`Object`    | Additional error payload when registration encounters an issue. Follows the standard error format { code, message, errors }. null on success. If not null, handle this instead of proceeding with transaction. (nullable)
+|error             |`Object`    | Additional error payload when registration encounters an issue. Follows the standard error format { code, message, errors }. null on success. If not null, handle this instead of proceeding with transaction. (nullable)
 
 
 Transaction Field
@@ -156,7 +156,7 @@ Transaction Field
 | `acs`                | String | Indicates whether to use 3D Secure authentication.<br>`0`: Do not use 3D Secure authentication (default).<br>`2`: Use 3D Secure 2.0 authentication. |
 | `acs_url`            | String | URL of the 3D Secure authentication page returned directly from the payment gateway. Used only when your system implements the entire 3D Secure authentication process. |
 | `redirect_url`       | String | 3D Secure authentication URL provided by Swapay. This URL is customized to simplify integration and can be used as an alternative to `acs_url` if you prefer Swapay to handle part or all of the 3D Secure authentication flow. |
-| `pay_method`         | String | Payment method.<br>`0`: Credit card payment. |
+| `pay_method`         | String | Payment method: `0`: Credit card payment. |
 
 Notes
 Raw PAN/CVV are not stored and are never returned by the API.
