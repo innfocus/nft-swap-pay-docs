@@ -10,11 +10,11 @@ If you omit tds_type or send a value other than "0", or the store has not enable
 curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/payment' \
 --header 'Authorization: eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDUzMTU5NDV9.xT3EFN3SC51hORCMEaSDeoA1KEGwGm7cAXdIFQtxr28' \
 --header 'Content-Type: application/json' \
---data-raw '{
+--data-raw {
   "id": "644c7d8a-d01d-41c6-a63f-4afd88fe9687",
   "card_id": "9cd378b2-7086-4d69-b245-95b97f84f0da",
   "user_id": "02eecc89-5ac8-4969-9e8f-d183fc8c84a4"
-}'
+}
 ```
 
 > The above command returns JSON structured like this:
@@ -58,12 +58,12 @@ If the store has Pre-Authentication enabled and the card was pre-authorized (3DS
 curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/payment' \
 --header 'Authorization: eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDUzMTU5NDV9.xT3EFN3SC51hORCMEaSDeoA1KEGwGm7cAXdIFQtxr28' \
 --header 'Content-Type: application/json' \
---data-raw '{
+--data-raw {
     "id": "{{order_id}}",
     "card_id": "{{card_id}}",
     "user_id": "02eecc89-5ac8-4969-9e8f-d183fc8c84a4",
     "tds_type": "0"
-}'
+}
 
 {
     "id": "22be11b0-d075-496d-9bae-615daf730cd1",
@@ -90,9 +90,30 @@ curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/payment' 
         "phone": null,
         "affiliate_code": null,
         "display_name": "taphamkim hieu",
-        "address": null
-    },
+        "address": null 
+        },
     "state": null
+}
+
+```
+
+> Store Pre-Authentication not enabled
+
+```json
+{
+    "code": "E0429",
+    "message": "Pre-Authentication is not enabled for this store. Please contact an administrator to enable it.",
+    "errors": null
+}
+```
+
+> Card not 3DS-authenticated at registration
+
+```json
+{
+    "code": "E0430",
+    "message": "This card was not 3DS-authenticated at registration.",
+    "errors": null
 }
 ```
 

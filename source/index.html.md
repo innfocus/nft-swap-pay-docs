@@ -8,6 +8,7 @@ toc_footers:
   - <a href='https://staging-console.swa-pay.com/' target="_blank">Start here</a>
 
 includes:
+  - store_info
   - orders
   - settlement
   - members

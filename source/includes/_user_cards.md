@@ -1,50 +1,52 @@
 # Membership card
 
-## Card registration (Store not config Pre Authentication)
-
+## Card registration
 
 ```shell
 curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/cards' \
 --header 'Authorization: eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzY5MDk3MzF9.Tb4wsSMTITRLvV4PaHhgu_8QTPhGXuDktPIhd2pvmJM' \
 --header 'Content-Type: application/json' \
---data-raw '{
-    "card_no": "4100 0000 0000 5000",
+--data-raw {
+    "card_no": "5100 0000 0000 0115",
     "expire": "1231",
     "security_code": "123",
     "holder_name": "ta pham kim hieu",
-    "user_id": "02eecc89-5ac8-4969-9e8f-d183fc8c84a4"
-}'
+    "user_id": "08f504d9-3cfc-4b78-bf61-8faddf42df15",
+    "success_url": "https://swapay.co.jp/",
+    "callback_url": "https://2446-115-78-15-4.ap.ngrok.io/gateway/receiving",
+    "cancel_url": "https://swapay.co.jp/"
+}
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-    "id": "9cd378b2-7086-4d69-b245-95b97f84f0da",
-    "short_card_no": "****************000",
+    "id": "ca0123b5-b402-47fb-bc04-2bf6fa71f1b3",
+    "short_card_no": "*************115",
     "card_name": null,
     "expire": "12/31",
     "holder_name": "ta pham kim hieu",
-    "card_type": "VISA",
+    "card_type": "MASTER",
     "status": "ACTIVE",
     "security_code": null,
-    "user_create": "02eecc89-5ac8-4969-9e8f-d183fc8c84a4",
-    "create_date": "2025-10-19T06:10:48.553+00:00",
-    "user_update": "02eecc89-5ac8-4969-9e8f-d183fc8c84a4",
-    "update_date": "2025-10-19T06:10:48.553+00:00",
+    "user_create": "08f504d9-3cfc-4b78-bf61-8faddf42df15",
+    "create_date": "2025-10-22T04:44:38.231+00:00",
+    "user_update": "08f504d9-3cfc-4b78-bf61-8faddf42df15",
+    "update_date": "2025-10-22T04:44:38.231+00:00",
     "user": {
-        "id": "02eecc89-5ac8-4969-9e8f-d183fc8c84a4",
-        "first_name": "hieu",
-        "last_name": "taphamkim",
-        "email": "hieutaphamkim89+1750@gmail.com",
+        "id": "08f504d9-3cfc-4b78-bf61-8faddf42df15",
+        "first_name": null,
+        "last_name": null,
+        "email": null,
         "phone": null,
         "avatar": null,
         "confirmed": null,
         "role": "USER",
-        "status": "ACTIVE",
+        "status": "NOT_YET",
         "affiliate_code": null,
         "parent_id": null,
-        "display_name": "taphamkim hieu",
+        "display_name": null,
         "display_gateway": "GMO_GATEWAY",
         "address": null,
         "invoice_business_registration_number": null,
@@ -57,7 +59,37 @@ curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/cards' \
     "store": null,
     "gateway": null,
     "card_gateway_id": null,
-    "pre_authorization": false
+    "pre_authorization": false,
+    "transaction": {
+        "id": "f7106ca2-e635-471e-9944-3071dfe56008",
+        "pay_amount": 10.0,
+        "currency": "JPY",
+        "customer_id": null,
+        "customer_order_id": null,
+        "status": "AUTHENTICATING_3DS",
+        "update_date": "2025-10-22T04:44:40.985+00:00",
+        "create_date": "2025-10-22T04:44:40.985+00:00",
+        "pay_method": "0",
+        "pay_times": null,
+        "order_id_csv": null,
+        "actual_payment_date": null,
+        "confirmed_at": null,
+        "acs": "2",
+        "acs_url": "https://simulator.test.fincode.jp/payment/Tds2StubCallback.idPass?transId=77974614-110b-4fb0-b314-9c117e3726bd&t=a_cXKnXjgqT4ukDBY_fgVE4Q",
+        "redirect_url": "https://staging-api.swa-pay.com/api/v1/fincode/secure/authentication/f7106ca2-e635-471e-9944-3071dfe56008",
+        "user_payment": {
+            "id": "08f504d9-3cfc-4b78-bf61-8faddf42df15",
+            "first_name": null,
+            "last_name": null,
+            "email": null,
+            "phone": null,
+            "affiliate_code": null,
+            "display_name": null,
+            "address": null
+        },
+        "state": null
+    },
+    "error": null
 }
 ```
 
@@ -75,16 +107,16 @@ Staging environment
 
 ### JSON Object Payload Parameters
 
-Parameter | Required | Description
---------- | -------- | -----------
-user_id | true | The SWAPay user id 
-card_no | true | credit card number 
-expire | true | Credit card expiration date - MMYY format
-security_code | true | security code - The 3- or 4-digit number printed on the card
-holder_name | true | Credit card name
-success_url | false |
-callback_url | false |
-cancel_url | false |
+|Parameter          | Required   | Description                               |
+| ----------------- | ---------- |------------------------------------------|
+| user_id           | true       | The SWAPay user id                       | 
+| card_no           | true       | Credit card number                       |
+| expire            | true       | Credit card expiration date - MMYY format |
+| security_code     | true       | Security code - The 3- or 4-digit number printed on the card |
+| holder_name       | true       | Credit card name                          |
+| success_url       | false      | Redirect to `success_url` after successful payment |  
+| cancel_url        | false      | Redirect to `cancel_url` when buyer cancels the order |
+| callback_url      | false      | JSON-formatted `POST` notification message will be sent to `callback_url` when order status is changed. If the callback is empty, we can send information to merchant's email.  |
 
 
 ### Card Response Fields
@@ -107,92 +139,12 @@ cancel_url | false |
 | gateway           | `Object`   | Gateway info *(nullable)*                |
 | card_gateway_id   | `String`   | Gateway-side card identifier *(nullable)*|
 | pre_authorization | `Boolean`  | `true` if this card was **successfully 3DS2 pre-authenticated** at registration; `false` otherwise |
+|transaction        |`Object`    | Present only when Pre-Authentication is enabled. Contains the 3DS2 authentication transaction to complete card registration (e.g., id, status, pay_amount = 10, acs, acs_url, redirect_url, timestamps, user_payment). Use redirect_url (recommended) or acs_url to complete the 3DS2 challenge. (nullable) |
+|error.             |`Object`    | Additional error payload when registration encounters an issue. Follows the standard error format { code, message, errors }. null on success. If not null, handle this instead of proceeding with transaction. (nullable)
 
 
-## Card registration (Store config Pre Authentication)
+Transaction Field
 
-
-```shell
-curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/cards' \
---header 'Authorization: eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MDUzMTU5NDV9.xT3EFN3SC51hORCMEaSDeoA1KEGwGm7cAXdIFQtxr28' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "card_no": "5100 0000 0000 5007",
-    "expire": "1231",
-    "security_code": "123",
-    "holder_name": "ta pham kim hieu",
-    "user_id": "02eecc89-5ac8-4969-9e8f-d183fc8c84a4",
-    "success_url": "https://swapay.co.jp/",
-    "callback_url": "https://2446-115-78-15-4.ap.ngrok.io/gateway/receiving",
-    "cancel_url": "https://swapay.co.jp/"
-}'
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "id": "a16d58d0-2411-47ab-8656-ba8a1e9a7c6f",
-    "pay_amount": 10.0,
-    "currency": "JPY",
-    "customer_id": null,
-    "customer_order_id": null,
-    "status": "AUTHENTICATING_3DS",
-    "update_date": "2025-10-19T07:58:37.080+00:00",
-    "create_date": "2025-10-19T07:58:37.080+00:00",
-    "pay_method": "0",
-    "pay_times": null,
-    "order_id_csv": null,
-    "actual_payment_date": null,
-    "confirmed_at": null,
-    "acs": "2",
-    "acs_url": "https://simulator.test.fincode.jp/payment/Tds2StubCallback.idPass?transId=d37bf06b-217d-4ffc-9ec9-31950241719a&t=a_9NEsSz5nSo6K0sI38XAliw",
-    "redirect_url": "https://staging-api.swa-pay.com/api/v1/fincode/secure/authentication/a16d58d0-2411-47ab-8656-ba8a1e9a7c6f",
-    "user_payment": {
-        "id": "02eecc89-5ac8-4969-9e8f-d183fc8c84a4",
-        "first_name": "hieu",
-        "last_name": "taphamkim",
-        "email": "hieutaphamkim89+1750@gmail.com",
-        "phone": null,
-        "affiliate_code": null,
-        "display_name": "taphamkim hieu",
-        "address": null
-    },
-    "state": null
-}
-```
-
-This endpoint will help you register the card information with the specified member.
-
-### HTTP Request
-
-`POST /v1/cards`
-
-Production environment
-`https://api.swa-pay.com/api/v1/cards`
-
-Staging environment
-`https://staging-api.swa-pay.com/api/v1/cards`
-
-### JSON Object Payload Parameters
-
-Parameter | Required | Description
---------- | -------- | -----------
-user_id | true | The SWAPay user id 
-card_no | true | credit card number 
-expire | true | Credit card expiration date - MMYY format
-security_code | true | security code - The 3- or 4-digit number printed on the card
-holder_name | true | Credit card name
-success_url | false |
-callback_url | false |
-cancel_url | false |
-
-Notes
-Raw PAN/CVV are not stored and are never returned by the API.
-If Pre-Authentication is enabled, the system will create a temporary order for ¥10, attempt a 3DS2 authentication + payment, and auto-refund that order on success.
-Cards that passed the initial 3DS2 pre-auth can later be used with either 3DS2 or No-3DS, depending on risk/routing settings.
-
-### 3DS2 Authentication Response Fields
 | Field               | Type       | Description      |
 |----------------------|--------|-------------|
 | `id`                 | UUID   | ID of the transaction. |
@@ -205,6 +157,12 @@ Cards that passed the initial 3DS2 pre-auth can later be used with either 3DS2 o
 | `acs_url`            | String | URL of the 3D Secure authentication page returned directly from the payment gateway. Used only when your system implements the entire 3D Secure authentication process. |
 | `redirect_url`       | String | 3D Secure authentication URL provided by Swapay. This URL is customized to simplify integration and can be used as an alternative to `acs_url` if you prefer Swapay to handle part or all of the 3D Secure authentication flow. |
 | `pay_method`         | String | Payment method.<br>`0`: Credit card payment. |
+
+Notes
+Raw PAN/CVV are not stored and are never returned by the API.
+If Pre-Authentication is enabled, the system will create a temporary order for ¥10, attempt a 3DS2 authentication + payment, and auto-refund that order on success.
+Cards that passed the initial 3DS2 pre-auth can later be used with either 3DS2 or No-3DS, depending on risk/routing settings.
+
 
 ### Client flow (high level)
 
