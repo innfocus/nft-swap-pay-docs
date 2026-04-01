@@ -209,7 +209,7 @@ Production environment
 Staging environment
 `https://staging-api.swa-pay.com/api/v1/store/recurring_billing`
 
-### JSON Object Payload Parameters
+### Request Parameters
 
 Parameter | Type  | Required | Description
 --------- | ----- | -------- | -----------
@@ -388,7 +388,7 @@ Staging environment
 `https://staging-api.swa-pay.com/api/v1/store/recurring_billing/{id}`
 
 
-### JSON Object Payload Parameters
+### Request Parameters
 
 Parameter | Type  | Required | Description
 --------- | ----- | -------- | -----------
@@ -500,7 +500,7 @@ Production environment
 Staging environment
 `https://staging-api.swa-pay.com/api/v1/store/recurring_billing/payment`
 
-### JSON Object Payload Parameters (Payment with new card)
+### Request Parameters (Payment with new card)
 
 Parameter | Required | Description
 --------- | -------- | -----------
@@ -512,7 +512,7 @@ holder_name | true | Credit card name
 user_id | true | The ID of the customer who will be the purchaser. 
 
 
-### JSON Object Payload Parameters (Payment with member)
+### Request Parameters (Payment with member)
 
 Parameter | Required | Description
 --------- | -------- | -----------
@@ -645,7 +645,7 @@ Production environment
 Staging environment
 `https://staging-api.swa-pay.com/api/v1/store/recurring_billing/{id}`
 
-### JSON Object Payload Parameters
+### Request Parameters
 
 Parameter | Type  | Required | Description
 --------- | ----- | -------- | -----------

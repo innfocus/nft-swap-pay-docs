@@ -79,7 +79,7 @@ Production environment
 Staging environment
 `https://staging-api.swa-pay.com/api/v1/order`
 
-### JSON Object Payload Parameters
+### Request Parameters
 
 Parameter | Type  | Required | Description
 --------- | ----- | -------- | -----------
@@ -190,7 +190,7 @@ Production environment
 Staging environment
 `https://staging-api.swa-pay.com/api/v1/store/orders/{id}`
 
-### JSON Object Payload Parameters
+### Request Parameters
 
 Parameter | Type  | Required | Description
 --------- | ----- | -------- | -----------

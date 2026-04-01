@@ -127,7 +127,7 @@ Production environment
 Staging environment
 `https://staging-api.swa-pay.com/api/v1/payment`
 
-### JSON Object Payload Parameters
+### Request Parameters
 | Parameter | Required | Description                                               |
 | --------- | -------- | --------------------------------------------------------- |
 | id        | true     | Transaction/order ID                                      |
@@ -197,7 +197,7 @@ Production environment
 Staging environment
 `https://staging-api.swa-pay.com/api/v1/payment`
 
-### JSON Object Payload Parameters
+### Request Parameters
 
 Parameter | Required | Description
 --------- | -------- | -----------
@@ -265,7 +265,7 @@ Production environment
 Staging environment
 `https://staging-api.swa-pay.com/api/v1/payment_cancel`
 
-### JSON Object Payload Parameters
+### Request Parameters
 
 Parameter | Required | Description
 --------- | -------- | -----------
@@ -395,7 +395,7 @@ Production environment
 Staging environment
 `https://staging-api.swa-pay.com/api/v1/payment`
 
-### JSON Object Payload Parameters
+### Request Parameters
 
 Parameter | Required | Description
 --------- | -------- | -----------
@@ -467,7 +467,7 @@ Production environment
 Staging environment
 `https://staging-api.swa-pay.com/api/v1/payment`
 
-### JSON Object Payload Parameters
+### Request Parameters
 
 Parameter | Required | Description
 --------- | -------- | -----------
@@ -539,7 +539,7 @@ Production environment
 Staging environment
 `https://staging-api.swa-pay.com/api/v1/payment`
 
-### JSON Object Payload Parameters
+### Request Parameters
 
 Parameter | Required | Description
 --------- | -------- | -----------

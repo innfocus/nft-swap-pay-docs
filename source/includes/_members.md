@@ -53,7 +53,7 @@ Production environment
 Staging environment
 `https://staging-api.swa-pay.com/api/v1/customers`
 
-### JSON Object Payload Parameters
+### Request Parameters
 
 Parameter | Required | Description
 --------- | -------- | -----------
@@ -212,7 +212,7 @@ Parameter | Description
 --------- | -----------
 id | The ID of the user
 
-### JSON Object Payload Parameters
+### Request Parameters
 
 Parameter | Required | Description
 --------- | -------- | -----------
@@ -322,7 +322,7 @@ Production environment
 Staging environment
 `https://staging-api.swa-pay.com/api/v1/verify`
 
-### JSON Object Payload Parameters
+### Request Parameters
 
 Parameter | Required | Description
 --------- | -------- | -----------
