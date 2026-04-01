@@ -325,7 +325,7 @@ Production environment
 Staging environment
 `https://staging-api.swa-pay.com/api/v1/payment`
 
-### JSON Object Payload Parameters
+### Response Parameters
 
 | Parameter            | Type   | Description |
 |----------------------|--------|-------------|
@@ -341,7 +341,81 @@ Staging environment
 | `pay_method`         | String | Payment method.<br>`0`: Credit card payment. |
 | `state`              | String | Payment result status.<br>`1`: Payment successful.<br>`2`: Payment failed.<br>`3`: 3D Secure authentication required.<br>*Only applicable for the Alphanote payment gateway.* |
 
-  
+
+# Settlement - Bitcash
+
+## Payment with Bitcash method 
+
+```shell
+curl --location --request POST 'https://staging-api.swa-pay.com/api/v1/payment' \
+--header 'Authorization: {store_token}' \
+--header 'Content-Type: application/json' \
+--data '{
+    "id": "bd2e79ca-b496-4e28-a619-5eef469ae01b",
+    "payment_method": "bitcash",
+    "bit_cash_number": "らひたゆうてれいおへよおとすよふ"
+}'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "acs": null,
+    "acs_url": null,
+    "actual_payment_date": "2026-04-01T14:33:11.250Z",
+    "confirmed_at": null,
+    "create_date": "2026-04-01T14:21:11.570Z",
+    "currency": "JPY",
+    "customer_id": null,
+    "customer_order_id": null,
+    "id": "bd2e79ca-b496-4e28-a619-5eef469ae01b",
+    "order_id_csv": null,
+    "pay_amount": 888.0,
+    "pay_method": "7",
+    "pay_times": null,
+    "redirect_url": null,
+    "state": null,
+    "status": "COMPLETE",
+    "update_date": "2026-04-01T14:33:11.438Z",
+    "user_payment": null
+}
+```
+
+This endpoint will help you to start payment for a transaction
+
+
+### HTTP Request
+
+`POST /v1/payment`
+
+Production environment
+`https://api.swa-pay.com/api/v1/payment`
+
+Staging environment
+`https://staging-api.swa-pay.com/api/v1/payment`
+
+### JSON Object Payload Parameters
+
+Parameter | Required | Description
+--------- | -------- | -----------
+id | true | ID of the transaction 
+payment_method | true | value: `7` or `bitcash`
+bit_cash_number | true | Bitcash card number
+customer_id | false | The customer id on merchant system
+
+### Response Parameters
+
+Parameter | Type | Description
+--------- | -------- | -----------
+id | UUID | ID of the transaction
+pay_amount | Double | Amount of the transaction
+currency | String | The currency used for payment. Default is JPY
+customer_id | String | The customer id on merchant system
+customer_order_id | String | The order id on merchant systems
+status | String | Status of Payment request
+pay_method | String | 7 => (Bitcash payment)
+
 
 # Settlement - PAYPAY (support for the GMO Gateway and  the FinCode Gateway)
 
@@ -401,7 +475,7 @@ id | true | ID of the transaction
 payment_method | true | value: paypay
 customer_id | false | The customer id on merchant system
 
-### JSON Object Payload Parameters
+### Response Parameters
 
 Parameter | Type | Description
 --------- | -------- | -----------
@@ -473,7 +547,7 @@ id | true | ID of the transaction
 payment_method | true | value: paypay
 customer_id | false | The customer id on merchant system
 
-### JSON Object Payload Parameters
+### Response Parameters
 
 Parameter | Type | Description
 --------- | -------- | -----------

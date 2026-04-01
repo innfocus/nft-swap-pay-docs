@@ -337,6 +337,8 @@ PAYPAY | 2 | Paypay payment
 FAMIPAY | 3 | Famipay payment
 LINEPAY | 4 | Linepay payment
 APPLEPAY | 5 | Applepay payment
+GOOGLE_PAY | 6 | GOOGLE_PAY payment
+BITCASH | 7 | BITCASH payment
 
 ## Pay Type Method for payment
 
