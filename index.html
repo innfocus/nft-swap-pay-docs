@@ -379,6 +379,14 @@
               </ul>
           </li>
           <li>
+            <a href="#settlement-bitcash" class="toc-h1 toc-link" data-title="Settlement - Bitcash">Settlement - Bitcash</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#payment-with-bitcash-method" class="toc-h2 toc-link" data-title="Payment with Bitcash method">Payment with Bitcash method</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#settlement-paypay-support-for-the-gmo-gateway-and-the-fincode-gateway" class="toc-h1 toc-link" data-title="Settlement - PAYPAY (support for the GMO Gateway and  the FinCode Gateway)">Settlement - PAYPAY (support for the GMO Gateway and  the FinCode Gateway)</a>
               <ul class="toc-list-h2">
                   <li>
@@ -1458,6 +1466,16 @@ If there is no <code>user_id</code>, you can send <code>consumer_email</code> or
 <td>5</td>
 <td>Applepay payment</td>
 </tr>
+<tr>
+<td>GOOGLE_PAY</td>
+<td>6</td>
+<td>GOOGLE_PAY payment</td>
+</tr>
+<tr>
+<td>BITCASH</td>
+<td>7</td>
+<td>BITCASH payment</td>
+</tr>
 </tbody></table>
 <h2 id='pay-type-method-for-payment'>Pay Type Method for payment</h2>
 <table><thead>
@@ -1980,7 +1998,7 @@ If the store has Pre-Authentication enabled and the card was pre-authorized (3DS
 
 <p>Staging environment
 <code>https://staging-api.swa-pay.com/api/v1/payment</code></p>
-<h3 id='json-object-payload-parameters-4'>JSON Object Payload Parameters</h3>
+<h3 id='response-parameters'>Response Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2044,6 +2062,121 @@ If the store has Pre-Authentication enabled and the card was pre-authorized (3DS
 <td>Payment result status.<br><code>1</code>: Payment successful.<br><code>2</code>: Payment failed.<br><code>3</code>: 3D Secure authentication required.<br><em>Only applicable for the Alphanote payment gateway.</em></td>
 </tr>
 </tbody></table>
+<h1 id='settlement-bitcash'>Settlement - Bitcash</h1><h2 id='payment-with-bitcash-method'>Payment with Bitcash method</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://staging-api.swa-pay.com/api/v1/payment'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: {store_token}'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data</span> <span class="s1">'{
+    "id": "bd2e79ca-b496-4e28-a619-5eef469ae01b",
+    "payment_method": "bitcash",
+    "bit_cash_number": "らひたゆうてれいおへよおとすよふ"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"acs"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"acs_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"actual_payment_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-04-01T14:33:11.250Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"confirmed_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"create_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-04-01T14:21:11.570Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_order_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bd2e79ca-b496-4e28-a619-5eef469ae01b"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"order_id_csv"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">888.0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pay_times"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"redirect_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COMPLETE"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"update_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-04-01T14:33:11.438Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user_payment"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint will help you to start payment for a transaction</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>POST /v1/payment</code></p>
+
+<p>Production environment
+<code>https://api.swa-pay.com/api/v1/payment</code></p>
+
+<p>Staging environment
+<code>https://staging-api.swa-pay.com/api/v1/payment</code></p>
+<h3 id='json-object-payload-parameters-4'>JSON Object Payload Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>true</td>
+<td>ID of the transaction</td>
+</tr>
+<tr>
+<td>payment_method</td>
+<td>true</td>
+<td>value: <code>7</code> or <code>bitcash</code></td>
+</tr>
+<tr>
+<td>bit_cash_number</td>
+<td>true</td>
+<td>Bitcash card number</td>
+</tr>
+<tr>
+<td>customer_id</td>
+<td>false</td>
+<td>The customer id on merchant system</td>
+</tr>
+</tbody></table>
+<h3 id='response-parameters-2'>Response Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>UUID</td>
+<td>ID of the transaction</td>
+</tr>
+<tr>
+<td>pay_amount</td>
+<td>Double</td>
+<td>Amount of the transaction</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>String</td>
+<td>The currency used for payment. Default is JPY</td>
+</tr>
+<tr>
+<td>customer_id</td>
+<td>String</td>
+<td>The customer id on merchant system</td>
+</tr>
+<tr>
+<td>customer_order_id</td>
+<td>String</td>
+<td>The order id on merchant systems</td>
+</tr>
+<tr>
+<td>status</td>
+<td>String</td>
+<td>Status of Payment request</td>
+</tr>
+<tr>
+<td>pay_method</td>
+<td>String</td>
+<td>7 =&gt; (Bitcash payment)</td>
+</tr>
+</tbody></table>
 <h1 id='settlement-paypay-support-for-the-gmo-gateway-and-the-fincode-gateway'>Settlement - PAYPAY (support for the GMO Gateway and  the FinCode Gateway)</h1><h2 id='payment-with-paypay-method'>Payment with PayPay method</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://staging-api.swa-pay.com/api/v1/payment'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: {store_token}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
@@ -2075,7 +2208,7 @@ If the store has Pre-Authentication enabled and the card was pre-authorized (3DS
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint will help you to start payment for a transaction</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>POST /v1/payment</code></p>
 
 <p>Production environment
@@ -2107,7 +2240,7 @@ If the store has Pre-Authentication enabled and the card was pre-authorized (3DS
 <td>The customer id on merchant system</td>
 </tr>
 </tbody></table>
-<h3 id='json-object-payload-parameters-6'>JSON Object Payload Parameters</h3>
+<h3 id='response-parameters-3'>Response Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2187,7 +2320,7 @@ If the store has Pre-Authentication enabled and the card was pre-authorized (3DS
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint will help you to start payment for a transaction</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>POST /v1/payment</code></p>
 
 <p>Production environment
@@ -2195,7 +2328,7 @@ If the store has Pre-Authentication enabled and the card was pre-authorized (3DS
 
 <p>Staging environment
 <code>https://staging-api.swa-pay.com/api/v1/payment</code></p>
-<h3 id='json-object-payload-parameters-7'>JSON Object Payload Parameters</h3>
+<h3 id='json-object-payload-parameters-6'>JSON Object Payload Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2219,7 +2352,7 @@ If the store has Pre-Authentication enabled and the card was pre-authorized (3DS
 <td>The customer id on merchant system</td>
 </tr>
 </tbody></table>
-<h3 id='json-object-payload-parameters-8'>JSON Object Payload Parameters</h3>
+<h3 id='response-parameters-4'>Response Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
